@@ -102,7 +102,7 @@ class Item extends Component {
                             <td>{this.props.order.note}</td>
                             <td>{this.props.order.send_from}</td>
                             <td>{this.props.order.id_user}</td>
-                            <td><button  className="btn btn-danger" type="submit" onClick ={ () =>this.props.onDelete(this.props.order.id)}>Delete</button></td>
+                            <td><button  class="red-button" type="submit" onClick ={ () =>this.props.onDelete(this.props.order.id)}>Delete</button></td>
                         </tr>
                         {/* <tr class="active-row">
                             <td>Melissa</td>

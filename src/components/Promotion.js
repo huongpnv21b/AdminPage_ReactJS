@@ -57,7 +57,7 @@ class Promotion extends Component{
             <div class="orderTable">
             <h2 style={{ marginLeft:'400px', color:'black',textShadow:'2px 2px 2px #cc0000',fontsize:'40px',fontweight: 'bold'}}> Danh sach các đơn hàng </h2>
             <div className = "row">
-                <button className="btn btn-primary" onClick={this.addEmployee}><Link to={'/Add'} className="nav-link">Add </Link> </button>
+                <button class="styled-button" onClick={this.addEmployee}><Link to={'/Add'} className="nav-link">Add </Link> <i class="fas fa-plus"></i></button>
             </div>
             <table class="styled-table">
                 <thead>
@@ -105,8 +105,8 @@ class Item extends Component {
                             <td>{this.props.promotion.min_value}</td>
                             <td>{this.props.promotion.max_value}</td>
                             <td>{this.props.promotion.value}</td>
-                            <td><button  className="btn btn-danger" type="submit" onClick ={ () =>this.props.onDelete(this.props.promotion.id)}>Delete</button>
-                            <Link to={"/update/"+this.props.promotion.id} className="btn btn-primary">Edit</Link></td>
+                            <td><button  class="red-button" type="submit" onClick ={ () =>this.props.onDelete(this.props.promotion.id)}>Delete</button>
+                            <button class="yellow-button"><Link to={"/update/"+this.props.promotion.id} class="nav-link">Edit</Link></button></td>
 
                         </tr>
                     

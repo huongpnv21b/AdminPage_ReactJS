@@ -103,7 +103,7 @@ class Item extends Component {
                             <td>{this.props.trucker.phone}</td>
                             <td><img style={{ width:"70px"}} src={this.props.trucker.avatar} alt="Not found image" /></td>
                             <td>{this.props.trucker.role}</td>
-                            <td><button  className="btn btn-danger" type="submit" onClick ={ () =>this.props.onDelete(this.props.trucker.id)}>Delete</button></td>
+                            <td><button  class="red-button" type="submit" onClick ={ () =>this.props.onDelete(this.props.trucker.id)}>Delete</button></td>
                         </tr>
                     
                     

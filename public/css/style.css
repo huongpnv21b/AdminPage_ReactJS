@@ -505,3 +505,74 @@ main {
   flex-direction: column;
   align-items: center;
 }
+h3{
+  margin: 0 100px;
+}
+.form-group input{
+  width: 300px;
+  height: 30px;
+  border: 2px solid darkgray;
+  border-radius: 5px;
+  margin: 10px 0px ;
+  text-indent: 10px;
+}
+.flex-box{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  
+}
+.flex-box input {
+  width: 116px;
+  height: 30px;
+  border: 2px solid darkgray;
+  border-radius: 5px;
+  margin: 10px 0px ;
+  text-indent: 10px;
+}
+.box-inside {
+  width:120px;
+}
+.container form{
+  margin: 30px 100px;
+}
+.container form label {
+  font-weight: bold;
+  color: rgb(77, 76, 76);
+}
+
+.styled-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background: #2683ac;
+  font-weight: bolder;
+  color: white;
+  outline: none0;
+}
+.red-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background: red;
+  font-weight: bolder;
+  color: white;
+}
+.yellow-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background: rgb(255, 174, 0);
+  font-weight: bolder;
+  color: white;
+  outline: none;
+}
+.link-nav {
+  color: #2e4a66;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+}
