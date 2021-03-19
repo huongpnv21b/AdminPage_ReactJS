@@ -3,6 +3,7 @@ import logo from './logo.svg';
 // import { Route } from 'react-router';
 import React, { Component } from 'react';
 
+
 import Update from './components/Update.js';
 import Add from './components/Add.js';
 import Dashboard from './components/Dashboard.js';
@@ -10,6 +11,7 @@ import Order from './components/Order.js';
 import User from './components/Trucker.js';
 import Promotion from './components/Promotion.js';
 import Sender from './components/Sender.js';
+import Login from './components/Login.js';
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
@@ -43,12 +45,16 @@ class App extends Component {
 
       <Switch>
         <Route exact path='/' component={ Dashboard } /> 
+        <Route path='/dashboard' component={ Dashboard } /> 
         <Route path='/order' component={ Order } />
         <Route path='/user' component={ User } />
         <Route path='/sender' component={ Sender } />
         <Route path='/promotion' component={ Promotion } />
         <Route path='/update/:id' component={ Update } />
         <Route path='/add' component={ Add } />
+        <Route path='/login' component={ Login } />
+       
+     
       </Switch>
          
    
@@ -99,7 +105,7 @@ class App extends Component {
         <h2>PAYROLL</h2>
           <div class="sidebar__link">
             <i class="fa fa-money"></i>
-            <a href="#">Payment</a>
+            <Link to={'/login'} className="nav-link">Login</Link>
           </div>   {/*
           <div class="sidebar__link">
             <i class="fa fa-briefcase"></i>

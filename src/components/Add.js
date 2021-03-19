@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-
+import Menu from './Menu';
 import 'react-toastify/dist/ReactToastify.css';
 export default class Add extends Component {
     constructor(props) {
@@ -27,7 +27,7 @@ export default class Add extends Component {
           var id = match.params.id;
           axios({
           method: 'GET',
-          url :`http://localhost:8000/api/promotion/${id}`,
+          url :`https://api-gogo.herokuapp.com/api/promotion/${id}`,
           data : null
          }).then(res =>{
           var data =res.data;
@@ -71,7 +71,7 @@ export default class Add extends Component {
           }else{
                 axios({
                 method: 'POST',
-                url :'http://localhost:8000/api/addPromotion',
+                url :'https://api-gogo.herokuapp.com/api/promotion/create',
                   data : {
                     name : name,
                       code : code,
@@ -83,7 +83,7 @@ export default class Add extends Component {
                             
                       }
                     }).then(res =>{
-                          toast.success("Thêm sản phẩm thành công", {
+                          toast.success("Add Promotion successfully", {
                       })
                         history.goBack();
                     });
@@ -105,56 +105,113 @@ export default class Add extends Component {
         });
       }
     render() {         
-        var { id, name, code, start_time ,end_time,min_value, max_value, value} = this.state;
-        return (
-            <div style={{marginTop: 10}}>
-                <h3>ADD Promotion</h3>
-                <div className="panel panel-warning col-md-8 ml">
-              <div className="container">
-              <div className="panel-body mt-4">
-              <form onSubmit = {this.onSave}>
-                  <div className="form-group">
-                    <label>Name Promotion</label>
-                    <input type="text" name="name" value ={this.state.name} onChange ={this.onChange} className="form-control" />
-                  </div>
-                  <div className="form-group">
-                    <label>Code:</label>
-                    <input type="text" name="code" value ={this.state.code} onChange ={this.onChange} className="form-control" />
-                  </div>
-                  
-                  <div className="form-group">
-                    <label>Start Time :</label>
-                    <input type="timestamp" name="start_time" value ={this.state.start_time} onChange ={this.onChange} className="form-control" />
-                  </div>
-                  <div className="form-group">
-                    <label>End Time</label>
-                    <input type="timestamp" name="end_time" value ={this.state.end_time} onChange ={this.onChange} className="form-control" />
-                  </div>
-                  <div className="form-group">
-                    <label>Min min_value</label>
-                    <input type="number" name="min_value" value ={this.state.min_value} onChange ={this.onChange} className="form-control" />
-                  </div>
-                  <div className="form-group">
-                    <label>Max value:</label>
-                    <input type="number" name="max_value" value ={this.state.max_value} onChange ={this.onChange} className="form-control" />
-                  </div>
-                  <div className="form-group">
-                    <label>Value </label>
-                    <input type="number" name="value" value ={this.state.value} onChange ={this.onChange} className="form-control" />
-                  </div>
-                  
-                  <br />
-                  <div className="text-center">
-                    <button type="submit"  className="btn btn-primary">Lưu</button>&nbsp;
-                    <button type="button" onClick={this.onClear} className="btn btn-primary">Clear</button>
-                    <NavLink to="/promotion" className="btn btn-primary ml-1">Trở về</NavLink>
-                  </div>
-                </form>
+      var { id, name, code, start_time ,end_time,min_value, max_value, value} = this.state;
+    return (
+        <div class="container">
+          <Menu/>
+          <div class="orderTable"style={{marginTop: 10}}>
+          <NavLink to="/promotion" class="link-nav"><i class="fas fa-chevron-left"></i>Trở về</NavLink>
+          <div class="container1">
+            {/* <div></div> */}
+            <h3>ADD Promotion</h3>           
+            <form  onSubmit={this.onSave}>
+              <label for="name">Name Promotion:</label>
+              <div className="form-group">
+                <input
+                  type="text"
+                  name="name"
+                  value={this.state.name}
+                  onChange={this.onChange}
+                  className="form-control"
+                />
+                </div>
+              <label for="code">Code:</label>
+              <div className="form-group">
+                <input
+                type="text"
+                name="code"
+                value={this.state.code}
+                onChange={this.onChange}
+                className="form-control"
+                />
               </div>
+
+              <label for="start_time">Start Time:</label>
+              <div className="form-group">
+                <input
+                type="timestamp"
+                name="start_time"
+                value={this.state.start_time}
+                onChange={this.onChange}
+                className="form-control"
+                />
               </div>
-              
-            </div>
-            </div>
+              <label for="end_time">End Time:</label>
+              <div className="form-group">
+                <input
+                type="timestamp"
+                name="end_time"
+                value={this.state.end_time}
+                onChange={this.onChange}
+                className="form-control"
+                />
+              </div>
+
+              <div class="flex-box">
+                <div class="box-inside">
+                  <label for="min_value">Min value:</label>
+
+                  <input
+                    type="number"
+                    name="min_value"
+                    value={this.state.min_value}
+                    onChange={this.onChange}
+                    className="form-control"
+                  />
+                </div>
+                <div class="box-inside">
+                  <label for="max_value">Max value:</label>
+                  <input
+                    type="number"
+                    name="max_value"
+                    value={this.state.max_value}
+                    onChange={this.onChange}
+                    className="form-control"
+                  />
+                </div>
+              </div>
+              <label >Value: </label>
+              <div className="form-group">
+                <input
+                  type="number"
+                  name="value"
+                  value={this.state.value}
+                  onChange={this.onChange}
+                  className="form-control"
+                />
+              </div>
+
+              <br />
+              <div className="text-center">
+                <button class="styled-button" type="submit">
+                  SAVE
+                </button>
+                &nbsp;
+                <button
+                class="red-button"
+                  type="button"
+                  onClick={this.onClear}
+                >
+                  CLEAR
+                </button>
+                
+              </div>
+            </form>
+         
+            
+          </div>
+        </div>
+          </div>
         )
     }
 }

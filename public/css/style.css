@@ -26,6 +26,7 @@
 }
 
 body {
+  font-size: 18px;
   box-sizing: border-box;
   font-family: "Lato", sans-serif;
 }
@@ -126,9 +127,11 @@ body {
 }
 
 main {
+  height: auto;
   background: #f3f4f6;
   grid-area: main;
   overflow-y: auto;
+  margin-top: -50px;
 }
 
 .main__container {
@@ -145,6 +148,9 @@ main {
   object-fit: contain;
   margin-right: 20px;
 }
+.main__title .main__greeting{
+  max-height: 1000px;
+}
 
 .main__greeting > h1 {
   font-size: 24px;
@@ -153,6 +159,7 @@ main {
 }
 
 .main__greeting > p {
+  width: 700px;
   font-size: 14px;
   font-weight: 700;
   color: #a5aaad;
@@ -174,6 +181,11 @@ main {
   border-radius: 5px;
   background: #ffffff;
   box-shadow: 5px 5px 13px #ededed, -5px -5px 13px #ffffff;
+}
+.card:hover {
+  -ms-transform: scale(1.1); /* IE 9 */
+  -webkit-transform: scale(1.1); /* Safari 3-8 */
+  transform: scale(1.1); 
 }
 
 .card_inner {
@@ -307,7 +319,10 @@ main {
   border-radius: 5px;
   font-size: 14px;
 }
-
+.chartjs-render-monitor {
+  width: 600px;
+  animation: chartjs-render-animation 0.001s;
+}
 /*  SIDEBAR STARTS HERE  */
 
 #sidebar {
@@ -437,7 +452,7 @@ main {
   .main__cards {
     grid-template-columns: 1fr;
     gap: 10px;
-    margin-bottom: 0;
+    margin: 60px 0px;
   }
 
   .charts {
@@ -504,4 +519,180 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.huong1{
+  background-color: pink;
+  color:red;
+}
+
+.button {
+  background-color:yellow; /* Green */
+  border: none;
+  border-radius: 7px;
+  color: white;
+  padding: 10px 26px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.buttonDelete {
+  background-color: rgb(105, 171, 224);; 
+  color:white; 
+  border: 2px solid white;
+}
+
+.buttonDelete:hover {
+  background-color: #007bff;;
+  color: white;
+}
+.button1 {
+  background-color:yellow; /* Green */
+  border: none;
+  border-radius: 7px;
+  color: white;
+  padding: 10px 26px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.buttonAdd {
+  background-color: rgb(224, 85, 75);; 
+  color:white; 
+  border: 2px solid white;
+}
+
+.buttonAdd:hover {
+  background-color:red;
+  color: white;
+}
+.link{
+  color:white;
+  text-decoration: none;
+
+}
+.title_table{
+   color:black;
+   text-Shadow:2px 2px 2px #cc0000;
+   font-size:30px;
+   font-weight: bold;
+   text-align: center;
+}
+.search{
+  border:1px solid rgb(112, 228, 141);
+  border-radius: 7px;
+color:black;
+width: 200px;
+height:40px;
+font-size: 16px;
+  
+}
+.search#hover{
+  background-color:rgb(4, 187, 13);
+  
+  
+}
+/* Form add */
+h3{
+  font-weight: bold;
+  text-align: center;
+  font-size: 26px;
+  color: Red;
+}
+.borderForm{
+  background-color: hotpink;
+  width: auto;
+  /* margin: 0 20%; */
+  border:1px solid#faebcc;
+}
+
+.form-group input{
+  width: 400px;
+  height: 30px;
+  border: 2px solid darkgray;
+  border-radius: 5px;
+  margin: 2px 0px ;
+  text-indent: 10px;
+}
+.flex-box{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  
+}
+.flex-box input {
+  width: 116px;
+  height: 30px;
+  border: 2px solid darkgray;
+  border-radius: 5px;
+  margin: 10px 0px ;
+  text-indent: 10px;
+}
+.box-inside {
+  width:100px;
+}
+.container1{
+  width: 650px;
+  margin: 0 10%;
+  border:1px solid rgb(255, 174, 0);
+}
+.container1 form{
+  margin: 30px 26%;
+}
+.container1 form label {
+  margin-left: -140px;
+  font-weight: bold;
+  color: rgb(77, 76, 76);
+}
+
+.styled-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background: #2683ac;
+  font-weight: bolder;
+  color: white;
+  outline: none0;
+}
+.red-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background: red;
+  font-weight: bolder;
+  color: white;
+}
+.yellow-button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+  background: rgb(247, 200, 99);
+  font-weight: bolder;
+  color: white;
+  outline: none;
+  font-size: 15px;
+}
+.yellow-button:hover {
+  background-color:rgb(255, 174, 0);
+  color: white;
+}
+
+.link-nav {
+  color: #2e4a66;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+}
+.sidebar__link:hover{
+background-color: rgb(112, 104, 104);
 }

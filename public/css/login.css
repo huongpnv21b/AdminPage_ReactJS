@@ -1,0 +1,110 @@
+*{
+    margin:0;
+    padding:0;
+    border:none;
+    font-family: 'Open Sans', sans-serif;
+}
+body {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV94lDvga3FIjsmkVYya1cvQEBFdiy05YXzQ&usqp=CAU');
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-attachment: fixed;  
+    background-size: cover;
+    /* background-color: #ededed; */
+}
+.to {
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: minmax(100px,auto);
+}
+ 
+.form {
+    border: 1px solid #80808000;
+    grid-column: 6/9;
+    grid-row: 3;
+    height: 470px;
+    width: 292px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    border-radius: 15px;
+    box-shadow: 0px 0px 14px 0px grey;
+    background-color: white;
+    padding: 5px;
+}
+h2 {
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+ 
+label {
+    margin-left: -126px;
+    display: block;
+    font-weight: lighter;
+ 
+}
+input{
+    display: block;
+    border-bottom: 2px solid #00BCD4;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    outline-style: none;
+}
+input[type="text"] {
+    padding: 5px;
+    width: 70%;
+}
+ 
+button#submit {
+    font-size: 20px;
+    height:50px;
+    width: 50%;
+    padding: 15px;
+    border-radius: 10px;
+    margin: -35px;
+    border: none;
+    position: absolute;
+    bottom: 70px;
+    cursor: pointer;
+    background: linear-gradient(to right, #fc00ff, #00dbde);
+}
+button#submit:hover{
+ 
+    background: linear-gradient(to right, #fc466b, #3f5efb); 
+}
+
+.lbPhone{
+    margin-Left: -172px;
+    margin-Top: 35px;
+}
+.lbPass{
+    margin-Left: -150px;
+    margin-Top: 30px;
+}
+
+.ipPass{
+    padding: 5px;
+    width: 70%;
+}
+.custom-control{
+    display: flex;
+   width: 220px;
+}
+.checkbox{
+    margin-top: 30px;
+}
+.pass-label{
+    margin-top: 30px;
+margin-left: 10px;
+}
+.img{
+    margin: -60px;
+    width: 120px;
+    height: 120px;
+}
+.titleLogin{
+   margin-Top: 70px;
+   font-family:Cursive;
+   font-size: xx-large;
+}
