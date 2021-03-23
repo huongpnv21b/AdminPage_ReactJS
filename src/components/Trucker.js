@@ -32,7 +32,7 @@ class Trucker extends Component{
             var{truckers}=this.state;
             Axios({
                 method:'DELETE',
-                url:`https://api-gogo.herokuapp.com/api/user/delete/${id}`,
+                url:`https://api-gogo.herokuapp.com/api/trucker/delete/${id}`,
                 data:null
             }).then(res =>{
                 if(res.status === 204){

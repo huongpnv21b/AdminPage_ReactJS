@@ -80,6 +80,13 @@ class Menu extends Component{
                   Logout
                 </div>
               </Link>
+
+              <Link to={'/profile'} className="nav-link">
+                <div class="sidebar__link">
+                  <i class="fa fa-user"></i>
+                  Profile
+                </div>
+                </Link>
             </div>
           </div>
         )

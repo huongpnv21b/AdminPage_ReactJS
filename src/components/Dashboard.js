@@ -6,6 +6,8 @@ import { Link, NavLink } from 'react-router-dom';
 import Axios from 'axios';
 import Menu from './Menu';
 import Chart from './Chart';
+// import ProfileAdmin from './ProfileAdmin.js';
+
 class Dashboard extends Component{
 
       constructor(props){
@@ -15,7 +17,10 @@ class Dashboard extends Component{
             count_trucker:'',
             count_order:'',            
             keyword:"",
-        }
+            show: false
+          };
+          this.showModal = this.showModal.bind(this);
+          this.hideModal = this.hideModal.bind(this);
     }
 
   componentDidMount(){
@@ -49,6 +54,14 @@ class Dashboard extends Component{
       })
     }
 
+    showModal = () => {
+      this.setState({ show: true });
+    };
+  
+    hideModal = () => {
+      this.setState({ show: false });
+    };
+
     render(){
       const  count_order = this.state.count_order;
       console.log(count_order);
@@ -62,11 +75,12 @@ class Dashboard extends Component{
               <div class="main__title">
                 <img src="assets/hello.svg" alt="" />
                 <div class="main__greeting">
-                <marquee width="700px" direction="right"  style={{marginLeft:'40%'}}>
-                  <h1 style={{color:'#FF6347',marginLeft:'30px'}}>Hello GO GO </h1>
-                  <p>Welcome to your admin dashboard</p>
-                </marquee>
+                  <marquee width="700px" direction="right"  style={{marginLeft:'40%'}}>
+                    <h1 style={{color:'#FF6347',marginLeft:'30px'}}>Hello GO GO </h1>
+                    <p>Welcome to your admin dashboard</p>
+                  </marquee>
                 </div>
+                <div >   <button type="button" onClick={this.showModal}>pROFILE</button></div>
               </div>
     
               {/* <!-- MAIN TITLE ENDS HERE --> */}

@@ -32,7 +32,7 @@ class Sender extends Component{
             var{senders}=this.state;
             Axios({
                 method:'DELETE',
-                url:`https://api-gogo.herokuapp.com/api/user/delete/${id}`,
+                url:`https://api-gogo.herokuapp.com/api/sender/delete/${id}`,
                 data:null
             }).then(res =>{
                 if(res.status === 204){

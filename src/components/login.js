@@ -36,7 +36,7 @@ export default class Login extends Component {
             }
         }).then((response) => {
             console.log(response.status);
-            if(response.data.user_id==4){
+            if(response.data.role==3){
                 this.setState({loggedIn : true})
                 localStorage.setItem('phone', phone);  
             }

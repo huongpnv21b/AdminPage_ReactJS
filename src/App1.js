@@ -12,6 +12,7 @@ import Trucker from './components/Trucker.js';
 import Promotion from './components/Promotion.js';
 import Sender from './components/Sender.js';
 import Login from './components/Login.js';
+import ProfileAdmin from './components/ProfileAdmin.js';
 
 export default class App1 extends Component {
     
@@ -28,6 +29,7 @@ export default class App1 extends Component {
                 <Route path='/promotion' component={ Promotion } />
                 <Route path='/update/:id' component={ Update } />
                 <Route path='/add' component={ Add } />
+                <Route path='/profile' component={ ProfileAdmin } />
                 <Route exact path='/' component={ Login } />
                 </Switch>
             </BrowserRouter>
