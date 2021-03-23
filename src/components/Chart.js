@@ -20,7 +20,7 @@ export default class App extends Component {
       componentDidMount(){
         axios({
             methos:'GET',
-            url:"http://127.0.0.1:8000/api/chart",
+            url:"",
             data:null
         }).then (res=>{
             this.setState({

@@ -6,6 +6,7 @@ import { Link, NavLink } from 'react-router-dom';
 import Axios from 'axios';
 import Menu from './Menu';
 import Chart from './Chart';
+import Header from './Header';
 // import ProfileAdmin from './ProfileAdmin.js';
 
 class Dashboard extends Component{
@@ -71,8 +72,8 @@ class Dashboard extends Component{
             <main>
             <div class="main__container">
               {/* <!-- MAIN TITLE STARTS HERE --> */}
-              
-              <div class="main__title">
+              <Header />
+              {/* <div class="main__title">
                 <img src="assets/hello.svg" alt="" />
                 <div class="main__greeting">
                   <marquee width="700px" direction="right"  style={{marginLeft:'40%'}}>
@@ -80,8 +81,8 @@ class Dashboard extends Component{
                     <p>Welcome to your admin dashboard</p>
                   </marquee>
                 </div>
-                <div >   <button type="button" onClick={this.showModal}>pROFILE</button></div>
-              </div>
+                {/* <div >   <button type="button" onClick={this.showModal}>pROFILE</button></div> */}
+              {/* </div> */}
     
               {/* <!-- MAIN TITLE ENDS HERE --> */}
     
