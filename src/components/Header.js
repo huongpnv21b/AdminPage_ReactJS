@@ -107,7 +107,7 @@ render(){
                
                 <hr class="hr1" />
                 <div class="notifications">
-                  <h5 class="numberNotification">rtg</h5><i onClick={this.show.bind(this)} class="fa fa-bell"></i>
+                  <h5 class="numberNotification">2</h5><i onClick={this.show.bind(this)} class="fa fa-bell"></i>
                    <Modal 
                       closeOnOuterClick={true}
                       show={this.state.show}
