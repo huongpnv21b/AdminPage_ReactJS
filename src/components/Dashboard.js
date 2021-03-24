@@ -71,22 +71,9 @@ class Dashboard extends Component{
           <Menu />
             <main>
             <div class="main__container">
-              {/* <!-- MAIN TITLE STARTS HERE --> */}
+            
               <Header />
-              {/* <div class="main__title">
-                <img src="assets/hello.svg" alt="" />
-                <div class="main__greeting">
-                  <marquee width="700px" direction="right"  style={{marginLeft:'40%'}}>
-                    <h1 style={{color:'#FF6347',marginLeft:'30px'}}>Hello GO GO </h1>
-                    <p>Welcome to your admin dashboard</p>
-                  </marquee>
-                </div>
-                {/* <div >   <button type="button" onClick={this.showModal}>pROFILE</button></div> */}
-              {/* </div> */}
-    
-              {/* <!-- MAIN TITLE ENDS HERE --> */}
-    
-              {/* <!-- MAIN CARDS STARTS HERE --> */}
+              
               <div class="main__cards">
               <Link to={'/trucker'} className="nav-link">
                 <div class="card">

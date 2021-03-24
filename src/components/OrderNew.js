@@ -6,22 +6,22 @@ import { Link } from 'react-router-dom';
 import Menu from './Menu';
 import {Redirect} from 'react-router-dom';
 import Header from './Header';
-class Order extends Component{
+class OrderNew extends Component{
     constructor(props){
         super(props)
         this.state={
-            orders:[],
+            orderNew:[],
             keyword:"",
         }
     }
     componentDidMount(){
         Axios({
             methos:'GET',
-            url:"https://api-gogo.herokuapp.com/api/order/list",
+            url:"http://127.0.0.1:8000/api/order/new",
             data:null
         }).then (res=>{
             this.setState({
-                orders:res.data
+                orderNew:res.data
             });
         }).catch(err=>{
             console.log(err);
@@ -29,18 +29,18 @@ class Order extends Component{
         }
         onDeleted=(id)=>{
             console.log(id);
-            var{orders}=this.state;
+            var{orderNew}=this.state;
             Axios({
                 method:'DELETE',
                 url:`https://api-gogo.herokuapp.com/api/order/delete/${id}`,
                 data:null
             }).then(res =>{
                 if(res.status === 204){
-                    var index = this.findIndex(orders, id);
+                    var index = this.findIndex(orderNew, id);
                     if(index !== -1){
-                        orders.splice(index,1);
+                        orderNew.splice(index,1);
                         this.setState({
-                            orders:orders
+                            orderNew:orderNew
                         });
                         toast.success("Delete Order successfully",{
                         })
@@ -50,10 +50,10 @@ class Order extends Component{
             
         }
 
-        findIndex =(orders, id) =>{
-            var {orders} = this.state;
+        findIndex =(orderNew, id) =>{
+            var {orderNew} = this.state;
             var result = -1;
-            orders.forEach((order, index) =>{
+            orderNew.forEach((order, index) =>{
                 if(order.id === id){
                     result =index;
                 }
@@ -62,7 +62,7 @@ class Order extends Component{
         }
         
     render(){
-        var orders=this.state.orders;
+        var orderNew=this.state.orderNew;
         if(!localStorage.phone){
             return <Redirect to="/"/>;
           }
@@ -74,12 +74,12 @@ class Order extends Component{
                 <div class="orderTable">
                 <Header />
                 <div class="tabOrder">
-                <ul>
-                    <li> <Link to={'/orderNew'} className="orderNew">Order New </Link></li>
-                    <li><a href="#news">Order Complete</a></li>
-                </ul>
+                    <ul>
+                        <li> <Link to={'/dashboard'} className="orderNew">Order New </Link></li>
+                        <li><a href="#news">Order Complete</a></li>
+                    </ul>
                 </div>
-                <h2 class="title_table"> List Alls Orders </h2>
+                <h2 class="title_table"> List Order New</h2>
                 <table class="styled-table">
                     <thead>
                         <tr>
@@ -91,7 +91,7 @@ class Order extends Component{
                             <th>Mass</th>
                          
                             <th>Price</th>
-                            <th>Type</th>
+                            
                             <th>Car_type</th>
                             {/* <th>Note</th> */}
                             <th>User</th>
@@ -99,7 +99,7 @@ class Order extends Component{
                         </tr>
                     </thead>
                             {
-                        orders.map((order,index)=>
+                        orderNew.map((order,index)=>
                         <Item 
                             key={index} order={order}
                             onDelete={this.onDeleted}
@@ -132,9 +132,9 @@ class Item extends Component {
                             <td>{this.props.order.send_to}</td>
                             <td>{this.props.order.time_send}</td>
                             <td>{this.props.order.name}</td>
-                            <td>{this.props.order.mass}</td>                       
+                            <td>{this.props.order.mass}</td>
+                            
                             <td>{this.props.order.price}</td>
-                            <td>{this.props.order.type}</td>
                             <td>{this.props.order.car_type}</td>
                             {/* <td>{this.props.order.note}</td> */}
                             <td>{this.props.order.full_name}</td>
@@ -153,4 +153,4 @@ class Item extends Component {
 
 
 
-export default Order;
+export default OrderNew;

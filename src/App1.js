@@ -14,6 +14,7 @@ import Sender from './components/Sender.js';
 import Login from './components/Login.js';
 import ProfileAdmin from './components/ProfileAdmin.js';
 import Header from './components/Header.js';
+import OrderNew from './components/OrderNew.js';
 
 export default class App1 extends Component {
     
@@ -31,6 +32,8 @@ export default class App1 extends Component {
                 <Route path='/update/:id' component={ Update } />
                 <Route path='/add' component={ Add } />
                 <Route path='/header' component={ Header } />
+                <Route path='/orderNew' component={ OrderNew } />
+                <Route path='/profile' component={ ProfileAdmin } />
                 <Route exact path='/' component={ Login } />
                 </Switch>
             </BrowserRouter>

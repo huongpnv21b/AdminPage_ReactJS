@@ -4,6 +4,7 @@ import axios from 'axios';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import Menu from './Menu';
+import Header from './Header';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default class Update extends Component {
@@ -101,7 +102,8 @@ export default class Update extends Component {
           
           <div class="container">
           <Menu />
-          <div class="orderTable"style={{marginTop: 10}}>
+          <div class="orderTable">
+          <Header />
           <NavLink to="/promotion" class="link-nav"><i class="fas fa-chevron-left"></i>Trở về</NavLink>
           <div class="container1">
             {/* <div></div> */}

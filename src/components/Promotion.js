@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import {Redirect} from 'react-router-dom';
 import Menu from './Menu';
 import 'react-toastify/dist/ReactToastify.css';
+import Header from './Header';
 class Promotion extends Component{
     constructor(props){
         super(props)
@@ -90,6 +91,7 @@ class Promotion extends Component{
             <div class="container">
             <Menu />
                     <div class="orderTable">
+                        <Header/>
                     <h2 class="title_table"> List Promotion </h2>
                     <div className = "row">
                         <div className="mt-3 float-left">

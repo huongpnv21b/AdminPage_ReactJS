@@ -3,6 +3,7 @@ import Axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Menu from './Menu';
+import Header from './Header';
 import {Redirect} from 'react-router-dom';
 class Trucker extends Component{
     constructor(props){
@@ -86,6 +87,7 @@ class Trucker extends Component{
             <div class="container">
                 <Menu/>
               <div class="orderTable">
+              <Header />
                 <h2 class="title_table"> List Trucker</h2>
                 <div className="mt-3 float-left">
                     <input className="search" name="keyword" value={keyword} onChange ={ this.onChange} type="search" placeholder="Search" aria-label="Search" />

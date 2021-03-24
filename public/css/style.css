@@ -127,11 +127,11 @@ body {
 }
 
 main {
-  height: auto;
+  /* height: auto; */
   background: #f3f4f6;
   grid-area: main;
-  overflow-y: auto;
-  margin-top: -50px;
+  /* overflow-y: auto; */
+  margin-top: -60px;
 }
 
 .main__container {
@@ -139,8 +139,12 @@ main {
 }
 
 .main__title {
+  /* margin: 0px 0px 50px; */
+  /* border-bottom: 1px solid rgb(194, 192, 192); */
   display: flex;
   align-items: center;
+  height: 100px;
+  box-shadow: 5px 15px 13px rgb(236, 233, 233);
 }
 
 .main__title > img {
@@ -167,9 +171,11 @@ main {
 
 .main__cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 30px;
-  margin: 20px 0;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+  gap: 50px;
+  margin: 35px 0;
 }
 
 .card {
@@ -503,11 +509,15 @@ main {
   color: #009879;
 }
 .orderTable{
- /* width: 1000px; */
- padding: 20px 35px;
+  /* margin: px 0px 0px 0px; */
+  padding: 20px 35px;
+ /* padding: 0px 35px; */
  background: #f3f4f6;
   grid-area: main;
   overflow-y: auto;
+  height: auto;
+  margin-top: -60px;
+  
 }
 
 .styled-table{
@@ -515,6 +525,11 @@ main {
 }
 /* .orderTable table { width: 1080px; margin-left: auto; margin-right: auto; } */
 
+.orderNew:hover{
+  color:black;
+  background-color:rgb(223, 176, 76);
+
+}
 .login-wrapper {
   display: flex;
   flex-direction: column;
@@ -526,6 +541,7 @@ main {
 }
 
 .button {
+  outline:none;
   background-color:yellow; /* Green */
   border: none;
   border-radius: 7px;
@@ -540,6 +556,7 @@ main {
   cursor: pointer;
 }
 .buttonDelete {
+  outline:none;
   background-color: rgb(105, 171, 224);; 
   color:white; 
   border: 2px solid white;
@@ -550,6 +567,7 @@ main {
   color: white;
 }
 .button1 {
+  outline:none;
   background-color:yellow; /* Green */
   border: none;
   border-radius: 7px;
@@ -564,6 +582,7 @@ main {
   cursor: pointer;
 }
 .buttonAdd {
+  outline:none;
   background-color: rgb(224, 85, 75);; 
   color:white; 
   border: 2px solid white;
@@ -654,6 +673,7 @@ h3{
 }
 
 .styled-button {
+  outline:none;
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
@@ -663,6 +683,7 @@ h3{
   outline: none0;
 }
 .red-button {
+  outline:none;
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
@@ -671,6 +692,7 @@ h3{
   color: white;
 }
 .yellow-button {
+  outline:none;
   padding: 10px 16px;
   border: none;
   border-radius: 5px;
@@ -695,4 +717,122 @@ h3{
 }
 .sidebar__link:hover{
 background-color: rgb(112, 104, 104);
+}
+
+/* Notification */
+.hr1{
+  color:red
+}
+.numberNotification{
+    color:red;
+    position: absolute;
+    /* top: 10px */
+    margin: 0px 7px;
+    
+}
+.notifications{
+float: right;
+margin:0px 40%;
+width: 150px;
+display: flex;
+}
+.notifications i{
+  font-size: 40px;
+}
+.notifi{
+  border-bottom: 1px solid rgb(197, 188, 176);
+  border-top: 1px solid rgb(197, 188, 176);
+}
+.notifi i{
+ font-size: 15px;
+}
+
+.deleNotifi{
+  width: 50px;
+  height: 25px;
+  border: none;
+  outline:none;
+  background-color: rgb(253, 252, 252);
+}
+
+/* //Profile */
+.dropbtn {
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  margin: 0px 30px;
+  position: relative;
+  display: inline-block;
+  
+}
+
+.dropdown i{
+  font-size: 45px;
+ justify-content: center;
+}
+
+.avatar{
+  width: 100px;
+  border: 1px #d4d4d4 solid;
+  padding: 7px;
+  border-radius:50%;
+  -moz-border-radius:50%;
+  -webkit-border-radius:50%;
+}
+.avt1{
+  margin: 0px 35% 10%;
+}
+.border{
+  
+  width: 400px;
+  height:400px;
+}
+.infor{
+  margin: -25px 10%;
+}
+.infor p{
+  
+  width: 300px;
+  border-Bottom:1px solid gray;
+}
+.infor p i{
+  font-size: 35px;
+  margin-right: 50px;
+  /* margin-bottom: 5px; */
+}
+
+/* profile */
+.test-class{
+  box-shadow: 5px 5px 15px rgb(212, 208, 208);
+  background-color: rgb(231, 223, 223);
+  width:400px;
+  height:450px;
+  margin-top:-20px;
+  
+}
+
+/* Tab in Order */
+.tabOrder{
+ margin: 10px;
+}
+.tabOrder ul {
+  
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  text-decoration: none;
+  display: block;
+  padding: 8px;
+  background-color: #dddddd;
 }
