@@ -63,6 +63,7 @@ class Order extends Component{
         
     render(){
         var orders=this.state.orders;
+        var stt = 1;
         if(!localStorage.phone){
             return <Redirect to="/"/>;
           }
@@ -100,7 +101,7 @@ class Order extends Component{
                     </thead>
                             {
                         orders.map((order,index)=>
-                        <Item 
+                        <Item  id={stt++}
                             key={index} order={order}
                             onDelete={this.onDeleted}
                         ></Item>
@@ -127,7 +128,7 @@ class Item extends Component {
         return (
                <tbody>
                         <tr>
-                            <td>{this.props.order.id}</td>
+                            <td>{this.props.id}</td>
                             <td>{this.props.order.send_from}</td>
                             <td>{this.props.order.send_to}</td>
                             <td>{this.props.order.time_send}</td>

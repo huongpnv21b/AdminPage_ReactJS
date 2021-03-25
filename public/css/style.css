@@ -1,6 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
-
-/*  styling scrollbars  */
 ::-webkit-scrollbar {
   width: 5px;
   height: 6px;
@@ -10,7 +7,6 @@
   box-shadow: inset 0 0 5px #a5aaad;
   border-radius: 10px;
 }
-
 ::-webkit-scrollbar-thumb {
   background: #3ea175;
   border-radius: 10px;
@@ -28,7 +24,7 @@
 body {
   font-size: 18px;
   box-sizing: border-box;
-  font-family: "Lato", sans-serif;
+  font-family: 'Raleway';
 }
 
 .text-primary-p {
@@ -131,7 +127,7 @@ main {
   background: #f3f4f6;
   grid-area: main;
   /* overflow-y: auto; */
-  margin-top: -60px;
+  margin-top: -50px;
 }
 
 .main__container {
@@ -139,8 +135,6 @@ main {
 }
 
 .main__title {
-  /* margin: 0px 0px 50px; */
-  /* border-bottom: 1px solid rgb(194, 192, 192); */
   display: flex;
   align-items: center;
   height: 100px;
@@ -332,22 +326,22 @@ main {
 /*  SIDEBAR STARTS HERE  */
 
 #sidebar {
-  background: #020509;
+  background: #f8f8f8;
   grid-area: sidebar;
   overflow-y: auto;
-  padding: 20px;
+  padding-left: 30px;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
-  background-image: url(&quot;/static/media/sidebar-3.9992d0ce.jpg&quot;)
+  box-shadow: 5px 10px 10px #888888;
+  position: relative;
 }
 
 .sidebar__title {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  color: #f3f4f6;
+  color: #000000;
   margin-bottom: 30px;
   /* color: #E85B6B; */
+  border-bottom: 1px solid lightgray;
 }
 
 .sidebar__img {
@@ -371,29 +365,33 @@ main {
 }
 
 .sidebar__menu > h2 {
-  color: #3ea175;
-  font-size: 16px;
+  color: #585858;
+  font-size: 15px;
   margin-top: 15px;
   margin-bottom: 5px;
-  padding: 0 10px;
-  font-weight: 700;
+  padding: 10 10px;
+  font-weight: bold;
+  font-family: 'Raleway';
+  border-bottom: 1px solid lightgray;
 }
 
 .sidebar__link {
-  color: #f3f4f6;
+  color:  #585858  ;
+  text-decoration: none;
+  font-size: 15px;
   padding: 10px;
-  border-radius: 3px;
+  font-weight: bolder;
+  font-family: 'Raleway';
   margin-bottom: 5px;
 }
-
-.active_menu_link {
-  background: rgba(62, 161, 117, 0.3);
-  color: #3ea175;
+.nav-link:hover {
+  background: rgba(69, 159, 243, 0.356);
+}
+.nav-active div{
+  background: rgba(69, 159, 243, 0.356);
+  color: #001e5e;
 }
 
-.active_menu_link a {
-  color: #3ea175 !important;
-}
 
 .sidebar__link > a {
   text-decoration: none;
@@ -406,18 +404,45 @@ main {
   font-size: 18px;
 }
 
+
 .sidebar__logout {
-  margin-top: 20px;
-  padding: 10px;
+  position: absolute;
+  bottom: 20px;
   color: #e65061;
+  border: none;
+  width: 30px;
+  /* background: linear-gradient(90deg, rgba(201, 39, 6, 1) 0%, rgba(237, 86, 11, 1) 35%, rgba(255, 239, 0, 1) 96%); */
+  font-size: 30px;
+  /* right: -5px; */
+  -webkit-transition: width .35s ease-in-out;
+  transition: width .35s ease-in-out;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.sidebar__logout i{
+  font-size: 30px;
+}
+.sidebar__logout a{
+  font-family: 'Raleway';
 }
 
-.sidebar__logout > a {
+.sidebar__logout:hover {
+  width: 180px;
+  overflow: visible;
+  color: #ffffff;
+  background-color: #e65061;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+
+/* .sidebar__logout > a {
   text-decoration: none;
   color: #e65061;
   font-weight: 700;
   text-transform: uppercase;
-}
+
+} */
 
 .sidebar__logout > i {
   margin-right: 10px;
@@ -478,7 +503,7 @@ main {
   border-collapse: collapse;
   margin: 25px 0;
   font-size: 0.9em;
-  font-family: sans-serif;
+  
   min-width: 400px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
@@ -491,6 +516,7 @@ main {
 .styled-table th,
 .styled-table td {
     padding: 12px 15px;
+    font-family: 'Raleway';
 }
 
 .styled-table tbody tr {
@@ -509,15 +535,11 @@ main {
   color: #009879;
 }
 .orderTable{
-  /* margin: px 0px 0px 0px; */
-  padding: 20px 35px;
- /* padding: 0px 35px; */
+ /* width: 1000px; */
+ padding: 20px 35px;
  background: #f3f4f6;
   grid-area: main;
   overflow-y: auto;
-  height: auto;
-  margin-top: -60px;
-  
 }
 
 .styled-table{
@@ -525,11 +547,6 @@ main {
 }
 /* .orderTable table { width: 1080px; margin-left: auto; margin-right: auto; } */
 
-.orderNew:hover{
-  color:black;
-  background-color:rgb(223, 176, 76);
-
-}
 .login-wrapper {
   display: flex;
   flex-direction: column;
@@ -541,7 +558,6 @@ main {
 }
 
 .button {
-  outline:none;
   background-color:yellow; /* Green */
   border: none;
   border-radius: 7px;
@@ -556,7 +572,6 @@ main {
   cursor: pointer;
 }
 .buttonDelete {
-  outline:none;
   background-color: rgb(105, 171, 224);; 
   color:white; 
   border: 2px solid white;
@@ -567,7 +582,6 @@ main {
   color: white;
 }
 .button1 {
-  outline:none;
   background-color:yellow; /* Green */
   border: none;
   border-radius: 7px;
@@ -582,7 +596,6 @@ main {
   cursor: pointer;
 }
 .buttonAdd {
-  outline:none;
   background-color: rgb(224, 85, 75);; 
   color:white; 
   border: 2px solid white;
@@ -599,8 +612,8 @@ main {
 }
 .title_table{
    color:black;
-   text-Shadow:2px 2px 2px #cc0000;
-   font-size:30px;
+   /* text-Shadow:2px 2px 2px #cc0000; */
+   font-size:40px;
    font-weight: bold;
    text-align: center;
 }
@@ -611,7 +624,8 @@ color:black;
 width: 200px;
 height:40px;
 font-size: 16px;
-  
+  text-indent: 10px;
+  align-items: center;
 }
 .search#hover{
   background-color:rgb(4, 187, 13);
@@ -620,10 +634,11 @@ font-size: 16px;
 }
 /* Form add */
 h3{
+  font-family: "Raleway";
   font-weight: bold;
   text-align: center;
-  font-size: 26px;
-  color: Red;
+  font-size: 30px;
+  
 }
 .borderForm{
   background-color: hotpink;
@@ -632,58 +647,101 @@ h3{
   border:1px solid#faebcc;
 }
 
-.form-group input{
+
+
+.flex-box{
+  display: flex;
   width: 400px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  
+  
+}
+.form-input{
+  width: auto;
+  height: 20px;
+  border: 2px solid darkgray;
+  border-radius: 5px;
+  margin: 2px 0px ;
+  font-family: 'Raleway';
+  font-size: 18px;
+  font-weight: bolder;
+  text-indent: 10px;
+  
+}
+.small-flex-box{
+  display: flex;
+  justify-content: space-between;
+  width: 294px;
+}
+.small-input{
+  width: 130px;
   height: 30px;
   border: 2px solid darkgray;
   border-radius: 5px;
   margin: 2px 0px ;
+  font-family: 'Raleway';
+  font-size: 18px;
+  font-weight: bolder;
   text-indent: 10px;
 }
-.flex-box{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  
-  
-}
-.flex-box input {
-  width: 116px;
+.number-input{
+  width: 290px;
   height: 30px;
   border: 2px solid darkgray;
   border-radius: 5px;
-  margin: 10px 0px ;
+  margin: 2px 0px ;
+  font-family: 'Raleway';
+  font-size: 18px;
+  font-weight: bolder;
+  text-indent: 10px;
+}
+.password-input{
+  width: 218.39px;
+  height: 30px;
+  border: 2px solid darkgray;
+  border-radius: 5px;
+  margin: 2px 0px ;
+  font-family: 'Raleway';
+  font-size: 18px;
+  font-weight: bolder;
   text-indent: 10px;
 }
 .box-inside {
-  width:100px;
+  /* width:100px; */
+  display: grid;
+  grid-template-columns: auto;
 }
 .container1{
   width: 650px;
-  margin: 0 10%;
-  border:1px solid rgb(255, 174, 0);
+  margin: 5% 10%;
+  padding-left: 30px;
+  padding-top: 10px;
+  border:2px solid rgb(255, 174, 0);
+  border-radius: 5px;
+  box-shadow: 5px 10px 18px #888888;
 }
 .container1 form{
   margin: 30px 26%;
 }
 .container1 form label {
+  font-family: 'Raleway';
   margin-left: -140px;
   font-weight: bold;
   color: rgb(77, 76, 76);
 }
 
 .styled-button {
-  outline:none;
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
   background: #2683ac;
   font-weight: bolder;
   color: white;
-  outline: none0;
+  outline: none;
 }
 .red-button {
-  outline:none;
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
@@ -692,13 +750,11 @@ h3{
   color: white;
 }
 .yellow-button {
-  outline:none;
+  width: 100px;
   padding: 10px 16px;
-  border: none;
+  border: 2px solid rgb(247, 200, 99);
+  color:rgb(255, 174, 0);
   border-radius: 5px;
-  background: rgb(247, 200, 99);
-  font-weight: bolder;
-  color: white;
   outline: none;
   font-size: 15px;
 }
@@ -718,8 +774,9 @@ h3{
 .sidebar__link:hover{
 background-color: rgb(112, 104, 104);
 }
-
-/* Notification */
+hr {
+  border: 0.5px solid lightgray;
+}
 .hr1{
   color:red
 }

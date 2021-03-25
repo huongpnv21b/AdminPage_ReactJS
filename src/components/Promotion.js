@@ -79,6 +79,7 @@ class Promotion extends Component{
       
         // var promotions=this.state.promotions;
         var { promotions,keyword } = this.state;
+        var stt = 1;
         let search = this.state.promotions.filter(
             (promotion) =>{
               return (promotion.code.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1 || promotion.name.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1 );
@@ -116,6 +117,7 @@ class Promotion extends Component{
                         {
                                 search.map((promotion,index)=>
                                 <Item 
+                                id = {stt++}
                                     key={index} promotion={promotion}
                                     onDelete={this.onDeleted}
                                 ></Item>
@@ -142,7 +144,7 @@ class Item extends Component {
         return (
                <tbody>
                         <tr>
-                            <td>{this.props.promotion.id}</td>
+                            <td>{this.props.id}</td>
                             <td>{this.props.promotion.name}</td>
                             <td>{this.props.promotion.code}</td>
                             <td>{this.props.promotion.start_time}</td>

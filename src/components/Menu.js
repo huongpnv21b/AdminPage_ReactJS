@@ -1,88 +1,134 @@
-
-import React, { Component } from 'react';
+import React, { Component } from "react";
 // import Axios from 'axios'
-import 'react-toastify/dist/ReactToastify.css';
-import { Link, NavLink } from 'react-router-dom';
-import {toast} from 'react-toastify';
-toast.configure()
-class Menu extends Component{
-  Logout = () =>{
+import "react-toastify/dist/ReactToastify.css";
+import { Link, NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
+toast.configure();
+class Menu extends Component {
+  Logout = () => {
     localStorage.clear();
-    toast.success("Đăng xuất thành công", {
-    })
-  }
-    render(){
-        return(
+    toast.success("Đăng xuất thành công", {});
+  };
+  render() {
+    return (
+      <div id="sidebar">
+        <div class="sidebar__title">
+          <div class="sidebar__img">
+            {/* <img src="Image/LOGO.PNG" alt="logo" /> */}
+            <h2
+              style={{
+                color: "#001747",
+                fontFamily: "Copperplate Gothic Light",
+              }}
+            >
+              GOGO Dashboard
+            </h2>
+          </div>
+          <i
+            onclick="closeSidebar()"
+            class="fa fa-times"
+            id="sidebarIcon"
+            aria-hidden="true"
+          ></i>
+        </div>
 
-            <div id="sidebar">
-      
-            <div class="sidebar__title">
-              <div class="sidebar__img">
-                <img src="Image/logo.jpg" alt="logo" />
-                <h2 style={{color: "red"}}>GOGO</h2>
-              </div>
-              <i
-                onclick="closeSidebar()"
-                class="fa fa-times"
-                id="sidebarIcon"
-                aria-hidden="true"
-              ></i>
+        <div class="sidebar__menu">
+          <NavLink
+            exact
+            to={"/dashboard"}
+            className="nav-link"
+            activeClassName="nav-active"
+          >
+            <div class="sidebar__link">
+              <i class="fa fa-home"></i>
+              Dashboard
             </div>
-    
-            <div class="sidebar__menu">
-              <Link to={'/dashboard'} className="nav-link">
-                <div class="sidebar__link active_menu_link">
-                  <i class="fa fa-home"></i>
-                Dashboard
-                </div>
-              </Link>
+          </NavLink>
 
-              <Link  class="sidebar__link active_menu_link" to={'/order'} className="nav-link">
-                {/* <a href="#">Order</a> */}
-                <div class="sidebar__link">
-                  <i class="fa fa-list"></i>
-                  Order
-                </div>
-                </Link>
+          <NavLink
+            exact
+            to={"/order"}
+            className="nav-link"
+            activeClassName="nav-active"
+          >
+            {/* <a href="#">Order</a> */}
+            <div class="sidebar__link">
+              <i class="fa fa-list"></i>
+              Order
+            </div>
+          </NavLink>
 
-                <Link to={'/promotion'} className="nav-link">
-              <div class="sidebar__link">
-                <i class="fa fa-money"></i>
-                Promotion
-              </div>
-              </Link>
+          <NavLink
+            exact
+            to={"/promotion"}
+            className="nav-link"
+            activeClassName="nav-active"
+          >
+            <div class="sidebar__link">
+              <i class="fa fa-money"></i>
+              Promotion
+            </div>
+          </NavLink>
 
-              <h2>User</h2>
-              <Link to={'/trucker'} className="nav-link">
-                <div class="sidebar__link">
-                  <i class="fa fa-users"></i>
-                  Trucker Management
-                  {/* <a href="#">Trucker Management</a> */}
-                </div>
-              </Link>
+          <h2>User</h2>
+          <NavLink
+            exact
+            to={"/trucker"}
+            className="nav-link"
+            activeClassName="nav-active"
+          >
+            <div class="sidebar__link">
+              <i class="fa fa-users"></i>
+              Trucker
+              {/* <a href="#">Trucker Management</a> */}
+            </div>
+          </NavLink>
 
-              <Link to={'/sender'} className="nav-link">
+          <NavLink
+            exact
+            to={"/sender"}
+            className="nav-link"
+            activeClassName="nav-active"
+          >
+            <div class="sidebar__link">
+              <i class="fa fa-user"></i>
+              Sender
+              {/* <a href="#">Sender Management</a> */}
+            </div>
+          </NavLink>
+
+          <h2>Payroll</h2>
+          <NavLink
+            exact
+            to={"/chart"}
+            className="nav-link"
+            style={{ fontFamily: "Raleway" }}
+            activeClassName="nav-active"
+          >
+            <div class="sidebar__link">
+              <i class="fa fa-money"></i>
+              Payment
+            </div>
+          </NavLink>
+
+          <Link onClick={this.Logout} to={"/"} className="nav-link">
+            <div class="sidebar__logout">
+              <a>
+                <i class="fa fa-power-off"></i> SIGN OUT
+              </a>
+            </div>
+          </Link>
+
+          {/* <Link to={'/profile'} className="nav-link">
                 <div class="sidebar__link">
                   <i class="fa fa-user"></i>
-                  Sender Management
-                  {/* <a href="#">Sender Management</a> */}
+                  Profile
                 </div>
-                </Link>
-              
-            <h2>PAYROLL</h2>
-              <div class="sidebar__link">
-                <i class="fa fa-money"></i>
-                <Link to={'/chart'} className="nav-link">Payment</Link>
-              </div> 
-              <Link onClick={this.Logout} to={'/'} className="nav-link">
-                <div class="sidebar__logout">
-                  <i class="fa fa-power-off"></i>
-                  Logout
-                </div>
-              </Link>
-            </div>
-          </div>
-        )
-    }
+                </Link> */}
+        </div>
+      </div>
+    );
+  }
 }
+
 export default Menu;

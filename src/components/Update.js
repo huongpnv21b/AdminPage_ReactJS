@@ -4,7 +4,6 @@ import axios from 'axios';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import Menu from './Menu';
-import Header from './Header';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default class Update extends Component {
@@ -79,7 +78,7 @@ export default class Update extends Component {
             
           }
         }).then(res =>{
-              toast.success("Cập nhật sản phẩm thành công", {
+              toast.success("Promotion has been updated successfully!", {
           })
               history.goBack();
         });
@@ -102,91 +101,90 @@ export default class Update extends Component {
           
           <div class="container">
           <Menu />
-          <div class="orderTable">
-          <Header />
-          <NavLink to="/promotion" class="link-nav"><i class="fas fa-chevron-left"></i>Trở về</NavLink>
+          <div class="orderTable"style={{marginTop: 10}}>
+          <NavLink to="/promotion" class="link-nav" style={{textDecoration: "none"}}><i class="fa fa-chevron-left"></i>Trở về</NavLink>
           <div class="container1">
             {/* <div></div> */}
             <h3>EDIT Promotion</h3>           
             <form  onSubmit={this.onSave}>
-              <label for="name">Name Promotion:</label>
-              <div className="form-group">
+            <div class="flex-box">
+                <label for="name">Title:</label>
                 <input
                   type="text"
                   name="name"
+                  class="form-input"
                   value={this.state.name}
                   onChange={this.onChange}
-                  className="form-control"
-                />
-                </div>
-              <label for="code">Code:</label>
-              <div className="form-group">
-                <input
-                type="text"
-                name="code"
-                value={this.state.code}
-                onChange={this.onChange}
-                className="form-control"
                 />
               </div>
-
-              <label for="start_time">Start Time:</label>
-              <div className="form-group">
+              <div class="flex-box">
+                <label for="code">Code:</label>
                 <input
-                type="timestamp"
-                name="start_time"
-                value={this.state.start_time}
-                onChange={this.onChange}
-                className="form-control"
-                />
-              </div>
-              <label for="end_time">End Time:</label>
-              <div className="form-group">
-                <input
-                type="timestamp"
-                name="end_time"
-                value={this.state.end_time}
-                onChange={this.onChange}
-                className="form-control"
+                  type="text"
+                  name="code"
+                  class="form-input"
+                  value={this.state.code}
+                  onChange={this.onChange}
                 />
               </div>
 
               <div class="flex-box">
-                <div class="box-inside">
-                  <label for="min_value">Min value:</label>
+                <label for="start_time">Start Time:</label>
+                <input
+                  type="text"
+                  name="start_time"
+                  class="form-input"
+                  value={this.state.start_time}
+                  onChange={this.onChange}
+                />
+              </div>
 
+              <div class="flex-box">
+                <label for="end_time">End Time:</label>
+                <input
+                  type="text"
+                  name="end_time"
+                  class="form-input"
+                  value={this.state.end_time}
+                  onChange={this.onChange}
+                />
+              </div>
+              <div class="flex-box">
+                <label for="min_value">Value range:</label>
+                <div class="small-flex-box">
                   <input
                     type="number"
                     name="min_value"
+                    class="small-input"
                     value={this.state.min_value}
+                    placeholder="Min value"
                     onChange={this.onChange}
-                    className="form-control"
                   />
-                </div>
-                <div class="box-inside">
-                  <label for="max_value">Max value:</label>
+
+                  {/* <label for="max_value">Max value:</label> */}
                   <input
                     type="number"
                     name="max_value"
+                    class="small-input"
+                    placeholder="Max value"
                     value={this.state.max_value}
                     onChange={this.onChange}
-                    className="form-control"
                   />
                 </div>
               </div>
-              <label >Value: </label>
-              <div className="form-group">
+              <div class="flex-box">
+                <label for="value">Value: </label>
                 <input
                   type="number"
                   name="value"
+                  class="number-input"
                   value={this.state.value}
                   onChange={this.onChange}
-                  className="form-control"
                 />
               </div>
 
               <br />
-              <div className="text-center">
+              <div style={{margin: "0 34%", display: "flex"}}>
                 <button class="styled-button" type="submit">
                   SAVE
                 </button>
