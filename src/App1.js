@@ -1,0 +1,46 @@
+import React, { Component } from 'react';
+import Axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {Redirect, BrowserRouter,Switch, Route} from 'react-router-dom';
+
+import Update from './components/Update.js';
+import Add from './components/Add.js';
+import Dashboard from './components/Dashboard.js';
+import Order from './components/Order.js';
+import Trucker from './components/Trucker.js';
+import Promotion from './components/Promotion.js';
+import Sender from './components/Sender.js';
+import Login from './components/login.js';
+import ProfileAdmin from './components/ProfileAdmin.js';
+
+export default class App1 extends Component {
+    
+    render() {
+     
+       
+
+        return (
+
+            <BrowserRouter>
+                <Switch>
+                <Route path='/dashboard' component={ Dashboard } /> 
+                <Route path='/order' component={ Order } />
+                <Route path='/trucker' component={ Trucker } />
+                <Route path='/sender' component={ Sender } />
+                <Route path='/promotion' component={ Promotion } />
+                <Route path='/update/:id' component={ Update } />
+                <Route path='/add' component={ Add } />
+                <Route path='/profile' component={ ProfileAdmin } />
+                <Route exact path='/' component={ Login } />
+                </Switch>
+
+            </BrowserRouter>
+            
+            
+            
+        )
+    }
+}
+
+
