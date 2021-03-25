@@ -127,10 +127,12 @@ main {
   background: #f3f4f6;
   grid-area: main;
   /* overflow-y: auto; */
-  margin-top: -50px;
+  /* margin-top: -70px; */
+  height: 2000px;
 }
 
 .main__container {
+  width:auto;
   padding: 20px 35px;
 }
 
@@ -540,8 +542,13 @@ main {
  background: #f3f4f6;
   grid-area: main;
   overflow-y: auto;
+  height:2000px;
 }
+.orderNew:hover{
+  color:black;
+  background-color:rgb(223, 176, 76);
 
+}
 .styled-table{
   padding: 20px 35px;
 }
