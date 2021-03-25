@@ -5,11 +5,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import Menu from './Menu';
 import Header from './Header';
 import {Redirect,Link} from 'react-router-dom';
-class Trucker extends Component{
+class CheckoutTrucker extends Component{
     constructor(props){
         super(props)
         this.state={
-            truckers:[],
+            checkout_truckers:[],
             roles:[],
             keyword:"",
         }
@@ -17,11 +17,11 @@ class Trucker extends Component{
     componentDidMount(){
         Axios({
             methos:'GET',
-            url:"https://api-gogo.herokuapp.com/api/trucker/list",
+            url:"https://api-gogo.herokuapp.com/api/checkouttrucker/list",
             data:null
         }).then (res=>{
             this.setState({
-                truckers:res.data
+                checkout_truckers:res.data
             });
         }).catch(err=>{
             console.log(err);
@@ -30,18 +30,18 @@ class Trucker extends Component{
     
         onDeleted=(id)=>{
             console.log(id);
-            var{truckers}=this.state;
+            var{checkout_truckers}=this.state;
             Axios({
                 method:'DELETE',
                 url:`https://api-gogo.herokuapp.com/api/trucker/delete/${id}`,
                 data:null
             }).then(res =>{
                 if(res.status === 204){
-                    var index = this.findIndex(truckers, id);
+                    var index = this.findIndex(checkout_truckers, id);
                     if(index !== -1){
-                        truckers.splice(index,1);
+                        checkout_truckers.splice(index,1);
                         this.setState({
-                            truckers:truckers
+                            checkout_truckers:checkout_truckers
                         });
                         toast.success("Delete Trucker successfully",{
                             // componentDidMount();
@@ -52,11 +52,11 @@ class Trucker extends Component{
             
         }
 
-        findIndex =(truckers, id) =>{
-            var {truckers} = this.state;
+        findIndex =(checkout_truckers, id) =>{
+            var {checkout_truckers} = this.state;
             var result = -1;
-            truckers.forEach((trucker, index) =>{
-                if(trucker.id === id){
+            checkout_truckers.forEach((checkout_trucker, index) =>{
+                if(checkout_trucker.id === id){
                     result =index;
                 }
             });
@@ -73,10 +73,10 @@ class Trucker extends Component{
           }
     render(){
         // var truckers=this.state.truckers;
-        var { truckers,keyword } = this.state;
-        let search = this.state.truckers.filter(
-            (trucker) =>{
-              return trucker.full_name.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1;
+        var { checkout_truckers,keyword } = this.state;
+        let search = this.state.checkout_truckers.filter(
+            (checkout_trucker) =>{
+              return checkout_trucker.full_name.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1;
             }
           );
           if(!localStorage.phone){
@@ -109,7 +109,7 @@ class Trucker extends Component{
                             <th>Phone</th>
                             <th>Avatart</th>
                             <th>Role</th>
-                            <th>Action</th>
+                            <th>Checkout</th>
                         </tr>
                     </thead>
                     
@@ -143,15 +143,15 @@ class Item extends Component {
                <tbody>
                         <tr>
                         
-                            <td>{this.props.trucker.full_name}</td>
+                            {/* <td>{this.props.trucker.full_name}</td>
                             <td>{this.props.trucker.id_card}</td>
                             <td>{this.props.trucker.birthday}</td>
                             <td>{this.props.trucker.address}</td>
                             <td>{this.props.trucker.email}</td>
                             <td>{this.props.trucker.phone}</td>
                             <td><img style={{ width:"70px"}} src={this.props.trucker.avatar} alt="Not found image" /></td>
-                            <td>{this.props.trucker.name_role}</td>
-                            <td><button  class="button buttonAdd" type="submit" onClick ={ () =>this.onDelete(this.props.trucker.id)}>Delete</button></td>
+                            <td>{this.props.trucker.name_role}</td> */}
+                            <td><button  class="button buttonAdd" type="submit">Check</button><button  class="button buttonAdd" type="submit" onClick ={ () =>this.onDelete(this.props.trucker.id)}>Delete</button></td>
                         </tr>
                     
                     
@@ -160,4 +160,4 @@ class Item extends Component {
         );
     }
 }
-export default Trucker;
+export default CheckoutTrucker;

@@ -27,38 +27,45 @@ class Dashboard extends Component{
 
   componentDidMount(){
     
-    fetch("http://api-gogo.herokuapp.com/api/count-order")
-    .then(response => {
-            response.json().then((data1) =>  {
-            fetch("http://api-gogo.herokuapp.com/api/count-sender")
-            .then(response => {
-                    response.json().then((data2) =>{
-                      fetch("http://127.0.0.1:8000/api/count-user")
-                      .then(response => {
-                              response.json().then((data4) =>  {
-                            fetch("http://api-gogo.herokuapp.com/api/count-trucker")
-                            .then(response => {
-                                response.json().then((data3) =>    {
-                                        this.updateUI(data1, data2, data3,data4);
-                                    });
-                        
-                        });
-                      });  
-                });
-            });
-        });
-    });
-  });
-}
-  
 
-    updateUI(data1, data2, data3,data4){
-      this.setState({
-        count_order:data1,
-        count_sender:data2,
-        count_trucker:data3,
-        count_user:data4,
-       
+    Axios({
+      methos:'GET',
+      url:"https://api-gogo.herokuapp.com/api/count-sender",
+      data:null
+        }).then (res=>{
+            this.setState({
+                count_sender:res.data
+            });
+        })
+
+      Axios({
+        methos:'GET',
+        url:"https://api-gogo.herokuapp.com/api/count-trucker",
+        data:null
+      }).then (res=>{
+          this.setState({
+              count_trucker:res.data
+          });
+      })
+
+      Axios({
+        methos:'GET',
+        url:"https://api-gogo.herokuapp.com/api/count-order",
+        data:null
+      }).then (res=>{
+          this.setState({
+              count_order:res.data
+          });
+      })
+
+      Axios({
+        methos:'GET',
+        url:"https://api-gogo.herokuapp.com/api/count-user",
+        data:null
+      }).then (res=>{
+          this.setState({
+              count_user:res.data
+          });
       })
     }
 
@@ -165,7 +172,7 @@ class Dashboard extends Component{
     
                     <div class="card4">
                       <h1>Orders</h1>
-                      <p>{this.state.count_order}</p>
+                      <p>{count_order}</p>
                     </div>
                   </div>
                 </div>

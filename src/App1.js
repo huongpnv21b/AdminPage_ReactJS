@@ -15,6 +15,7 @@ import Login from './components/Login.js';
 import ProfileAdmin from './components/ProfileAdmin.js';
 import Header from './components/Header.js';
 import OrderNew from './components/OrderNew.js';
+import CheckoutTrucker from './components/CheckoutTrucker.js';
 
 export default class App1 extends Component {
     
@@ -34,6 +35,7 @@ export default class App1 extends Component {
                 <Route path='/header' component={ Header } />
                 <Route path='/orderNew' component={ OrderNew } />
                 <Route path='/profile' component={ ProfileAdmin } />
+                <Route path='/checkoutTrucker' component={ CheckoutTrucker } />
                 <Route exact path='/' component={ Login } />
                 </Switch>
             </BrowserRouter>
