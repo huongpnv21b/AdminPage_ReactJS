@@ -16,7 +16,8 @@ class Dashboard extends Component{
         this.state={
             count_sender:'',
             count_trucker:'',
-            count_order:'',            
+            count_order:'', 
+            count_user:'',            
             keyword:"",
             show: false
           };
@@ -31,26 +32,32 @@ class Dashboard extends Component{
             response.json().then((data1) =>  {
             fetch("http://api-gogo.herokuapp.com/api/count-sender")
             .then(response => {
-                    response.json().then((data2) =>  {
-                    fetch("http://api-gogo.herokuapp.com/api/count-trucker")
-                    .then(response => {
-                        response.json().then((data3) =>    {
-                                this.updateUI(data1, data2, data3);
-                            });
+                    response.json().then((data2) =>{
+                      fetch("http://127.0.0.1:8000/api/count-user")
+                      .then(response => {
+                              response.json().then((data4) =>  {
+                            fetch("http://api-gogo.herokuapp.com/api/count-trucker")
+                            .then(response => {
+                                response.json().then((data3) =>    {
+                                        this.updateUI(data1, data2, data3,data4);
+                                    });
                         
                         });
-                       
+                      });  
                 });
             });
         });
     });
-    }
+  });
+}
+  
 
-    updateUI(data1, data2, data3){
+    updateUI(data1, data2, data3,data4){
       this.setState({
         count_order:data1,
         count_sender:data2,
         count_trucker:data3,
+        count_user:data4,
        
       })
     }
@@ -153,12 +160,12 @@ class Dashboard extends Component{
     
                     <div class="card3">
                       <h1>Users</h1>
-                      <p>3900</p>
+                      <p>{this.state.count_user}</p>
                     </div>
     
                     <div class="card4">
                       <h1>Orders</h1>
-                      <p>1881</p>
+                      <p>{this.state.count_order}</p>
                     </div>
                   </div>
                 </div>

@@ -20,7 +20,7 @@ export default class App extends Component {
       componentDidMount(){
         axios({
             methos:'GET',
-            url:"",
+            url:"http://127.0.0.1:8000/api/chart",
             data:null
         }).then (res=>{
             this.setState({
@@ -38,17 +38,12 @@ export default class App extends Component {
       render(){
         
           var Datas=this.state.Data;
-          // console.log(Datas);
-          
-          // var order = echo json_encode($order) 
-        //     console.log(order); 
-        console.log(JSON.stringify(Datas));
         const data = {
             labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
             datasets: [
               {
-                label: "First dataset",
-                data: [33, 53, 85, 41, 44, 65],
+                label: "TotalOrder",
+                data: Datas,
                 fill: true,
                 backgroundColor: "rgba(75,192,192,0.2)",
                 borderColor: "rgba(75,192,192,1)"

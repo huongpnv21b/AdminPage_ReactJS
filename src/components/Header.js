@@ -76,9 +76,6 @@ export default class Header extends Component{
     });
     
 }
-
-
-
   findIndex =(notifi, id) =>{
       var {notifi} = this.state;
       var result = -1;

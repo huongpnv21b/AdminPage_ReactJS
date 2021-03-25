@@ -794,8 +794,8 @@ display: flex;
   margin: -25px 10%;
 }
 .infor p{
-  
-  width: 300px;
+  word-wrap: break-word;
+  width: auto;
   border-Bottom:1px solid gray;
 }
 .infor p i{
