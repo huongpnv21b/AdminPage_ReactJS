@@ -78,7 +78,7 @@ class Dashboard extends Component{
               <Link to={'/trucker'} className="nav-link">
                 <div class="card">
                   <i
-                    class="fa fa-user-o fa-2x text-lightblue"
+                    class="fa fa-users fa-2x text-lightblue"
                     aria-hidden="true"
                   ></i>
                   <div class="card_inner">
@@ -89,7 +89,7 @@ class Dashboard extends Component{
               </Link>
               <Link to={'/sender'} className="nav-link">
                 <div class="card">
-                <i class="fa fa-user-o  fa-2x text-red"></i>
+                <i class="fa fa-user  fa-2x text-red"></i>
                   {/* <i class="fa fa-calendar fa-2x text-red" aria-hidden="true"></i> */}
                   <div class="card_inner">
                     <p class="text-primary-p">Number of Sender</p>

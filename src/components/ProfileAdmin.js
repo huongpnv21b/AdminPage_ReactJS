@@ -36,20 +36,22 @@ export default class ProfileAdmin extends Component{
       <div class="border">  
         <div class="avt1">
         <img class="avatar" src={this.state.profile.avatar}></img>
-        <p> Adminnistrator</p>
+        <h3 class="name">{this.state.profile.full_name}</h3>  
+        
         </div>
         <div class="infor">
-          
-            <p class="name"><i class="fa fa-user"></i>{this.state.profile.full_name}</p>  
+          <div class="tag">
             <p><i class="fa fa-calendar" aria-hidden="true"></i>{this.state.profile.birthday}</p>
-          
+          </div>
+          <div class="tag">
              <p><i class="fa fa-map-marker" aria-hidden="true"></i>{this.state.profile.address}</p>
-         
-          
-           <p><i class="fa fa-envelope" aria-hidden="true"></i>{this.state.profile.email}</p>
-         
+          </div>
+          <div class="tag">
+            <p><i class="fa fa-envelope" aria-hidden="true"></i>{this.state.profile.email}</p>
+          </div>
+          <div class="tag">
             <p><i class="fa fa-phone-square" aria-hidden="true"></i>{this.state.profile.phone}</p>
-        
+          </div>
         </div>
       </div>
     )

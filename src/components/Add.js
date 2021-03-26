@@ -81,7 +81,7 @@ export default class Add extends Component {
       end_time === "" &&
       value === ""
     ) {
-      toast.warn("Vui lòng nhập đủ nội dung", {});
+      toast.warn("Please fill out barely!", {});
     } else {
       axios({
         method: "POST",
@@ -96,7 +96,7 @@ export default class Add extends Component {
           value: value,
         },
       }).then((res) => {
-        toast.success("Add Promotion successfully", {});
+        toast.success("Added Promotion successfully", {});
         history.goBack();
       });
     }

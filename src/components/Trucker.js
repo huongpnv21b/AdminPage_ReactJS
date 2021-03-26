@@ -88,26 +88,35 @@ class Trucker extends Component{
                 <Menu/>
               <div class="orderTable">
               <Header />
-              <div class="tabOrder">
-                    <ul>
-                        <li> <Link to={'/truckerTempt'} className="orderNew">Checkout Account </Link></li>
-                    </ul>
+              
+                <div style={{borderBottom: "1px solid lightgrey", marginBottom: "20px"}}>  
+                    <h2 class="title_table"> List of Truckers</h2>
                 </div>
-                <h2 class="title_table"> List Trucker</h2>
-                <div className="mt-3 float-left">
-                    <input className="search" name="keyword" value={keyword} onChange ={ this.onChange} type="search" placeholder="Search" aria-label="Search" />
-                </div>  
+                <div className = "row">
+                        <div class="primary__bar">
+                            <div class="left__side">
+                                <input type="text" className="search" name="keyword"  value={keyword} onChange ={ this.onChange} type="search" placeholder='Search' aria-label="Search" />
+                            </div>
+                            <div class="right__side">
+                                <div class="tabOrder">
+                                    <ul>
+                                        <li> <Link to={'/truckerTempt'} className="orderNew">Checkout Account </Link></li>
+                                    </ul>
+                                </div>
+                            </div> 
+                        </div>  
+                    </div>
                 <table class="styled-table">
                     <thead>
                         <tr>
                          
-                            <th>Full Name</th>
-                            <th>Id_card</th>
+                            <th>Full name</th>
+                            <th>ID card</th>
                             <th>Birthday</th>
                             <th>Address</th>
                             <th>Email</th>
                             <th>Phone</th>
-                            <th>Avatart</th>
+                            <th>Avatar</th>
                             <th>Role</th>
                             <th>Action</th>
                         </tr>
@@ -134,7 +143,7 @@ class Trucker extends Component{
 class Item extends Component {
 
     onDelete = (id) =>{
-		if (confirm('Bạn chắc chắn muốn xóa ?')) { //eslint-disable-line
+		if (confirm('Do you really want to remove this user?')) { //eslint-disable-line
          this.props.onDelete(id);
       }
 	}

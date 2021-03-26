@@ -41,7 +41,7 @@ export default class Login extends Component {
                 localStorage.setItem('phone', phone);  
             }
             else{
-                toast.error("Đăng nhập thất bại", {
+                toast.error("Logon failed!", {
                 })
             }
           
@@ -50,7 +50,7 @@ export default class Login extends Component {
           .catch((response) => {
             if (response.status == undefined) {
                 console.log(response.error)
-                toast.error("Đăng nhập thất bại", {
+                toast.error("Logon failed!", {
                 })
             }});
 
@@ -59,7 +59,7 @@ export default class Login extends Component {
 
     render() {
         if (this.state.loggedIn) {
-            toast.success("Đăng nhập thành công", {
+            toast.success("Logon successfully!", {
           })
           return <Redirect to="/dashboard"/>;
         }
