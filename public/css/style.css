@@ -866,9 +866,13 @@ h3 {
 .infor {
   margin: -25px 10%;
 }
-.infor p {
-  font-size: 15px;
-  width: 300px;
+.infor p{
+  word-wrap: break-word;
+  width: auto;
+  border-Bottom:1px solid gray;
+}
+.infor p i{
+  font-size: 35px;
   margin-right: 50px;
 }
 .infor i {
