@@ -542,7 +542,7 @@ main {
  background: #f3f4f6;
   grid-area: main;
   overflow-y: auto;
-  height:2000px;
+  height:2200px;
 }
 .orderNew:hover{
   color:black;
@@ -667,11 +667,7 @@ h3{
 }
 input[type="text"] {
   padding: 5px;
-  width: 90%;
-}
-input[type="datetime-local"] {
-  padding: 5px;
-  width: 90%;
+  width: 80%;
 }
 .form-input{
   width: 300px;

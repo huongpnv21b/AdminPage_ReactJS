@@ -69,7 +69,7 @@ export default class Login extends Component {
                     <img  class="img" src="https://static.thenounproject.com/png/99475-200.png"></img>
                     <h3 class="titleLogin">Login</h3>
                     <label  class="lbPhone" >Phone</label>
-                    <input type="text" value={this.state.username} class="form-input" onChange={this.onChange} required autofocus  name="phone"  />
+                    <input type="text" value={this.state.username} class="form-inputs" onChange={this.onChange} required autofocus  name="phone"  />
                     <label class="lbPass" >Password</label>
                     <input type="password" class="password-input" value={this.state.username} onChange={this.onChange}  required name="password" maxLength={50} />
                     <div class="custom-control">
