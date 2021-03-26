@@ -598,6 +598,17 @@ main {
   background-color: #007bff;
   color: white;
 }
+
+.buttonComplete {
+  background-color: rgb(180, 173, 111);
+  color: white;
+  border: 2px solid white;
+}
+
+.buttonComplete:hover {
+  background-color: #cebb11;
+  color: white;
+}
 .button1 {
   background-color: yellow; /* Green */
   border: none;
@@ -629,7 +640,7 @@ main {
 .title_table {
   color: black;
   /* text-Shadow:2px 2px 2px #cc0000; */
-  font-size: 40px;
+  font-size: 27px;
   font-weight: bold;
   /* text-align: center; */
   font-family: "Raleway";
