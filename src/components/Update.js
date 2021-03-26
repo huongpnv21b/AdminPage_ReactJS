@@ -112,7 +112,7 @@ export default class Update extends Component {
             <div class="flex-box">
                 <label for="name">Title:</label>
                 <input
-                  type="text"
+                  // type="text"
                   name="name"
                   class="form-input"
                   value={this.state.name}
@@ -122,7 +122,7 @@ export default class Update extends Component {
               <div class="flex-box">
                 <label for="code">Code:</label>
                 <input
-                  type="text"
+                  // type="text"
                   name="code"
                   class="form-input"
                   value={this.state.code}

@@ -100,7 +100,7 @@ class Trucker extends Component{
                             <div class="right__side">
                                 <div class="tabOrder">
                                     <ul>
-                                        <li> <Link to={'/truckerTempt'} className="orderNew">Checkout Account </Link></li>
+                                        <li> <Link to={'/truckerTempt'} class="button buttonDelete">Checkout Account </Link></li>
                                     </ul>
                                 </div>
                             </div> 

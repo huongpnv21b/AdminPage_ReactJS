@@ -75,7 +75,7 @@ class OrderNew extends Component{
                 <Header />
                 <div class="tabOrder">
                     <ul>
-                        <li> <Link to={'/orderNew'} className="orderNew">Order New </Link></li>
+                        <li> <Link to={'/orderNew'} className="button buttonDelete">Order New </Link></li>
                         <li><a href="#news">Order Complete</a></li>
                     </ul>
                 </div>
