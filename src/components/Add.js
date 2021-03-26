@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import Menu from "./Menu";
 import "react-toastify/dist/ReactToastify.css";
 import DateTimePicker from "react-datetime-picker";
+import Header from './Header';
 export default class Add extends Component {
   constructor(props) {
     super(props);
@@ -129,6 +130,7 @@ export default class Add extends Component {
       <div class="container">
         <Menu />
         <div class="orderTable" style={{ marginTop: 10 }}>
+          <Header/>
           <NavLink
             to="/promotion"
             class="link-nav"
@@ -164,7 +166,7 @@ export default class Add extends Component {
               <div class="flex-box">
                 <label for="start_time">Start Time:</label>
                 <input
-                  type="text"
+                  type="datetime-local"
                   name="start_time"
                   class="form-input"
                   value={this.state.start_time}
@@ -175,7 +177,7 @@ export default class Add extends Component {
               <div class="flex-box">
                 <label for="end_time">End Time:</label>
                 <input
-                  type="text"
+                  type="datetime-local"
                   name="end_time"
                   class="form-input"
                   value={this.state.end_time}

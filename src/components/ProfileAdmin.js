@@ -43,10 +43,10 @@ export default class ProfileAdmin extends Component{
             <p class="name"><i class="fa fa-user"></i>{this.state.profile.full_name}</p>  
             <p><i class="fa fa-calendar" aria-hidden="true"></i>{this.state.profile.birthday}</p>
           
-             <p><i class="fa fa-map-marker" aria-hidden="true"></i>{this.state.profile.address}</p>
+             <p style={{display:'flex'}}><i class="fa fa-address-book" aria-hidden="true"></i>{this.state.profile.address}</p>
          
           
-           <p><i class="fa fa-envelope" aria-hidden="true"></i>{this.state.profile.email}</p>
+           <p style={{display:'flex'}}><i class="fa fa-envelope" aria-hidden="true"></i><p style={{textAlign:'center,'}}>{this.state.profile.email}</p></p>
          
             <p><i class="fa fa-phone-square" aria-hidden="true"></i>{this.state.profile.phone}</p>
         
