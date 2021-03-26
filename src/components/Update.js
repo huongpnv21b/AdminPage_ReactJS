@@ -4,6 +4,7 @@ import axios from 'axios';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import Menu from './Menu';
+import Header from './Header';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default class Update extends Component {
@@ -102,6 +103,7 @@ export default class Update extends Component {
           <div class="container">
           <Menu />
           <div class="orderTable"style={{marginTop: 10}}>
+           <Header/>
           <NavLink to="/promotion" class="link-nav" style={{textDecoration: "none"}}><i class="fa fa-chevron-left"></i>Trở về</NavLink>
           <div class="container1">
             {/* <div></div> */}
@@ -131,7 +133,7 @@ export default class Update extends Component {
               <div class="flex-box">
                 <label for="start_time">Start Time:</label>
                 <input
-                  type="text"
+                  type="datetime-local"
                   name="start_time"
                   class="form-input"
                   value={this.state.start_time}
@@ -142,7 +144,7 @@ export default class Update extends Component {
               <div class="flex-box">
                 <label for="end_time">End Time:</label>
                 <input
-                  type="text"
+                  type="datetime-local"
                   name="end_time"
                   class="form-input"
                   value={this.state.end_time}

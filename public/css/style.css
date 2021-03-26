@@ -189,7 +189,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 70px;
+  height: 100px;
   padding: 25px;
   border-radius: 5px;
   background: #ffffff;
@@ -681,7 +681,7 @@ h3 {
 .small-flex-box {
   display: flex;
   justify-content: space-between;
-  width: 294px;
+  width: 355px;
 }
 .small-input {
   width: 130px;
@@ -909,4 +909,69 @@ li a {
   display: block;
   padding: 8px;
   background-color: #dddddd;
+}
+
+/* Show more Infor trucker */
+
+
+.id_card{
+  text-align: center;
+  max-width: 0px 10px;
+  display: flex;
+  margin-bottom: 10%;
+}
+
+.id_card .cards{
+  margin:0px 50px;
+}
+
+.infTrucker{
+  margin-top: 50px;
+}
+/*  */
+.cardds h5 b{
+  padding-left : 10px;
+}
+.image{
+  width:300px;
+  height:300px;
+}
+.license_card{
+  box-shadow: 0 4px 8px 0 rgba(172, 33, 33, 0.2);
+  transition: 0.3s;
+  width: 1200px;
+  border-radius: 5px;
+}
+.cardd {
+  
+  transition: 0.3s;
+  width: 100%;
+  border-radius: 5px;
+  display: flex;
+}
+.cardds {
+  border-right: 1px solid rgb(230, 227, 227);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 300px;
+  border-radius: 5px;
+}
+.cardd:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+
+.avatars {
+  margin-top: 10px;
+  border-radius:50%;
+  -moz-border-radius:50%;
+  -webkit-border-radius:50%;
+  width: 220px;
+  height: 180px;
+  margin-left: 45px;
+  margin-right: 50px;
+}
+
+.containerr {
+  padding: 2px 16px;
 }

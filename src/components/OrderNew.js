@@ -17,7 +17,7 @@ class OrderNew extends Component{
     componentDidMount(){
         Axios({
             methos:'GET',
-            url:"http://127.0.0.1:8000/api/order/new",
+            url:"https://api-gogo.herokuapp.com/api/order/new",
             data:null
         }).then (res=>{
             this.setState({
@@ -75,7 +75,7 @@ class OrderNew extends Component{
                 <Header />
                 <div class="tabOrder">
                     <ul>
-                        <li> <Link to={'/dashboard'} className="orderNew">Order New </Link></li>
+                        <li> <Link to={'/orderNew'} className="orderNew">Order New </Link></li>
                         <li><a href="#news">Order Complete</a></li>
                     </ul>
                 </div>
