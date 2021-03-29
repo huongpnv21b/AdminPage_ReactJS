@@ -67,7 +67,7 @@ export default class Header extends Component{
                 this.setState({
                   notifi:notifi
                 });                      
-                toast.success("Promotion removed!",{                       
+                toast.success("Xoa khuyen mai thanh cong",{                       
                 })
                 
             }
@@ -107,7 +107,7 @@ render(){
                       show={this.state.show}
                       onClose={this.close.bind(this)}>
                 
-                      <a style={closeStyle} onClick={this.close.bind(this)}>X</a>
+                      <a  class="hoverExit" onClick={this.close.bind(this)}><i class="fa fa-times" ></i></a>
                       <div  class="test-classs">
                         <h2 class="title_table"> Notifications  </h2>
                         <table class="styled-table">
@@ -131,7 +131,7 @@ render(){
                   <div class="dropdown">
                     <i class="fa fa-user-circle" onClick={this.show1.bind(this)}></i>
                     <Modal  closeOnOuterClick={true}  show={this.state.show1}  onClose={this.close1.bind(this)}>
-                      <a style={closeStyle} onClick={this.close1.bind(this)}><i class="fa fa-times" style={{color: "#ffffff"}}></i></a>
+                    <a  class="hoverExit" onClick={this.close1.bind(this)}><i class="fa fa-times" ></i></a>
                       <div class="profile_admin" >
                         <h2 style={{textAlign: "center"}}> Administrator </h2>                  
                            <ProfileAdmin />

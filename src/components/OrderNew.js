@@ -76,21 +76,16 @@ class OrderNew extends Component{
                 <div style={{borderBottom: "1px solid lightgrey",marginBottom: "20px"}}>  
                     <h2 class="title_table"> New Orders</h2>
                 </div>
-                <div className = "row">
-                    <div class="primary__bar">
-                            {/* <div class="left__side">
-                                <input type="text" className="search" name="keyword"  value={keyword} onChange ={ this.onChange} type="search" placeholder='Search' aria-label="Search" />
-                            </div> */}
-                            <div class="right__side">
-                                <div class="tabOrder">
-                                    <ul>
-                                        <li> <Link to={'/orderNew'} className="button buttonDelete">New Orders</Link></li>
-                                        <li><a href="#news" className="button buttonComplete">Completed Orders</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                    </div>  
-                 </div>
+                <div class="primary__bar">
+                    <div class="right__side">
+                        <div class="tabOrder">
+                            <ul>
+                                <li> <Link to={'/orderNew'} className="button buttonDelete">New orders </Link></li>
+                                <li><a href="#news" class="button buttonComplete">Completed orders</a></li>
+                            </ul>
+                        </div>
+                    </div> 
+                </div>
                 {/* <div class="tabOrder">
                     <ul>
                         <li> <Link to={'/orderNew'} className="button buttonDelete">Order New </Link></li>

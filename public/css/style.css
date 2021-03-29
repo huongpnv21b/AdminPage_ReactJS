@@ -145,13 +145,12 @@ main {
 
 .main__container {
   width: auto;
-  padding: 20px 35px;
+  padding: 7px 35px;
 }
 
 .main__title {
   overflow: hidden;
   height: auto;
-  padding: 15px;
   align-items: center;
   box-shadow: 5px 15px 13px rgb(236, 233, 233);
 }
@@ -558,7 +557,7 @@ main {
 }
 .orderTable {
   /* width: 1000px; */
-  padding: 20px 35px;
+  padding: 7px 35px;
   background: #f3f4f6;
   grid-area: main;
   overflow-y: auto;
@@ -822,6 +821,10 @@ h3 {
   align-items: center;
   margin: 25px 0;
 }
+.notifications i {
+  font-size: 24px;
+  color: #585858;
+}
 .primary__bar {
   overflow: hidden;
   height: auto;
@@ -837,10 +840,7 @@ h3 {
 .right__side {
   float: right;
 }
-.notifications i {
-  font-size: 20px;
-  color: #585858;
-}
+
 .notifi {
   border-bottom: 1px solid rgb(197, 188, 176);
   border-top: 1px solid rgb(197, 188, 176);
@@ -1018,4 +1018,27 @@ li a {
 
 .containerr {
   padding: 2px 16px;
+}
+
+.hoverExit i{
+float:right;
+width: 35px;
+font-size: 27px;
+color: red;
+margin: 0px -27px;
+}
+.hoverExit i:hover{
+  color: red;
+  font-size: 33px;
+}
+.HoverexitTrucker i{
+float:right;
+width: 40px;
+font-size: 35px;
+color: red;
+margin: 0px -20px;
+}
+.HoverexitTrucker i:hover{
+  color: red;
+  font-size: 42px;
 }

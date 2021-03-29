@@ -138,8 +138,8 @@ class Item extends Component {
                <tbody>
                         <tr>
                             <td>{this.props.id}</td>
-                            <td>{this.props.order.send_from}</td>
-                            <td>{this.props.order.send_to}</td>
+                            <td>{JSON.parse(this.props.order.send_from).address}, {JSON.parse(this.props.order.send_from).city}</td>
+                            <td>{JSON.parse(this.props.order.send_to).address}, {JSON.parse(this.props.order.send_to).city}</td>
                             <td>{this.props.order.time_send}</td>
                             <td>{this.props.order.name}</td>
                             <td>{this.props.order.mass}</td>                       
