@@ -74,26 +74,33 @@ class Order extends Component{
                 
                 <div class="orderTable">
                 <Header />
-                <div class="tabOrder">
-                <ul>
-                    <li> <Link to={'/orderNew'} className="orderNew">Order New </Link></li>
-                    <li><a href="#news">Order Complete</a></li>
-                </ul>
+                <div style={{borderBottom: "1px solid lightgrey",marginBottom: "20px"}}>  
+                    <h2 class="title_table"> List Orders</h2>
                 </div>
-                <h2 class="title_table"> List Alls Orders </h2>
+                <div class="primary__bar">
+                    <div class="right__side">
+                        <div class="tabOrder">
+                            <ul>
+                                <li> <Link to={'/orderNew'} className="button buttonDelete">New orders </Link></li>
+                                <li><a href="#news" class="button buttonComplete">Completed orders</a></li>
+                            </ul>
+                        </div>
+                    </div> 
+                </div>
+               
                 <table class="styled-table">
                     <thead>
                         <tr>
-                            <th>id</th>
-                            <th>Send_from</th>
-                            <th>Send_to</th>
-                            <th>Time Send</th>
+                            <th>NO.</th>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Time</th>
                             <th>Name</th>
                             <th>Mass</th>
                          
                             <th>Price</th>
                             <th>Type</th>
-                            <th>Car_type</th>
+                            <th>Vehicle</th>
                             {/* <th>Note</th> */}
                             <th>User</th>
                             <th>Action</th>
@@ -119,7 +126,7 @@ class Order extends Component{
 class Item extends Component {
 
     onDelete = (id) =>{
-		if (confirm('Bạn chắc chắn muốn xóa ?')) { //eslint-disable-line
+		if (confirm('Do you really to remove this order ?')) { //eslint-disable-line
          this.props.onDelete(id);
       }
 	}

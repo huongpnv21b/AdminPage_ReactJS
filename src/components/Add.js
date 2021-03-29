@@ -82,7 +82,7 @@ export default class Add extends Component {
       end_time === "" &&
       value === ""
     ) {
-      toast.warn("Vui lòng nhập đủ nội dung", {});
+      toast.warn("Please fill out barely!", {});
     } else {
       axios({
         method: "POST",
@@ -97,7 +97,7 @@ export default class Add extends Component {
           value: value,
         },
       }).then((res) => {
-        toast.success("Add Promotion successfully", {});
+        toast.success("Added Promotion successfully", {});
         history.goBack();
       });
     }
@@ -129,7 +129,7 @@ export default class Add extends Component {
     return (
       <div class="container">
         <Menu />
-        <div class="orderTable" style={{ marginTop: 10 }}>
+        <div class="orderTable">
           <Header/>
           <NavLink
             to="/promotion"
@@ -145,7 +145,7 @@ export default class Add extends Component {
               <div class="flex-box">
                 <label for="name">Title:</label>
                 <input
-                  type="text"
+                  // type="text"
                   name="name"
                   class="form-input"
                   value={this.state.name}
@@ -155,7 +155,7 @@ export default class Add extends Component {
               <div class="flex-box">
                 <label for="code">Code:</label>
                 <input
-                  type="text"
+                  // type="text"
                   name="code"
                   class="form-input"
                   value={this.state.code}

@@ -89,15 +89,24 @@ export default class TruckerTempt extends Component{
                 <Menu/>
               <div class="orderTable">
                 <Header />
-                <div class="tabOrder">
-                    <ul>
-                        <li> <Link  exact to={'/truckerTempt'} className="orderNew">Checkout Account </Link></li>
-                    </ul>
+                
+                <div style={{borderBottom: "1px solid lightgrey", marginBottom: "20px"}}>  
+                    <h2 class="title_table"> List of Truckers Tempt</h2>
                 </div>
-                <h2 class="title_table"> List Trucker</h2>
-                <div className="mt-3 float-left">
-                    <input className="search" name="keyword" value={keyword} onChange ={ this.onChange} type="search" placeholder="Search" aria-label="Search" />
-                </div>  
+                <div className = "row">
+                        <div class="primary__bar">
+                            <div class="left__side">
+                                <input type="text" className="search" name="keyword"  value={keyword} onChange ={ this.onChange} type="search" placeholder='Search' aria-label="Search" />
+                            </div>
+                            <div class="right__side">
+                                <div class="tabOrder">
+                                    <ul>
+                                        <li> <Link to={'/truckerTempt'} class="button buttonDelete">Checkout Account </Link></li>
+                                    </ul>
+                                </div>
+                            </div> 
+                        </div>  
+                    </div>
                 <table class="styled-table">
                     <thead>
                         <tr>
@@ -164,6 +173,17 @@ class Item extends Component {
         
     }
 
+    onRefuse=(id)=>{
+      Axios({
+          method:'DELETE',
+          url:`https://api-gogo.herokuapp.com/api/trucker/refuse/${id}`,
+          data:null
+      });
+      
+  }
+
+
+
     render(props) {
         return (
                <tbody>
@@ -184,7 +204,7 @@ class Item extends Component {
                                 show={this.state.show}
                                 onClose={this.close.bind(this)}>
                             
-                                <a  style={{float:'right'}} onClick={this.close.bind(this)}><i class="fas fa-minus-circle" style={{fontSize:'30px', color:'red'}}></i></a>
+                                <a  class="hoverExit" onClick={this.close.bind(this)}><i class="fa fa-times" ></i></a>
                                
                                     <h2>INFORMATION</h2>
                                     <div className="cardd">
@@ -228,7 +248,8 @@ class Item extends Component {
                                     </div>
                                 
                             </Modal>
-                            <td><button  class="button buttonDelete" type="submit" onClick ={ () =>this.onCheck(this.props.trucker.id)}>Check</button></td>
+                            <td class="checkout"><button  class="button buttonDelete" type="submit" onClick ={ () =>this.onCheck(this.props.trucker.id)}>Check</button>
+                            <button  class="button buttonAdd" type="submit" onClick ={ () =>this.onRefuse(this.props.trucker.id)}>Refuse</button></td>
                         </tr>
                     
                        

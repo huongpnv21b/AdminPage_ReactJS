@@ -14,7 +14,7 @@ export default class ProfileAdmin extends Component{
     this._isMounted = true;
     Axios({
         methos:'GET',
-        url:"https://api-gogo.herokuapp.com/api/profile/4",
+        url:"https://api-gogo.herokuapp.com/api/profile/5",
         data:null
     }).then(res =>{
       var data =res.data;
@@ -36,20 +36,22 @@ export default class ProfileAdmin extends Component{
       <div class="border">  
         <div class="avt1">
         <img class="avatar" src={this.state.profile.avatar}></img>
-        <p> Adminnistrator</p>
+        <h3 class="name">{this.state.profile.full_name}</h3>  
+        
         </div>
         <div class="infor">
-          
-            <p class="name"><i class="fa fa-user"></i>{this.state.profile.full_name}</p>  
+          <div class="tag">
             <p><i class="fa fa-calendar" aria-hidden="true"></i>{this.state.profile.birthday}</p>
-          
-             <p style={{display:'flex'}}><i class="fa fa-address-book" aria-hidden="true"></i>{this.state.profile.address}</p>
-         
-          
-           <p style={{display:'flex'}}><i class="fa fa-envelope" aria-hidden="true"></i><p style={{textAlign:'center,'}}>{this.state.profile.email}</p></p>
-         
+          </div>
+          <div class="tag">
+             <p><i class="fa fa-map-marker" aria-hidden="true"></i>{this.state.profile.address}</p>
+          </div>
+          <div class="tag">
+            <p><i class="fa fa-envelope" aria-hidden="true"></i>{this.state.profile.email}</p>
+          </div>
+          <div class="tag">
             <p><i class="fa fa-phone-square" aria-hidden="true"></i>{this.state.profile.phone}</p>
-        
+          </div>
         </div>
       </div>
     )

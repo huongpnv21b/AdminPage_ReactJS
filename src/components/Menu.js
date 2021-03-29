@@ -7,7 +7,7 @@ toast.configure();
 class Menu extends Component {
   Logout = () => {
     localStorage.clear();
-    toast.success("Đăng xuất thành công", {});
+    toast.success("Signed out!", {});
   };
   render() {
     return (

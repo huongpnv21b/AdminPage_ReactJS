@@ -43,7 +43,7 @@ class Promotion extends Component{
                         this.setState({
                             promotions:promotions
                         });                      
-                        toast.success("Xoa khuyen mai thanh cong",{                       
+                        toast.success("Order removed!",{                       
                         })
                         
                     }
@@ -93,23 +93,29 @@ class Promotion extends Component{
             <Menu />
                     <div class="orderTable">
                         <Header/>
-                    <h2 class="title_table"> List Promotion </h2>
+                    <div style={{borderBottom: "1px solid lightgrey",marginBottom: "20px"}}>  
+                        <h2 class="title_table"> List of Promotions</h2>
+                    </div>
                     <div className = "row">
-                        <div className="mt-3 float-left">
-                            <input className="search" name="keyword" value={keyword} onChange ={ this.onChange} type="search" placeholder="Search" aria-label="Search" />
-                        </div>     
-                        <Link to={'/Add'} class="link"><button class="button buttonDelete"  >Add</button> </Link> 
+                        <div class="primary__bar">
+                            <div class="left__side">
+                                <input type="text" className="search" name="keyword"  value={keyword} onChange ={ this.onChange} type="search" placeholder='Search' aria-label="Search" />
+                            </div>
+                            <div class="right__side">
+                                <Link to={'/Add'} class="link"><button class="button buttonDelete">Add <i class="fa fa-plus-circle"></i></button> </Link>
+                            </div> 
+                        </div>  
                     </div>
                     <table class="styled-table">
                         <thead>
                             <tr>
-                                <th>id</th>
+                                <th>NO.</th>
                                 <th>Name</th>
                                 <th>Code</th>
-                                <th> Start_Time</th>
-                                <th>End_Time</th>
-                                <th>Min_Value</th>
-                                <th>Max_Value</th>
+                                <th>Start time</th>
+                                <th>Expired</th>
+                                <th>Min value</th>
+                                <th>Max value</th>
                                 <th>Value</th>
                                 <th>Action</th>
                             </tr>
@@ -135,7 +141,7 @@ class Promotion extends Component{
 
 class Item extends Component {
     onDelete = (id) =>{
-		if (confirm('Bạn chắc chắn muốn xóa ?')) { //eslint-disable-line
+		if (confirm('Do you really want to remove this promotion?')) { //eslint-disable-line
          this.props.onDelete(id);
       }
 	}

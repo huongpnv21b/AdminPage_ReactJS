@@ -76,9 +76,6 @@ export default class Header extends Component{
     });
     
 }
-
-
-
   findIndex =(notifi, id) =>{
       var {notifi} = this.state;
       var result = -1;
@@ -95,25 +92,22 @@ render(){
     return(
       
             <div class="main__title">
-                <img src="assets/hello.svg" alt="" />
+                {/* <img src="assets/hello.svg" alt="" /> */}
                 
-                <div class="main__greeting">
-                  <marquee width="500px" direction="right"  style={{marginLeft:'40%'}}>
-                    <h1 style={{color:'#FF6347',marginLeft:'30px'}}>Hello GO GO </h1>
+                <div class="main__greeting" width="auto">
+                    <h1 style={{color:'#FF6347',marginLeft:'30px'}}>Hello GOGO </h1>
                     <p>Welcome to your admin dashboard</p>
-                  </marquee>
                   
                 </div>
-               
-                <hr class="hr1" />
                 <div class="notifications">
-                  <h5 class="numberNotification">2</h5><i onClick={this.show.bind(this)} class="fa fa-bell"></i>
+                  {/* <h5 class="numberNotification">2</h5> */}
+                  <i onClick={this.show.bind(this)} class="fa fa-bell"></i>
                    <Modal 
                       closeOnOuterClick={true}
                       show={this.state.show}
                       onClose={this.close.bind(this)}>
                 
-                      <a style={closeStyle} onClick={this.close.bind(this)}>X</a>
+                      <a  class="hoverExit" onClick={this.close.bind(this)}><i class="fa fa-times" ></i></a>
                       <div  class="test-classs">
                         <h2 class="title_table"> Notifications  </h2>
                         <table class="styled-table">
@@ -122,33 +116,29 @@ render(){
                             </tr>
                         </thead>
                                        
-                              {
-                                      notifi.map((notifis,index)=>
-                                      <Item 
-                                          key={index} notifiss={notifis}
-                                          onDelete={this.onDeleted}
-                                      ></Item>
-                                      
-                                      )}
-                      </table>
+                          {
+                              notifi.map((notifis,index)=>
+                              <Item 
+                                  key={index} notifiss={notifis}
+                                  onDelete={this.onDeleted}
+                              ></Item>
+                              
+                              )}
+                        </table>
                     
                       </div>
                   </Modal>
                   <div class="dropdown">
-                    <i class="fa fa-user" onClick={this.show1.bind(this)}></i>
-                    <Modal closeOnOuterClick={true}  show={this.state.show1}  onClose={this.close1.bind(this)}>
-                      <a style={closeStyle} onClick={this.close1.bind(this)}>X</a>
-                      <div class="test-class">
-                        <h2 class="title_table"> Your Profiles  </h2>                  
+                    <i class="fa fa-user-circle" onClick={this.show1.bind(this)}></i>
+                    <Modal  closeOnOuterClick={true}  show={this.state.show1}  onClose={this.close1.bind(this)}>
+                    <a  class="hoverExit" onClick={this.close1.bind(this)}><i class="fa fa-times" ></i></a>
+                      <div class="profile_admin" >
+                        <h2 style={{textAlign: "center"}}> Administrator </h2>                  
                            <ProfileAdmin />
                       </div>
-            
-                    </Modal>
-                      
+                    </Modal>   
                   </div>
-                    </div>
-                 
-               
+                </div>  
             </div>
        
     )
@@ -159,7 +149,7 @@ render(){
 class Item extends Component {
   onDelete = (id) =>{
     console.log(id);
-		if (confirm('Bạn chắc chắn muốn xóa ?')) { //eslint-disable-line
+		if (confirm('Do you really want to remove this one?')) { //eslint-disable-line
          this.props.onDelete(id);
       }
 	}
@@ -168,7 +158,7 @@ render(props){
     <div class="notifi"> 
      <tbody>
               <tr> <td><h6>{this.props.notifiss.created_at}</h6>
-              <p>Thông báo: {this.props.notifiss.full_name} đã {this.props.notifiss.message}    
+              <p>ANNOUNCE: {this.props.notifiss.full_name} has {this.props.notifiss.message}    
           </p></td> 
           <td>  <button class="deleNotifi" type="submit"  onClick ={ () =>this.onDelete(this.props.notifiss.id)}><i class="fa fa-minus"></i></button></td> 
           </tr>  

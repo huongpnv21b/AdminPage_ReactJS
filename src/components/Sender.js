@@ -43,7 +43,7 @@ class Sender extends Component{
                         this.setState({
                             senders:senders
                         });
-                        toast.success("Xoa san pham thanh cong",{
+                        toast.success("User credentail removed!",{
                         })
                         this.componentDidMount();
                     }
@@ -90,7 +90,9 @@ class Sender extends Component{
              <Menu/>
               <div class="orderTable">
               <Header />
-                <h2 class="title_table"> List Senders</h2>
+              <div style={{borderBottom: "1px solid lightgrey",marginBottom: "20px"}}>  
+                        <h2 class="title_table"> List of Senders</h2>
+                    </div>
                 <div class="search1">
                     <input class="search" name="keyword" value={keyword} onChange ={ this.onChange} type="search" placeholder="Search" aria-label="Search" />
                 </div>  
@@ -98,13 +100,13 @@ class Sender extends Component{
                     <thead>
                         <tr>
                          
-                            <th>Full Name</th>
-                            <th>Id_card</th>
+                            <th>Full name</th>
+                            <th>ID card</th>
                             <th>Birthday</th>
                             <th>Address</th>
                             <th>Email</th>
                             <th>Phone</th>
-                            <th>Avatart</th>
+                            <th>Avatar</th>
                             <th>Role</th>
                             <th>Action</th>
                         </tr>
@@ -131,7 +133,7 @@ class Sender extends Component{
 class Item extends Component {
 
     onDelete = (id) =>{
-		if (confirm('Bạn chắc chắn muốn xóa ?')) { //eslint-disable-line
+		if (confirm('Do you really want to remove this user?')) { //eslint-disable-line
          this.props.onDelete(id);
       }
 	}
