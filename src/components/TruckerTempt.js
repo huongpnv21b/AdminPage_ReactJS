@@ -89,14 +89,24 @@ export default class TruckerTempt extends Component{
                 <Menu/>
               <div class="orderTable">
                 <Header />
-                <div class="tabOrder">
-                    <ul>
-                        <li> <Link  exact to={'/truckerTempt'} className="orderNew">Checkout Account </Link></li>
-                    </ul>
+
+                <div style={{borderBottom: "1px solid lightgrey", marginBottom: "20px"}}>  
+                    <h2 class="title_table">Queue </h2>
                 </div>
-                <h2 class="title_table"> List Trucker</h2>
-                <div className="mt-3 float-left">
-                    <input className="search" name="keyword" value={keyword} onChange ={ this.onChange} type="search" placeholder="Search" aria-label="Search" />
+               
+                <div className = "row">
+                    <div class="primary__bar">
+                        <div class="left__side">
+                            <input className="search" name="keyword" value={keyword} onChange ={ this.onChange} type="search" placeholder="Search" aria-label="Search" />
+                        </div>
+                        <div class="right__side">
+                            <div class="tabOrder">
+                                <ul>
+                                <li> <Link  exact to={'/truckerTempt'} className="orderNew">Checkout Account </Link></li>
+                                </ul>
+                            </div>
+                        </div> 
+                    </div>  
                 </div>  
                 <table class="styled-table">
                     <thead>

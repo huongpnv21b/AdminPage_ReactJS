@@ -107,7 +107,7 @@ class CheckoutTrucker extends Component{
                             <th>Address</th>
                             <th>Email</th>
                             <th>Phone</th>
-                            <th>Avatart</th>
+                            <th>Avatar</th>
                             <th>Role</th>
                             <th>Checkout</th>
                         </tr>

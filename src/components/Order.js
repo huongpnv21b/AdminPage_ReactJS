@@ -78,14 +78,17 @@ class Order extends Component{
                 <div style={{borderBottom: "1px solid lightgrey",marginBottom: "20px"}}>  
                     <h2 class="title_table"> List of Orders</h2>
                 </div>
-                <div class="right__side">
-                    <div class="tabOrder">
-                        <ul>
-                            <li> <Link to={'/orderNew'} className="orderNew">Order New </Link></li>
-                            <li><a href="#news">Order Complete</a></li>
-                        </ul>
-                    </div>
-                </div> 
+                <div class="primary__bar">
+                    <div class="right__side">
+                        <div class="tabOrder">
+                            <ul>
+                                <li> <Link to={'/orderNew'} className="orderNew">New orders</Link></li>
+                                <li><a href="#news">Completed orders</a></li>
+                            </ul>
+                        </div>
+                    </div> 
+                </div>
+                
                 <table class="styled-table">
                     <thead>
                         <tr>

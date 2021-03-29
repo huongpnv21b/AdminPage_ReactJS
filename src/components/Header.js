@@ -67,7 +67,7 @@ export default class Header extends Component{
                 this.setState({
                   notifi:notifi
                 });                      
-                toast.success("Xoa khuyen mai thanh cong",{                       
+                toast.success("Promotion removed!",{                       
                 })
                 
             }
@@ -95,10 +95,10 @@ render(){
                 {/* <img src="assets/hello.svg" alt="" /> */}
                 
                 <div class="main__greeting" width="auto">
-                  <marquee  direction="right" >
+                  {/* <marquee  direction="right" >
                     <h1 style={{color:'#FF6347',marginLeft:'30px'}}>Hello GOGO </h1>
                     <p>Welcome to your admin dashboard</p>
-                  </marquee>
+                  </marquee> */}
                   
                 </div>
                 <div class="notifications">
