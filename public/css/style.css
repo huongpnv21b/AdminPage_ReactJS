@@ -830,7 +830,8 @@ h3 {
   height: auto;
   /* padding: 15px; */
   align-items: center;
-  padding: 0;
+  margin-top: 20px;
+  padding: 20px 0;
 }
 
 .primary__bar .left__side {

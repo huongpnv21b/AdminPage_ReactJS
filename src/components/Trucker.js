@@ -89,9 +89,9 @@ class Trucker extends Component{
               <div class="orderTable">
               <Header />
               
-                <div style={{borderBottom: "1px solid lightgrey", marginBottom: "20px"}}>  
+                {/* <div style={{borderBottom: "1px solid lightgrey", marginBottom: "20px"}}>  
                     <h2 class="title_table"> List of Truckers</h2>
-                </div>
+                </div> */}
                 <div className = "row">
                     <div class="primary__bar">
                         <div class="left__side">
@@ -182,7 +182,7 @@ class Item extends Component {
                                 show={this.state.show}
                                 onClose={this.close.bind(this)}>
                             
-                                <a class= "HoverexitTrucker" onClick={this.close.bind(this)}><i class="fa fa-times" ></i></a>
+                                <a style={{float:'right', margin: "10px"}} onClick={this.close.bind(this)}><i class="fa fa-times" style={{fontSize:'20px', color:'red'}}></i></a>
                                
                                     <h2>Trucker credential</h2>
                                     <div className="cardd">

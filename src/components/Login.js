@@ -66,19 +66,18 @@ export default class Login extends Component {
         return (
             <div className="to">
                 <form class="form" onSubmit={this.onSave}>
-                    <img  class="img" src="https://static.thenounproject.com/png/99475-200.png"></img>
-                    <h3 class="titleLogin">Login</h3>
-                    <label  class="lbPhone" >Phone</label>
-                    <input type="text" value={this.state.username} onChange={this.onChange} required autofocus  name="phone"  />
-                    <label class="lbPass" >Password</label>
-                    <input type="password" class="ipPass"value={this.state.username} onChange={this.onChange}  required name="password" maxLength={50} />
+                    {/* <img  class="img" src="https://static.thenounproject.com/png/99475-200.png"></img> */}
+                    <h2 class="titleLogin">Login to dashboard</h2>
+                    {/* <label for="username" class="lbPhone" >Phone</label> */}
+                    <input value={this.state.username} onChange={this.onChange} required autofocus  name="phone"  placeholder="Phone number"/>
+                    {/* <label for="pwd" class="lbPass" >Password</label> */}
+                    <input type="password" value={this.state.username} onChange={this.onChange}  required name="password" maxLength={50} placeholder="Password"/>
                     <div class="custom-control">
                         <input type="checkbox" class="checkbox" id="customCheck1" />
-                        <label class="pass-label" htmlFor="customCheck1">Nhớ mật khẩu</label>
+                        <label class="pass-label" htmlFor="customCheck1">Remember me</label>
                     </div>
                     <button id="submit" type="submit" name="submit" value="Login">Login</button>
                 </form>
-                <br />
             </div>
         )
     }

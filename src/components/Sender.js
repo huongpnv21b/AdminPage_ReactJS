@@ -90,10 +90,10 @@ class Sender extends Component{
              <Menu/>
               <div class="orderTable">
               <Header />
-              <div style={{borderBottom: "1px solid lightgrey",marginBottom: "20px"}}>  
+              {/* <div style={{borderBottom: "1px solid lightgrey",marginBottom: "20px"}}>  
                         <h2 class="title_table"> List of Senders</h2>
-                    </div>
-                <div class="search1">
+                    </div> */}
+                <div class="primary__bar">
                     <input class="search" name="keyword" value={keyword} onChange ={ this.onChange} type="search" placeholder="Search" aria-label="Search" />
                 </div>  
                 <table class="styled-table">
