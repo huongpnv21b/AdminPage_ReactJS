@@ -76,20 +76,20 @@ class Order extends Component{
                 <Header />
                 
                 <div className = "row">
-                        <div class="primary__bar">
+                    <div class="primary__bar">
                             {/* <div class="left__side">
                                 <input type="text" className="search" name="keyword"  value={keyword} onChange ={ this.onChange} type="search" placeholder='Search' aria-label="Search" />
                             </div> */}
-                            <div class="left_sibar">
-                            <div class="tabOrder">
-                                <ul>
-                                    <li> <Link to={'/orderNew'} className="button buttonDelete">Order New </Link></li>
-                                    <li><a href="#news" className="button buttonComplete">Order Complete</a></li>
-                                </ul>
+                            <div class="right__side">
+                                <div class="tabOrder">
+                                    <ul>
+                                        <li> <Link to={'/orderNew'} className="button buttonDelete">New Orders</Link></li>
+                                        <li><a href="#news" className="button buttonComplete">Completed Orders</a></li>
+                                    </ul>
+                                </div>
                             </div>
-                </div> 
-                        </div>  
-                    </div>
+                    </div>  
+                 </div>
                
                 <table class="styled-table">
                     <thead>
@@ -100,7 +100,6 @@ class Order extends Component{
                             <th>Time</th>
                             <th>Name</th>
                             <th>Mass</th>
-                         
                             <th>Price</th>
                             <th>Type</th>
                             <th>Vehicle</th>

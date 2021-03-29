@@ -93,9 +93,9 @@ class Promotion extends Component{
             <Menu />
                     <div class="orderTable">
                         <Header/>
-                    <div style={{borderBottom: "1px solid lightgrey",marginBottom: "20px"}}>  
+                    {/* <div style={{borderBottom: "1px solid lightgrey",marginBottom: "20px"}}>  
                         <h2 class="title_table"> List of Promotions</h2>
-                    </div>
+                    </div> */}
                     <div className = "row">
                         <div class="primary__bar">
                             <div class="left__side">
