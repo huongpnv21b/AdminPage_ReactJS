@@ -166,16 +166,17 @@ main {
   float: left;
 }
 
+
 .main__greeting > h1 {
-  font-size: 24px;
+  font-size: 28px;
   color: #2e4a66;
-  /* margin-bottom: 5px; */
+  margin-bottom: 5px;
 }
 
 .main__greeting > p {
   width: 700px;
   font-size: 14px;
-  /* font-weight: 700; */
+  font-weight: 700;
   color: #a5aaad;
 }
 
@@ -571,7 +572,9 @@ main {
   padding: 20px 35px;
 }
 /* .orderTable table { width: 1080px; margin-left: auto; margin-right: auto; } */
-
+.checkout{
+  display: flex;
+}
 .login-wrapper {
   display: flex;
   flex-direction: column;
@@ -606,6 +609,17 @@ main {
   background-color: #007bff;
   color: white;
 }
+
+.buttonComplete {
+  background-color: rgb(180, 173, 111);
+  color: white;
+  border: 2px solid white;
+}
+
+.buttonComplete:hover {
+  background-color: #cebb11;
+  color: white;
+}
 .button1 {
   background-color: yellow; /* Green */
   border: none;
@@ -637,7 +651,7 @@ main {
 .title_table {
   color: black;
   /* text-Shadow:2px 2px 2px #cc0000; */
-  font-size: 40px;
+  font-size: 27px;
   font-weight: bold;
   /* text-align: center; */
   font-family: "Raleway";
@@ -692,29 +706,29 @@ h3 {
 .small-flex-box {
   display: flex;
   justify-content: space-between;
-  width: 355px;
+  width: 400px;
 }
 .small-input {
-  width: 130px;
+  width: 45%;
   height: 30px;
   border: 2px solid darkgray;
   border-radius: 5px;
   margin: 2px 0px;
-  font-family: "Raleway";
   font-size: 18px;
   font-weight: bolder;
   text-indent: 10px;
+  color: #424242;
 }
 .number-input {
-  width: 290px;
+  width: 100%;
   height: 30px;
   border: 2px solid darkgray;
   border-radius: 5px;
   margin: 2px 0px;
-  font-family: "Raleway";
   font-size: 18px;
   font-weight: bolder;
   text-indent: 10px;
+  color: #424242;
 }
 .password-input {
   width: 218.39px;
@@ -722,10 +736,10 @@ h3 {
   border: 2px solid darkgray;
   border-radius: 5px;
   margin: 2px 0px;
-  font-family: "Raleway";
   font-size: 18px;
   font-weight: bolder;
   text-indent: 10px;
+  color: #424242;
 }
 .box-inside {
   /* width:100px; */
@@ -897,6 +911,7 @@ h3 {
   border-bottom: 0.5px solid lightgray;
   padding: 10px;
   align-items: center;
+  display: flex;
 }
 /* profile */
 .profile_admin {

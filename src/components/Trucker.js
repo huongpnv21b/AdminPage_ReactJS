@@ -97,14 +97,14 @@ class Trucker extends Component{
                         <div class="left__side">
                             <input type="text" className="search" name="keyword"  value={keyword} onChange ={ this.onChange} type="search" placeholder='Search' aria-label="Search" />
                         </div>
-                        <div class="right__side">
-                            <div class="tabOrder">
-                                <ul>
-                                    <li> <Link to={'/truckerTempt'} className="orderNew">Checkout Account </Link></li>
-                                </ul>
-                            </div>
-                        </div> 
-                    </div>  
+                            <div class="right__side">
+                                <div class="tabOrder">
+                                    <ul>
+                                        <li> <Link to={'/truckerTempt'} class="button buttonDelete">Checkout Account </Link></li>
+                                    </ul>
+                                </div>
+                            </div>                      
+                    </div>
                 </div>
                 <table class="styled-table">
                     <thead>

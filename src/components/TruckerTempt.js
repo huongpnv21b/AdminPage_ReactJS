@@ -89,25 +89,24 @@ export default class TruckerTempt extends Component{
                 <Menu/>
               <div class="orderTable">
                 <Header />
-
+                
                 <div style={{borderBottom: "1px solid lightgrey", marginBottom: "20px"}}>  
-                    <h2 class="title_table">Queue </h2>
+                    <h2 class="title_table"> List of Truckers Tempt</h2>
                 </div>
-               
                 <div className = "row">
-                    <div class="primary__bar">
-                        <div class="left__side">
-                            <input className="search" name="keyword" value={keyword} onChange ={ this.onChange} type="search" placeholder="Search" aria-label="Search" />
-                        </div>
-                        <div class="right__side">
-                            <div class="tabOrder">
-                                <ul>
-                                <li> <Link  exact to={'/truckerTempt'} className="orderNew">Checkout Account </Link></li>
-                                </ul>
+                        <div class="primary__bar">
+                            <div class="left__side">
+                                <input type="text" className="search" name="keyword"  value={keyword} onChange ={ this.onChange} type="search" placeholder='Search' aria-label="Search" />
                             </div>
-                        </div> 
-                    </div>  
-                </div>  
+                            <div class="right__side">
+                                <div class="tabOrder">
+                                    <ul>
+                                        <li> <Link to={'/truckerTempt'} class="button buttonDelete">Checkout Account </Link></li>
+                                    </ul>
+                                </div>
+                            </div> 
+                        </div>  
+                    </div>
                 <table class="styled-table">
                     <thead>
                         <tr>
@@ -174,6 +173,17 @@ class Item extends Component {
         
     }
 
+    onRefuse=(id)=>{
+      Axios({
+          method:'DELETE',
+          url:`https://api-gogo.herokuapp.com/api/trucker/refuse/${id}`,
+          data:null
+      });
+      
+  }
+
+
+
     render(props) {
         return (
                <tbody>
@@ -238,7 +248,8 @@ class Item extends Component {
                                     </div>
                                 
                             </Modal>
-                            <td><button  class="button buttonDelete" type="submit" onClick ={ () =>this.onCheck(this.props.trucker.id)}>Check</button></td>
+                            <td class="checkout"><button  class="button buttonDelete" type="submit" onClick ={ () =>this.onCheck(this.props.trucker.id)}>Check</button>
+                            <button  class="button buttonAdd" type="submit" onClick ={ () =>this.onRefuse(this.props.trucker.id)}>Refuse</button></td>
                         </tr>
                     
                        
