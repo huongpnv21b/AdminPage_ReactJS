@@ -41,7 +41,7 @@ export default class Login extends Component {
                 localStorage.setItem('phone', phone);  
             }
             else{
-                toast.error("Login failed!", {
+                toast.error("Đăng nhập thất bại", {
                 })
             }
           
@@ -50,7 +50,7 @@ export default class Login extends Component {
           .catch((response) => {
             if (response.status == undefined) {
                 console.log(response.error)
-                toast.error("Login failed!", {
+                toast.error("Đăng nhập thất bại", {
                 })
             }});
 
@@ -59,7 +59,7 @@ export default class Login extends Component {
 
     render() {
         if (this.state.loggedIn) {
-            toast.success("Logon successfully!", {
+            toast.success("Đăng nhập thành công", {
           })
           return <Redirect to="/dashboard"/>;
         }
@@ -69,12 +69,12 @@ export default class Login extends Component {
                     <img  class="img" src="https://static.thenounproject.com/png/99475-200.png"></img>
                     <h3 class="titleLogin">Login</h3>
                     <label  class="lbPhone" >Phone</label>
-                    <input type="text" value={this.state.username} class="form-input" onChange={this.onChange} required autofocus  name="phone"  />
+                    <input type="text" value={this.state.username} onChange={this.onChange} required autofocus  name="phone"  />
                     <label class="lbPass" >Password</label>
-                    <input type="password" class="password-input" value={this.state.username} onChange={this.onChange}  required name="password" maxLength={50} />
+                    <input type="password" class="ipPass"value={this.state.username} onChange={this.onChange}  required name="password" maxLength={50} />
                     <div class="custom-control">
                         <input type="checkbox" class="checkbox" id="customCheck1" />
-                        <label class="pass-label" htmlFor="customCheck1">Remember me</label>
+                        <label class="pass-label" htmlFor="customCheck1">Nhớ mật khẩu</label>
                     </div>
                     <button id="submit" type="submit" name="submit" value="Login">Login</button>
                 </form>
