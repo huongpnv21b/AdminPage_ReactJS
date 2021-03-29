@@ -14,7 +14,7 @@ export default class ProfileAdmin extends Component{
     this._isMounted = true;
     Axios({
         methos:'GET',
-        url:"https://api-gogo.herokuapp.com/api/profile/4",
+        url:"https://api-gogo.herokuapp.com/api/profile/5",
         data:null
     }).then(res =>{
       var data =res.data;
