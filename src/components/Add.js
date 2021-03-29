@@ -129,7 +129,7 @@ export default class Add extends Component {
     return (
       <div class="container">
         <Menu />
-        <div class="orderTable" style={{ marginTop: 10 }}>
+        <div class="orderTable">
           <Header/>
           <NavLink
             to="/promotion"

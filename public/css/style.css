@@ -151,7 +151,6 @@ main {
 .main__title {
   overflow: hidden;
   height: auto;
-  padding: 15px;
   align-items: center;
   box-shadow: 5px 15px 13px rgb(236, 233, 233);
 }
@@ -558,7 +557,7 @@ main {
 }
 .orderTable {
   /* width: 1000px; */
-  padding: 20px 35px;
+  padding: 5px 35px;
   background: #f3f4f6;
   grid-area: main;
   overflow-y: auto;
@@ -693,8 +692,8 @@ h3 {
   padding: 10px 0;
 }
 .flex-box .form-input {
-  width: auto;
-  height: 20px;
+  width: 100%;
+  height: 30px;
   border: 2px solid darkgray;
   border-radius: 5px;
   margin: 2px 0px;
@@ -836,10 +835,7 @@ h3 {
 .right__side {
   float: right;
 }
-.notifications i {
-  font-size: 20px;
-  color: #585858;
-}
+
 .notifi {
   border-bottom: 1px solid rgb(197, 188, 176);
   border-top: 1px solid rgb(197, 188, 176);
@@ -1017,4 +1013,27 @@ li a {
 
 .containerr {
   padding: 2px 16px;
+}
+
+.hoverExit i{
+float:right;
+width: 35px;
+font-size: 27px;
+color: red;
+margin: 0px -27px;
+}
+.hoverExit i:hover{
+  color: red;
+  font-size: 33px;
+}
+.HoverexitTrucker i{
+float:right;
+width: 40px;
+font-size: 35px;
+color: red;
+margin: 0px -20px;
+}
+.HoverexitTrucker i:hover{
+  color: red;
+  font-size: 45px;
 }

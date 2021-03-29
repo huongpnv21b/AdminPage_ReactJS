@@ -102,7 +102,7 @@ export default class Update extends Component {
           
           <div class="container">
           <Menu />
-          <div class="orderTable"style={{marginTop: 10}}>
+          <div class="orderTable">
            <Header/>
           <NavLink to="/promotion" class="link-nav" style={{textDecoration: "none"}}><i class="fa fa-chevron-left"></i>Trở về</NavLink>
           <div class="container1">

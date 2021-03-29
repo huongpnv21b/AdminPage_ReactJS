@@ -182,7 +182,7 @@ class Item extends Component {
                                 show={this.state.show}
                                 onClose={this.close.bind(this)}>
                             
-                                <a style={{float:'right', margin: "10px"}} onClick={this.close.bind(this)}><i class="fa fa-times" style={{fontSize:'30px', color:'red'}}></i></a>
+                                <a class= "HoverexitTrucker" onClick={this.close.bind(this)}><i class="fa fa-times" ></i></a>
                                
                                     <h2>Trucker credential</h2>
                                     <div className="cardd">

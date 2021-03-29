@@ -204,7 +204,7 @@ class Item extends Component {
                                 show={this.state.show}
                                 onClose={this.close.bind(this)}>
                             
-                                <a  style={{float:'right'}} onClick={this.close.bind(this)}><i class="fas fa-minus-circle" style={{fontSize:'30px', color:'red'}}></i></a>
+                                <a  class="hoverExit" onClick={this.close.bind(this)}><i class="fa fa-times" ></i></a>
                                
                                     <h2>INFORMATION</h2>
                                     <div className="cardd">
