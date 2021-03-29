@@ -80,8 +80,8 @@ class OrderNew extends Component{
                     <div class="right__side">
                         <div class="tabOrder">
                             <ul>
-                                <li> <Link to={'/orderNew'} className="orderNew">New orders </Link></li>
-                                <li><a href="#news">Completed orders</a></li>
+                                <li> <Link to={'/orderNew'} className="button buttonDelete">New orders </Link></li>
+                                <li><a href="#news" class="button buttonComplete">Completed orders</a></li>
                             </ul>
                         </div>
                     </div> 
