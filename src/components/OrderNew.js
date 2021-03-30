@@ -73,9 +73,6 @@ class OrderNew extends Component{
                 
                 <div class="orderTable">
                 <Header />
-                <div style={{borderBottom: "1px solid lightgrey",marginBottom: "20px"}}>  
-                    <h2 class="title_table"> New Orders</h2>
-                </div>
                 <div class="primary__bar">
                     <div class="right__side">
                         <div class="tabOrder">
@@ -141,8 +138,8 @@ class Item extends Component {
                <tbody>
                         <tr>
                             <td>{this.props.order.id}</td>
-                            <td>{this.props.order.send_from}</td>
-                            <td>{this.props.order.send_to}</td>
+                            <td>{JSON.parse(this.props.order.send_from).address}, {JSON.parse(this.props.order.send_from).city}</td>
+                            <td>{JSON.parse(this.props.order.send_to).address}, {JSON.parse(this.props.order.send_to).city}</td>
                             <td>{this.props.order.time_send}</td>
                             <td>{this.props.order.name}</td>
                             <td>{this.props.order.mass}</td>
