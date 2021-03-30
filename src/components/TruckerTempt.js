@@ -196,7 +196,7 @@ class Item extends Component {
                             <td>{this.props.trucker.email}</td>
                             <td>{this.props.trucker.phone}</td>
                             <td><img style={{ width:"70px" }} src={this.props.trucker.avatar} alt="Not found image" /></td>
-                            <td><i style={{ fontSize:'45px'}} class="fa fa-clipboard-list" value ={this.props.trucker.id} onClick={this.show.bind(this)} ></i></td>
+                            <td><i class="fa fa-clipboard-list" value ={this.props.trucker.id} onClick={this.show.bind(this)} ></i></td>
                             <Modal 
                              //overwrites the default background
                             containerStyle={{ width:'1200px',height:'auto', borderRadius:'20px'}} 
@@ -204,46 +204,72 @@ class Item extends Component {
                                 show={this.state.show}
                                 onClose={this.close.bind(this)}>
                             
-                                <a  class="hoverExit" onClick={this.close.bind(this)}><i class="fa fa-times" ></i></a>
+                                <a class="hoverExit" onClick={this.close.bind(this)}><i class="fa fa-times" ></i></a>
                                
-                                    <h2>INFORMATION</h2>
+                                    <h2>Trucker credential</h2>
                                     <div className="cardd">
                                         <div className="cardds">
                                             <img  class="avatars" src={this.props.trucker.avatar} alt="Avatar"  />
                                             <div className="containerr">
-                                                <h5>Full Name: <b > {this.props.trucker.full_name}</b></h5> 
-                                                <h5>Id Card : <b >     {this.props.trucker.id_card}</b></h5> 
-                                                <h5> Car_type: <b > {this.props.trucker.car_type} </b></h5>
-                                                <h5> License Plate: <b >{this.props.trucker.license_plate}</b></h5>
-                                                <h5> Payload: <b >{this.props.trucker.payload} </b></h5>
-                                                <h5> Registration_paper:</h5>
+                                                <div class="primary__bar">
+                                                    <h5 class="left__side">Full name: </h5>
+                                                    <h5 style={{fontWeight: "bolder"}} class="right__side"> {this.props.trucker.full_name}</h5> 
+                                                </div>
+                                                <div class="primary__bar">
+                                                    <h5 class="left__side">ID card: </h5>
+                                                    <h5 style={{fontWeight: "bolder"}} class="right__side"> {this.props.trucker.id_card}</h5> 
+                                                </div>
+                                                <div class="primary__bar">
+                                                    <h5 class="left__side">Vehicle: </h5>
+                                                    <h5 style={{fontWeight: "bolder"}} class="right__side">  {this.props.trucker.car_type}</h5> 
+                                                </div>
+                                                <div class="primary__bar">
+                                                    <h5 class="left__side">License Plate: </h5>
+                                                    <h5 style={{fontWeight: "bolder"}} class="right__side"> {this.props.trucker.license_plate}</h5> 
+                                                </div>
+                                                <div class="primary__bar">
+                                                    <h5 class="left__side">Payload: </h5>
+                                                    <h5 style={{fontWeight: "bolder"}} class="right__side"> {this.props.trucker.payload}</h5> 
+                                                </div>
+                                                
                                             </div>
                                           
-                                            <img style={{width:'300px', height:'200px'}}  src={this.props.trucker.registration_paper}></img>
+                                            
                                         </div>
-                                        <div class="license_card">              
+                                        <div class="license_card">
+                                            <div class="title__bar">
+                                                <h5 style={{fontWeight: "bolder"}}>ID card</h5>
+                                            </div> 
                                             
                                             <div class="id_card">
                                                 <div class="cards">
-                                                    <h4>Card Front</h4>
+                                                    <p>Front</p>
                                                     <img  class="image" src={this.props.trucker.id_card_front}/>
                                                 </div>
                                                 <div class="cards">
-                                                    <h4>Card Back</h4>
+                                                    <p>Back</p>
                                                     <img  class="image" src={this.props.trucker.id_card_back}/>
                                                 </div>
                                             </div>
-                                            <hr></hr>
+                                            <div class="title__bar">
+                                                <h5 style={{fontWeight: "bolder"}}>Driving license</h5>
+                                            </div> 
                                             <div class="id_card">
                                                 <div class="cards">
-                                                    <h4>License Front</h4>
+                                                    <p>Front</p>
                                                     <img   class="image" src={this.props.trucker.license_front}/>
                                                 </div>
                                                 <div class="cards">
-                                                    <h4>License Back</h4>
+                                                    <p>Back</p>
                                                     <img   class="image" src={this.props.trucker.license_back}/>
                                                 </div>
                                             </div> 
+                                            <div class="title__bar">
+                                                <h5 style={{fontWeight: "bolder"}}>Registration paper</h5>
+                                            </div>
+                                            <div class="id_card" style={{margin: "0 10%"}}>
+                                                <img style={{width:'100%', height:'25%'}}  src={this.props.trucker.registration_paper}></img> 
+                                            </div>
                                         </div>     
                                     </div>
                                 

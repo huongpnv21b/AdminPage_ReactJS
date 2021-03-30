@@ -12,7 +12,8 @@ export default class Chart extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          Data: []
+          order: [],
+          user:[]
         }
       }
 
@@ -20,39 +21,56 @@ export default class Chart extends Component {
       componentDidMount(){
         axios({
             methos:'GET',
-            url:"https://api-gogo.herokuapp.com/api/chart",
+            url:"http://127.0.0.1:8000/api/chart",
             data:null
         }).then (res=>{
             this.setState({
-              Data:res.data
+              order:res.data
                 
             });
            
         }).catch(err=>{
             console.log(err);
         });
+
+        axios({
+          methos:'GET',
+          url:"http://127.0.0.1:8000/api/chart/line/user",
+          data:null
+      }).then (res=>{
+          this.setState({
+            user:res.data
+              
+          });
+         
+      }).catch(err=>{
+          console.log(err);
+      });
+
         }
 
 
         
       render(){
         
-          var Datas=this.state.Data;
+          var orders=this.state.order;
+          var users=this.state.user;
         const data = {
-            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun","Apr",'Aug',"Sep","Oct","Nov","Dec"],
             datasets: [
               {
                 label: "TotalOrder",
-                data: Datas,
+                data: orders,
                 fill: true,
                 backgroundColor: "rgba(75,192,192,0.2)",
                 borderColor: "rgba(75,192,192,1)"
               },
               {
-                label: "Second dataset",
-                data: [33, 25, 35, 51, 54, 76],
+                label: "Total User",
+                data: users,
                 fill: false,
-                borderColor: "#742774"
+                borderColor: "#742774",
+                backgroundColor: "#D0A9F5"
               }
             ]
           };

@@ -161,7 +161,7 @@ class Dashboard extends Component{
                     </div>
     
                     <div class="card2">
-                      <h1>Sales</h1>
+                      <h1>Revenue statistics</h1>
                       <p>$124,200</p>
                     </div>
     
@@ -179,7 +179,9 @@ class Dashboard extends Component{
               </div>
               {/* <!-- CHARTS ENDS HERE --> */}
             </div>
+            
           </main>
+         
           </div>
     
         );
