@@ -170,6 +170,7 @@ class Item extends Component {
             url:`https://api-gogo.herokuapp.com/api/trucker/register/${id}`,
             data:null
         });
+        window.location.reload();
         
     }
 

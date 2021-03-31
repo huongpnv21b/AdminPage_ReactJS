@@ -16,6 +16,7 @@ import ProfileAdmin from './components/ProfileAdmin.js';
 import Header from './components/Header.js';
 import OrderNew from './components/OrderNew.js';
 import TruckerTempt from './components/TruckerTempt.js';
+import Vehicle from './components/Vehicle.js';
 export default class App1 extends Component {
     
     render() {
@@ -35,6 +36,7 @@ export default class App1 extends Component {
                 <Route path='/orderNew' component={ OrderNew } />
                 <Route path='/profile' component={ ProfileAdmin } />
                 <Route path='/truckerTempt' component={ TruckerTempt } />
+                <Route path='/truck' component={ Vehicle } />
                 <Route exact path='/' component={ Login } />
                 </Switch>
             </BrowserRouter>

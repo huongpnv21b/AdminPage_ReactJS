@@ -421,13 +421,10 @@ main {
 
 .sidebar__logout {
   position: absolute;
-  bottom: 63%;
   color: #e65061;
   border: none;
   width: 30px;
-  /* background: linear-gradient(90deg, rgba(201, 39, 6, 1) 0%, rgba(237, 86, 11, 1) 35%, rgba(255, 239, 0, 1) 96%); */
   font-size: 30px;
-  /* right: -5px; */
   -webkit-transition: width 0.35s ease-in-out;
   transition: width 0.35s ease-in-out;
   white-space: nowrap;
@@ -561,7 +558,7 @@ main {
   background: #f3f4f6;
   grid-area: main;
   overflow-y: auto;
-  height: 2000px;
+  height: auto;
 }
 .orderNew:hover {
   color: black;
@@ -599,6 +596,7 @@ main {
   cursor: pointer;
 }
 .buttonDelete {
+  outline: none;
   background-color: rgb(105, 171, 224);
   color: white;
   border: 2px solid white;
@@ -610,6 +608,7 @@ main {
 }
 
 .buttonComplete {
+  outline: none;
   background-color: rgb(180, 173, 111);
   color: white;
   border: 2px solid white;
@@ -634,6 +633,7 @@ main {
   cursor: pointer;
 }
 .buttonAdd {
+  outline: none;
   background-color: rgb(224, 85, 75);
   color: white;
   border: 2px solid white;

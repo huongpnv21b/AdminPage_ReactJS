@@ -47,6 +47,18 @@ class Menu extends Component {
 
           <NavLink
             exact
+            to={"/truck"}
+            className="nav-link"
+            style={{ fontFamily: "Raleway" }}
+            activeClassName="nav-active"
+          >
+            <div class="sidebar__link">
+            <i class="fas fa-truck-moving"></i>
+              Vehicle
+            </div>
+          </NavLink>
+          <NavLink
+            exact
             to={"/order"}
             className="nav-link"
             activeClassName="nav-active"
@@ -97,7 +109,7 @@ class Menu extends Component {
             </div>
           </NavLink>
 
-          <h2>Payroll</h2>
+          <h2>Vehicle</h2>
           <NavLink
             exact
             to={"/chart"}

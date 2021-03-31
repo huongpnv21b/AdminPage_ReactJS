@@ -47,6 +47,7 @@ class Trucker extends Component{
                         toast.success("Delete Trucker successfully",{
                             // componentDidMount();
                         })
+                        alert("1");
                     }
                 }
             });

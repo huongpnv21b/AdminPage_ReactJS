@@ -155,7 +155,7 @@ class Item extends Component {
                             <td>5150</td>
                         </tr> */}
                     
-                    </tbody> 
+                </tbody> 
         
         );
     }
