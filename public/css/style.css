@@ -73,7 +73,7 @@ label {
   display: grid;
   height: 100vh;
   grid-template-columns: 0.8fr 1fr 1fr 1fr;
-  grid-template-rows: 0.2fr 3fr;
+  grid-template-rows: 0fr 3fr;
   grid-template-areas:
     "sidebar nav nav nav"
     "sidebar main main main";
@@ -135,12 +135,12 @@ label {
 }
 
 main {
-  /* height: auto; */
+  height: auto;
   background: #f3f4f6;
   grid-area: main;
-  /* overflow-y: auto; */
+  overflow-y: auto;
   /* margin-top: -70px; */
-  height: 2000px;
+  /* height: 2000px; */
 }
 
 .main__container {
@@ -155,11 +155,7 @@ main {
   box-shadow: 5px 15px 13px rgb(236, 233, 233);
 }
 
-/* .main__title > img {
-  max-height: 100px;
-  object-fit: contain;
-  margin-right: 20px;
-} */
+
 .main__title .main__greeting {
   /* max-height: 1000px; */
   float: left;
@@ -656,6 +652,7 @@ main {
   font-family: "Raleway";
 }
 .search {
+  outline: none;
   border: none;
   border-radius: 15px;
   color: rgb(83, 83, 83);
@@ -666,6 +663,7 @@ main {
   text-indent: 10px;
   align-items: center;
   box-shadow: 5px 5px 5px #888888;
+  margin-bottom: 10px;
 }
 .search#hover {
   background-color: rgb(4, 187, 13);

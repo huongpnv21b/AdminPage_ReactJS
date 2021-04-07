@@ -78,7 +78,8 @@ class Sender extends Component{
         var { senders,keyword } = this.state;
         let search = this.state.senders.filter(
             (sender) =>{
-              return (sender.full_name.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1||sender.phone.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1);
+              return (sender.full_name.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1||sender.phone.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1 ||
+               sender.id_card.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1);
             }
           );
           if(!localStorage.phone){

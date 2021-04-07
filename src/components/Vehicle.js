@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Menu from './Menu';
 import {Redirect} from 'react-router-dom';
 import Header from './Header';
-export default  class Vehicle extends Component{
+  class Vehicle extends Component{
     constructor(props){
         super(props)
         this.state={
@@ -64,11 +64,25 @@ export default  class Vehicle extends Component{
             });
             return result;
         }
-        
+        onChange = (event) =>{
+            var target = event.target;
+            var name = target.name;
+            var value = target.value;
+            this.setState({
+              [name] : value
+            });
+          }
     render(){
-        var trucks=this.state.trucks;
+        // var trucks=this.state.trucks;
+        var { trucks,keyword } = this.state;
         var stt = 1;
-        if(!localStorage.phone){
+        let search = this.state.trucks.filter(
+            (truck) =>{
+              return (truck.payload.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1 || truck.name.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1||
+               truck.description.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1 );
+            }
+          );
+          if(!localStorage.phone){
             return <Redirect to="/"/>;
           }
         return(
@@ -78,7 +92,13 @@ export default  class Vehicle extends Component{
                 
                 <div class="orderTable">
                 <Header />             
-       
+                <div className = "row">
+                    <div class="primary__bar">
+                        <div class="left__side">
+                            <input type="text" className="search" name="keyword"  value={keyword} onChange ={ this.onChange} type="search" placeholder='Search' aria-label="Search" />
+                        </div>                  
+                    </div>
+                </div>
                 <table class="styled-table">
                     <thead>
                         <tr>
@@ -94,7 +114,7 @@ export default  class Vehicle extends Component{
                     </thead>
                    
                     {
-                        trucks.map((truck,index)=>
+                          search.map((truck,index)=>
                         <Item  id={stt++}
                             key={index} truck={truck}
                             onDelete={this.onDeleted}
@@ -111,6 +131,7 @@ export default  class Vehicle extends Component{
         );
     }
 }
+export default Vehicle;
 class Item extends Component {
 
     onDelete = (id) =>{

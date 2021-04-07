@@ -21,7 +21,7 @@ export default class Chart extends Component {
       componentDidMount(){
         axios({
             methos:'GET',
-            url:"http://127.0.0.1:8000/api/chart",
+            url:"https://api-gogo.herokuapp.com/api/chart",
             data:null
         }).then (res=>{
             this.setState({
@@ -35,7 +35,7 @@ export default class Chart extends Component {
 
         axios({
           methos:'GET',
-          url:"http://127.0.0.1:8000/api/chart/line/user",
+          url:"https://api-gogo.herokuapp.com/api/chart/line/user",
           data:null
       }).then (res=>{
           this.setState({
