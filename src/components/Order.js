@@ -90,7 +90,7 @@ class Order extends Component{
                             </div>
                     </div>  
                  </div>
-               
+                
                 <table class="styled-table">
                     <thead>
                         <tr>
@@ -146,8 +146,9 @@ class Item extends Component {
                             <td>{this.props.order.price}</td>
                             <td>{this.props.order.type}</td>
                             <td>{this.props.order.truck}</td>
-                            <td>{JSON.parse(this.props.order.sender_info).name}</td>
-                            <td>{JSON.parse(this.props.order.receiver_info).name}</td>
+                            <td class="pp">{JSON.parse(this.props.order.sender_info).name}</td>
+                            <td class="pa">{JSON.parse(this.props.order.sender_info).name}<br></br>{JSON.parse(this.props.order.sender_info).phone}</td>
+                            <td >{JSON.parse(this.props.order.receiver_info).name}</td>
                             <td><button  class="button buttonAdd" type="submit" onClick ={ () =>this.onDelete(this.props.order.id)}>Delete</button></td>
                         </tr>
                         {/* <tr class="active-row">

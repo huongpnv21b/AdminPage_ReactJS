@@ -26,6 +26,15 @@ body {
   box-sizing: border-box;
   font-family: "Raleway";
 }
+.pa{
+  display: none;
+}
+.pp:hover{
+  display: none;
+}
+.pp:hover +.pa{
+display: block;
+}
 h1,
 h2,
 h3,
