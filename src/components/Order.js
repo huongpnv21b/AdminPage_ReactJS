@@ -103,8 +103,8 @@ class Order extends Component{
                             <th>Price</th>
                             <th>Type</th>
                             <th>Vehicle</th>
-                            {/* <th>Note</th> */}
-                            <th>User</th>
+                            <th>SenderInfor</th>
+                            <th>ReceiverInfo</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -145,9 +145,9 @@ class Item extends Component {
                             <td>{this.props.order.mass}</td>                       
                             <td>{this.props.order.price}</td>
                             <td>{this.props.order.type}</td>
-                            <td>{this.props.order.car_type}</td>
-                            {/* <td>{this.props.order.note}</td> */}
-                            <td>{this.props.order.full_name}</td>
+                            <td>{this.props.order.truck}</td>
+                            <td>{JSON.parse(this.props.order.sender_info).name}</td>
+                            <td>{JSON.parse(this.props.order.receiver_info).name}</td>
                             <td><button  class="button buttonAdd" type="submit" onClick ={ () =>this.onDelete(this.props.order.id)}>Delete</button></td>
                         </tr>
                         {/* <tr class="active-row">

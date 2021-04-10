@@ -22,7 +22,7 @@
 }
 
 body {
-  font-size: 18px;
+  font-size: 20px;
   box-sizing: border-box;
   font-family: "Raleway";
 }
@@ -498,12 +498,16 @@ main {
   }
 }
 
+.App{
+  width: 700px;
+  height: 500px;
+
+}
 @media only screen and (max-width: 480px) {
   .navbar__left {
     display: none;
   }
 }
-
 /* display table */
 .styled-table {
   border-collapse: collapse;

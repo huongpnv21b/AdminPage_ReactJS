@@ -25,7 +25,7 @@ export default class Header extends Component{
   componentDidMount(){
       Axios({
           methos:'GET',
-          url:"http://127.0.0.1:8000/api/notification/list",
+          url:"https://api-gogo.herokuapp.com/api/notification/list",
           data:null
       }).then (res=>{
           this.setState({
@@ -56,7 +56,7 @@ export default class Header extends Component{
     var{notifi}=this.state;
     Axios({
         method:'DELETE',
-        url:`http://127.0.0.1:8000/api/notification/delete/${id}`,
+        url:`https://api-gogo.herokuapp.com/api/notification/delete/${id}`,
         data:null
     }).then(res =>{
         if(res.status === 204){
