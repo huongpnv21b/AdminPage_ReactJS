@@ -32,7 +32,8 @@ export default class Login extends Component {
             url: 'https://api-gogo.herokuapp.com/api/login',
             data: {
                 phone: phone,
-                password: password
+                password: password,
+                token: "123456"
             }
         }).then((response) => {
             console.log(response.status);
