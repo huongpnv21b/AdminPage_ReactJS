@@ -26,6 +26,9 @@ class Order extends Component{
         }).catch(err=>{
             console.log(err);
         });
+
+        
+
         }
         onDeleted=(id)=>{
             console.log(id);
@@ -84,6 +87,7 @@ class Order extends Component{
                                 <div class="tabOrder">
                                     <ul>
                                         <li> <Link to={'/orderNew'} className="button buttonDelete">New Orders</Link></li>
+                                        <li><a href="#news" className="button buttonComplete"> Processing</a></li>
                                         <li><a href="#news" className="button buttonComplete">Completed Orders</a></li>
                                     </ul>
                                 </div>

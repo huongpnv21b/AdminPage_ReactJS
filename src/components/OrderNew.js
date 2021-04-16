@@ -17,16 +17,16 @@ class OrderNew extends Component{
     componentDidMount(){
         Axios({
             methos:'GET',
-            url:"https://api-gogo.herokuapp.com/api/order/new",
+            url:'https://api-gogo.herokuapp.com/api/order/by/1',
             data:null
         }).then (res=>{
             this.setState({
-                orderNew:res.data
+                orders:res.data
             });
         }).catch(err=>{
             console.log(err);
         });
-        }
+    }
         onDeleted=(id)=>{
             console.log(id);
             var{orderNew}=this.state;
