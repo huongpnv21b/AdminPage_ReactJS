@@ -7,7 +7,6 @@ import {Redirect, BrowserRouter,Switch, Route} from 'react-router-dom';
 import Update from './components/Update.js';
 import Add from './components/Add.js';
 import Dashboard from './components/Dashboard.js';
-import Order from './components/Order.js';
 import Trucker from './components/Trucker.js';
 import Promotion from './components/Promotion.js';
 import Sender from './components/Sender.js';
@@ -17,6 +16,8 @@ import Header from './components/Header.js';
 import OrderNew from './components/OrderNew.js';
 import TruckerTempt from './components/TruckerTempt.js';
 import Vehicle from './components/Vehicle.js';
+import OrderProcessing from './components/OrderProcessing.js';
+import OrderCompleted from './components/OrderCompleted.js';
 export default class App1 extends Component {
     
     render() {
@@ -26,14 +27,15 @@ export default class App1 extends Component {
             <BrowserRouter>
                 <Switch>
                 <Route path='/dashboard' component={ Dashboard } /> 
-                <Route path='/order' component={ Order } />
+                <Route path='/orderProcessing' component={ OrderProcessing } />
+                <Route path='/orderNew' component={ OrderNew } />
+                <Route path='/orderCompleted' component={ OrderCompleted } />
                 <Route path='/trucker' component={ Trucker } />
                 <Route path='/sender' component={ Sender } />
                 <Route path='/promotion' component={ Promotion } />
                 <Route path='/update/:id' component={ Update } />
                 <Route path='/add' component={ Add } />
                 <Route path='/header' component={ Header } />
-                <Route path='/orderNew' component={ OrderNew } />
                 <Route path='/profile' component={ ProfileAdmin } />
                 <Route path='/truckerTempt' component={ TruckerTempt } />
                 <Route path='/truck' component={ Vehicle } />

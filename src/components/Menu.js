@@ -59,7 +59,7 @@ class Menu extends Component {
           </NavLink>
           <NavLink
             exact
-            to={"/order"}
+            to={"/orderNew"}
             className="nav-link"
             activeClassName="nav-active"
           >

@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import Menu from './Menu';
 import {Redirect} from 'react-router-dom';
 import Header from './Header';
+import _ from 'lodash';
 class OrderNew extends Component{
     constructor(props){
         super(props)
@@ -17,11 +18,11 @@ class OrderNew extends Component{
     componentDidMount(){
         Axios({
             methos:'GET',
-            url:'https://api-gogo.herokuapp.com/api/order/by/1',
+            url:'https://api-gogo.herokuapp.com/api/order/list',
             data:null
         }).then (res=>{
             this.setState({
-                orders:res.data
+                orderNew:res.data
             });
         }).catch(err=>{
             console.log(err);
@@ -77,46 +78,43 @@ class OrderNew extends Component{
                     <div class="right__side">
                         <div class="tabOrder">
                             <ul>
-                                <li> <Link to={'/orderNew'} className="button buttonDelete">New orders </Link></li>
-                                <li><a href="#news" class="button buttonComplete">Completed orders</a></li>
+                                <li> <Link to={'/orderNew'} className="button buttonDelete active1">New Orders </Link></li>
+                                <li><Link to={'/orderProcessing'} class="button buttonProcess">Processing Orders</Link></li>
+                                <li><Link to={'/orderCompleted'} class="button buttonComplete">Completed Orders</Link></li>
                             </ul>
                         </div>
                     </div> 
                 </div>
-                {/* <div class="tabOrder">
-                    <ul>
-                        <li> <Link to={'/orderNew'} className="button buttonDelete">Order New </Link></li>
-                        <li><a href="#news" className="button buttonComplete">Order Complete</a></li>
-                    </ul>
-                </div>
-                <h2 class="title_table"> List Order New</h2> */}
                 <table class="styled-table">
                     <thead>
-                        <tr>
-                            <th>id</th>
-                            <th>Send_from</th>
-                            <th>Send_to</th>
-                            <th>Time Send</th>
+                    <tr>
+                            <th>NO.</th>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Time</th>
                             <th>Name</th>
                             <th>Mass</th>
-                         
                             <th>Price</th>
-                            
-                            <th>Car_type</th>
-                            {/* <th>Note</th> */}
-                            <th>User</th>
+                            <th>Type</th>
+                            <th>Vehicle</th>
+                            <th>SenderInfor</th>
+                            <th>ReceiverInfo</th>
                             <th>Action</th>
                         </tr>
                     </thead>
-                            {
-                        orderNew.map((order,index)=>
-                        <Item 
-                            key={index} order={order}
-                            onDelete={this.onDeleted}
-                        ></Item>
-                        // <p> {product.price}</p>  
-                        )}
-                  
+                    {(() => {
+                                if (_.some(orderNew, { type: 1 })) {
+                                    return orderNew.map((item, index) => {
+                                      if (item.type === 1) {
+                                        return <Item 
+                                                 key={index} order={item}
+                                               onDelete={this.onDeleted} />
+                                      }
+                                    });
+                                  } else {
+                                    return <p>No order</p>;
+                                  }
+                    })()}
                 </table>
 
             </div>
@@ -134,33 +132,33 @@ class Item extends Component {
 	}
     
     render(props) {
-        return (
-               <tbody>
-                        <tr>
-                            <td>{this.props.order.id}</td>
+        // if (this.props.order.type === 1)  {
+            return (
+                <tbody>  
+                    
+                   <tr>
+                            <td>{this.props.id}</td>
                             <td>{JSON.parse(this.props.order.send_from).address}, {JSON.parse(this.props.order.send_from).city}</td>
                             <td>{JSON.parse(this.props.order.send_to).address}, {JSON.parse(this.props.order.send_to).city}</td>
                             <td>{this.props.order.time_send}</td>
                             <td>{this.props.order.name}</td>
-                            <td>{this.props.order.mass}</td>
-                            
+                            <td>{this.props.order.mass}</td>                       
                             <td>{this.props.order.price}</td>
-                            <td>{this.props.order.car_type}</td>
-                            {/* <td>{this.props.order.note}</td> */}
-                            <td>{this.props.order.full_name}</td>
+                            <td>{this.props.order.type}</td>
+                            <td>{this.props.order.truck}</td>
+                            <td class="pp">{JSON.parse(this.props.order.sender_info).name}</td>
+                            <td class="pa">{JSON.parse(this.props.order.sender_info).name}<br></br>{JSON.parse(this.props.order.sender_info).phone}</td>
+                            <td >{JSON.parse(this.props.order.receiver_info).name}</td>
                             <td><button  class="button buttonAdd" type="submit" onClick ={ () =>this.onDelete(this.props.order.id)}>Delete</button></td>
                         </tr>
-                        {/* <tr class="active-row">
-                            <td>Melissa</td>
-                            <td>5150</td>
-                        </tr> */}
-                    
                     </tbody> 
-        
-        );
-    }
+            )
+        }
+    
+
 }
 
 
-
 export default OrderNew;
+
+

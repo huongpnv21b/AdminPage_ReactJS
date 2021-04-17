@@ -6,44 +6,42 @@ import { Link } from 'react-router-dom';
 import Menu from './Menu';
 import {Redirect} from 'react-router-dom';
 import Header from './Header';
-class Order extends Component{
+import _ from 'lodash';
+class OrderCompleted extends Component{
     constructor(props){
         super(props)
         this.state={
-            orders:[],
+            orderCompleted:[],
             keyword:"",
         }
     }
     componentDidMount(){
         Axios({
             methos:'GET',
-            url:"https://api-gogo.herokuapp.com/api/order/list",
+            url:'https://api-gogo.herokuapp.com/api/order/list',
             data:null
         }).then (res=>{
             this.setState({
-                orders:res.data
+                orderCompleted:res.data
             });
         }).catch(err=>{
             console.log(err);
         });
-
-        
-
-        }
+    }
         onDeleted=(id)=>{
             console.log(id);
-            var{orders}=this.state;
+            var{orderCompleted}=this.state;
             Axios({
                 method:'DELETE',
                 url:`https://api-gogo.herokuapp.com/api/order/delete/${id}`,
                 data:null
             }).then(res =>{
                 if(res.status === 204){
-                    var index = this.findIndex(orders, id);
+                    var index = this.findIndex(orderCompleted, id);
                     if(index !== -1){
-                        orders.splice(index,1);
+                        orderCompleted.splice(index,1);
                         this.setState({
-                            orders:orders
+                            orderCompleted:orderCompleted
                         });
                         toast.success("Delete Order successfully",{
                         })
@@ -53,10 +51,10 @@ class Order extends Component{
             
         }
 
-        findIndex =(orders, id) =>{
-            var {orders} = this.state;
+        findIndex =(orderCompleted, id) =>{
+            var {orderCompleted} = this.state;
             var result = -1;
-            orders.forEach((order, index) =>{
+            orderCompleted.forEach((order, index) =>{
                 if(order.id === id){
                     result =index;
                 }
@@ -65,8 +63,7 @@ class Order extends Component{
         }
         
     render(){
-        var orders=this.state.orders;
-        var stt = 1;
+        var orderCompleted=this.state.orderCompleted;
         if(!localStorage.phone){
             return <Redirect to="/"/>;
           }
@@ -77,27 +74,20 @@ class Order extends Component{
                 
                 <div class="orderTable">
                 <Header />
-                
-                <div className = "row">
-                    <div class="primary__bar">
-                            {/* <div class="left__side">
-                                <input type="text" className="search" name="keyword"  value={keyword} onChange ={ this.onChange} type="search" placeholder='Search' aria-label="Search" />
-                            </div> */}
-                            <div class="right__side">
-                                <div class="tabOrder">
-                                    <ul>
-                                        <li> <Link to={'/orderNew'} className="button buttonDelete">New Orders</Link></li>
-                                        <li><a href="#news" className="button buttonComplete"> Processing</a></li>
-                                        <li><a href="#news" className="button buttonComplete">Completed Orders</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                    </div>  
-                 </div>
-                
+                <div class="primary__bar">
+                    <div class="right__side">
+                        <div class="tabOrder">
+                            <ul>
+                                <li> <Link to={'/orderNew'} className="button buttonDelete ">New Orders </Link></li>
+                                <li><Link to={'/orderProcessing'} class="button buttonComplete">Processing Orders</Link></li>
+                                <li><Link to={'/orderCompleted'} class="button buttonComplete active3">Completed Orders</Link></li>
+                            </ul>
+                        </div>
+                    </div> 
+                </div>
                 <table class="styled-table">
                     <thead>
-                        <tr>
+                    <tr>
                             <th>NO.</th>
                             <th>From</th>
                             <th>To</th>
@@ -112,15 +102,19 @@ class Order extends Component{
                             <th>Action</th>
                         </tr>
                     </thead>
-                            {
-                        orders.map((order,index)=>
-                        <Item  id={stt++}
-                            key={index} order={order}
-                            onDelete={this.onDeleted}
-                        ></Item>
-                        // <p> {product.price}</p>  
-                        )}
-                  
+                    {(() => {
+                                if (_.some(orderCompleted, { type: 3 })) {
+                                    return orderCompleted.map((item, index) => {
+                                      if (item.type === 3) {
+                                        return <Item 
+                                                 key={index} order={item}
+                                               onDelete={this.onDeleted} />
+                                      }
+                                    });
+                                  } else {
+                                    return <p>No order</p>;
+                                  }
+                    })()}
                 </table>
 
             </div>
@@ -132,15 +126,17 @@ class Order extends Component{
 class Item extends Component {
 
     onDelete = (id) =>{
-		if (confirm('Do you really to remove this order ?')) { //eslint-disable-line
+		if (confirm('Do you really want to remove this order?')) { //eslint-disable-line
          this.props.onDelete(id);
       }
 	}
     
     render(props) {
-        return (
-               <tbody>
-                        <tr>
+        // if (this.props.order.type === 1)  {
+            return (
+                <tbody>  
+                    
+                   <tr>
                             <td>{this.props.id}</td>
                             <td>{JSON.parse(this.props.order.send_from).address}, {JSON.parse(this.props.order.send_from).city}</td>
                             <td>{JSON.parse(this.props.order.send_to).address}, {JSON.parse(this.props.order.send_to).city}</td>
@@ -155,17 +151,14 @@ class Item extends Component {
                             <td >{JSON.parse(this.props.order.receiver_info).name}</td>
                             <td><button  class="button buttonAdd" type="submit" onClick ={ () =>this.onDelete(this.props.order.id)}>Delete</button></td>
                         </tr>
-                        {/* <tr class="active-row">
-                            <td>Melissa</td>
-                            <td>5150</td>
-                        </tr> */}
-                    
-                </tbody> 
-        
-        );
-    }
+                    </tbody> 
+            )
+        }
+    
+
 }
 
 
+export default OrderCompleted;
 
-export default Order;
+

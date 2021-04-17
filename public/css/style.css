@@ -615,16 +615,36 @@ main {
   background-color: #007bff;
   color: white;
 }
-
+.active1{
+  background-color: #007bff;
+}
+.active2{
+  background-color :yellow;
+}
+.active3{
+  background-color: green;
+}
 .buttonComplete {
   outline: none;
-  background-color: rgb(180, 173, 111);
+  background-color: rgb(131, 189, 108);
   color: white;
   border: 2px solid white;
 }
 
 .buttonComplete:hover {
-  background-color: #cebb11;
+  background-color: green;
+  color: white;
+}
+
+.buttonProcess {
+  outline: none;
+  background-color: rgb(209, 198, 94);
+  color: white;
+  border: 2px solid white;
+}
+
+.buttonProcess:hover {
+  background-color: #f3db06;
   color: white;
 }
 .button1 {
