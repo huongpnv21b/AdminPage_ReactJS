@@ -43,7 +43,7 @@ class Sender extends Component{
                         this.setState({
                             senders:senders
                         });
-                        toast.success("User credentail removed!",{
+                        toast.success("Sender removed!",{
                         })
                         this.componentDidMount();
                     }

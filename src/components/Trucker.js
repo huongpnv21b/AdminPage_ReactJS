@@ -44,7 +44,7 @@ class Trucker extends Component{
                         this.setState({
                             truckers:truckers
                         });
-                        toast.success("Delete Trucker successfully",{
+                        toast.success("Trucker removed!",{
                             // componentDidMount();
                         })
                         alert("1");

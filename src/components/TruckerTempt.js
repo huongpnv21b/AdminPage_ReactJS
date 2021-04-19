@@ -44,7 +44,7 @@ export default class TruckerTempt extends Component{
                         this.setState({
                             trucker_tempt:trucker_tempt
                         });
-                        toast.success("Delete Trucker successfully",{
+                        toast.success("Trucker removed!",{
                             // componentDidMount();
                         })
                     }
@@ -90,9 +90,6 @@ export default class TruckerTempt extends Component{
               <div class="orderTable">
                 <Header />
                 
-                <div style={{borderBottom: "1px solid lightgrey", marginBottom: "20px"}}>  
-                    <h2 class="title_table"> List of Truckers Tempt</h2>
-                </div>
                 <div className = "row">
                         <div class="primary__bar">
                             <div class="left__side">

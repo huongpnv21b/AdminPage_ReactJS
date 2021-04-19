@@ -43,7 +43,7 @@ class Promotion extends Component{
                         this.setState({
                             promotions:promotions
                         });                      
-                        toast.success("Order removed!",{                       
+                        toast.success("Promotion removed!",{                       
                         })
                         
                     }

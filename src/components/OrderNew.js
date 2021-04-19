@@ -43,7 +43,7 @@ class OrderNew extends Component{
                         this.setState({
                             orderNew:orderNew
                         });
-                        toast.success("Delete Order successfully",{
+                        toast.success("Delete Order New successfully",{
                         })
                     }
                 }
@@ -64,6 +64,7 @@ class OrderNew extends Component{
         
     render(){
         var orderNew=this.state.orderNew;
+        var stt = 1;
         if(!localStorage.phone){
             return <Redirect to="/"/>;
           }
@@ -95,7 +96,6 @@ class OrderNew extends Component{
                             <th>Name</th>
                             <th>Mass</th>
                             <th>Price</th>
-                            <th>Type</th>
                             <th>Vehicle</th>
                             <th>SenderInfor</th>
                             <th>ReceiverInfo</th>
@@ -106,7 +106,7 @@ class OrderNew extends Component{
                                 if (_.some(orderNew, { type: 1 })) {
                                     return orderNew.map((item, index) => {
                                       if (item.type === 1) {
-                                        return <Item 
+                                        return <Item id={stt++}
                                                  key={index} order={item}
                                                onDelete={this.onDeleted} />
                                       }
@@ -144,11 +144,17 @@ class Item extends Component {
                             <td>{this.props.order.name}</td>
                             <td>{this.props.order.mass}</td>                       
                             <td>{this.props.order.price}</td>
-                            <td>{this.props.order.type}</td>
                             <td>{this.props.order.truck}</td>
                             <td class="pp">{JSON.parse(this.props.order.sender_info).name}</td>
-                            <td class="pa">{JSON.parse(this.props.order.sender_info).name}<br></br>{JSON.parse(this.props.order.sender_info).phone}</td>
-                            <td >{JSON.parse(this.props.order.receiver_info).name}</td>
+                            <td class="pa">Name: {JSON.parse(this.props.order.sender_info).name}<br></br>
+                                            Phone: {JSON.parse(this.props.order.sender_info).phone} <br></br> 
+                                            Note: {JSON.parse(this.props.order.sender_info).note} 
+                                           </td>
+                            <td class="pp"> {JSON.parse(this.props.order.receiver_info).name}</td>
+                            <td class="pa">Name: {JSON.parse(this.props.order.receiver_info).name}<br></br>
+                                            Phone: {JSON.parse(this.props.order.receiver_info).phone} <br></br> 
+                                            Note: {JSON.parse(this.props.order.receiver_info).note} 
+                                           </td>
                             <td><button  class="button buttonAdd" type="submit" onClick ={ () =>this.onDelete(this.props.order.id)}>Delete</button></td>
                         </tr>
                     </tbody> 
