@@ -112,7 +112,7 @@ class Dashboard extends Component{
                 </div>
               </Link>
 
-              <Link to={'/order'} className="nav-link">
+              <Link to={'/orderNew'} className="nav-link">
                 <div class="card">
                   <i
                     class="fa fa-list fa-2x text-yellow"
