@@ -126,16 +126,18 @@ class Menu extends Component {
 
             </li>
             <li>
-                 <Link onClick={this.Logout} to={"/"} className="nav-link">
+            <Link onClick={this.Logout} to={"/"} className="nav-link">
                    <div class="sidebar__logout">
                      <a>
                        <i class="fa fa-power-off"></i> SIGN OUT
                      </a>
                    </div>
-                 </Link>
+        </Link>
             </li>
           </ul>
+          
         </nav>
+        
       </div>
     </div>
       

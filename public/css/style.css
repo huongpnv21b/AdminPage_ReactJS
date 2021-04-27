@@ -419,6 +419,8 @@ main {
 
 li .sidebar__logout {
   position: absolute;
+  bottom: 120px;
+  margin-top: 100%;
   color: #e65061;
   border: none;
   width: 35px;
@@ -426,7 +428,7 @@ li .sidebar__logout {
   -webkit-transition: width 0.35s ease-in-out;
   transition: width 0.35s ease-in-out;
   white-space: nowrap;
-  overflow: hidden;
+  overflow: hidden; 
 }
 .sidebar__logout i {
   font-size: 30px;
@@ -558,7 +560,7 @@ li .sidebar__logout:hover {
 
 .App{
   width: 700px;
-  height: 500px;
+  height: 400px;
 
 }
 @media only screen and (max-width: 480px) {
@@ -571,8 +573,7 @@ li .sidebar__logout:hover {
   border-collapse: collapse;
   margin: 25px 0;
   font-size: 0.9em;
-
-  min-width: 400px;
+  /* min-width: 400px; */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -1178,7 +1179,7 @@ margin: 0px -20px;
   left: -15em;
   overflow: hidden;
   transition: all .3s ease-in;
-  width: 15em;
+  width: 21%;
   height: 100%;
   color: rgba(255, 255, 255, 0.7);
 }
@@ -1191,6 +1192,7 @@ margin: 0px -20px;
 }
 
 .s-sidebar__nav ul {
+  height: 100%;
   position: absolute;
   top: 4em;
   left: 0;
@@ -1239,10 +1241,15 @@ margin: 0px -20px;
 
 /* Mobile First */
 @media (min-width: 42em) {
+  .s-sidebar__trigger {
+    display: block;
+ }
   .s-layout__content {
      margin-left: 4em;
   }
-  
+  .sidebar__img{
+    display: none;
+  }
   /* Sidebar */
   .s-sidebar__trigger {
      width: 4em;
@@ -1250,8 +1257,8 @@ margin: 0px -20px;
   
   .s-sidebar__nav {
     /* background-color: yellow; */
-     width: 4em;
-     left: 0;
+     width: 20%;
+     /* left: 0; */
   }
   
   /* .s-sidebar__nav:hover,
@@ -1268,7 +1275,10 @@ margin: 0px -20px;
   }
   
 }
-@media (min-width: 68em) {
+@media (min-width: 48em) {
+  .sidebar__img{
+    display: block;
+  }
   .s-layout__content {
      margin-left: 25em;
   }
@@ -1281,6 +1291,7 @@ margin: 0px -20px;
     color: black;
   }
   .s-sidebar__nav {
+    left: 0;
     top: 120px ;  
     width: 21%;
     background: #f8f8f8;
