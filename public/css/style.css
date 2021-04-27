@@ -1263,8 +1263,8 @@ margin: 0px -20px;
 } 
 @media (min-width:375px) {
   .s-sidebar__nav {
-    background-color: rgb(201, 197, 197);
-     width: 10em;
+    background-color: rgb(255, 255, 255);
+    width: 30%;
   }
   
 }
@@ -1281,13 +1281,13 @@ margin: 0px -20px;
     color: black;
   }
   .s-sidebar__nav {
-    top: 70px;
-    width: 25em;
+    top: 120px ;  
+    width: 21%;
     background: #f8f8f8;
   }
   
   .s-sidebar__nav ul {
-     top: 20px;
+     top: -10px;
      width: 80%;
      left: 10%;
      right: 10%;

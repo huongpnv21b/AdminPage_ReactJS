@@ -107,7 +107,6 @@ export default class TruckerTempt extends Component{
                 <table class="styled-table">
                     <thead>
                         <tr>
-                         
                             <th>Full Name</th>
                             <th>Id_card</th>
                             <th>Birthday</th>
@@ -119,9 +118,7 @@ export default class TruckerTempt extends Component{
                             <th>Status</th>
                         </tr>
                     </thead>
-                    
-
-{
+                        {
                         search.map((trucker,index)=>
                         <Item 
                             key={index} trucker={trucker}
