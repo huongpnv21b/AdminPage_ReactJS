@@ -16,7 +16,7 @@ body {
 }
 .to {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(13, 1fr);
   grid-template-rows: minmax(100px, auto);
 }
 
@@ -118,3 +118,15 @@ button#submit:hover {
   font-size: xx-large;
 }
 
+@media screen and (max-width:450px) {
+  .to{
+    padding: 30px;
+    display: block;
+  }
+  .form{
+    padding: 10px;
+    width: 300px;
+    margin: auto;
+  }
+  
+}

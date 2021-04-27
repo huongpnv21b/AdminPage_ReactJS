@@ -387,16 +387,7 @@ main {
   display: none;
 }
 
-.sidebar__menu > h2 {
-  color: #585858;
-  font-size: 15px;
-  margin-top: 15px;
-  margin-bottom: 5px;
-  padding: 10 10px;
-  font-weight: bold;
-  font-family: "Raleway";
-  border-bottom: 1px solid lightgray;
-}
+
 
 .sidebar__link {
   color: #585858;
@@ -426,11 +417,11 @@ main {
   font-size: 18px;
 }
 
-.sidebar__logout {
+li .sidebar__logout {
   position: absolute;
   color: #e65061;
   border: none;
-  width: 30px;
+  width: 35px;
   font-size: 30px;
   -webkit-transition: width 0.35s ease-in-out;
   transition: width 0.35s ease-in-out;
@@ -444,7 +435,7 @@ main {
   font-family: "Raleway";
 }
 
-.sidebar__logout:hover {
+li .sidebar__logout:hover {
   width: 200px;
   overflow: visible;
   color: #ffffff;
@@ -473,18 +464,31 @@ main {
   position: absolute;
 }
 
-@media only screen and (max-width: 978px) {
+@media only screen and (max-width: 768px) {
   .container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 0.1fr 1fr;
     /* grid-template-rows: 0.2fr 2.2fr; */
     grid-template-rows: 0.2fr 3fr;
     grid-template-areas:
-      "nav"
-      "main";
+      "sidebar nav"
+      "sidebar main";
   }
-
-  #sidebar {
+  .sidebar__title{
     display: none;
+  }
+  .sideba__menu a 
+  /* firsr-child là lay cai menu đàu hiên hiên thi ra, home, newu bỏ chu not(:first-child) thì sẽ hiên thi mỗi icon */
+  {
+    color: white;
+      display: none;
+    }
+  .sideba__menu a.icon {
+      color: rgb(233, 218, 8);
+    float: right;
+    display: block;
+  }
+  #sidebar {
+    display: block;
   }
 
   .sidebar__title > i {
@@ -494,6 +498,49 @@ main {
   .nav_icon {
     display: inline;
   }
+
+  .sideba__menu .responsive {
+    width: 100%;
+      position: absolute;
+      background-color: black;
+      
+      }
+      /* .bg-image{
+          top:100px;
+      }   */
+  .sideba__menu a{
+       padding: 10px 5px 5px 5px;
+       color: white;
+  }
+ 
+  .sideba__menu .responsive .icon {
+   /* margin-left: 200px; */
+      color: white;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+
+
+
+
+
+/* For mobile phones: */
+/* Header  */
+
+.sideba__menu.responsive .icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.sideba__menu.responsive a {
+    /* margin-bottom: 10%; */
+  font-size: 16px;
+  float: none;
+  display: block;
+  text-align: left;
+}
 }
 
 @media only screen and (max-width: 855px) {
@@ -650,6 +697,9 @@ main {
   border: 2px solid white;
 }
 .buttonProcess1{
+  color: white;
+  border: 2px solid white;
+  outline: none;
   background-color: #ffd700;
 }
 .buttonProcess:hover {
@@ -980,11 +1030,9 @@ li {
 }
 
 li a {
+  padding: 2px;
   text-decoration: none;
-  color: #585858;
   display: block;
-  padding: 8px;
-  background-color: #dddddd;
 }
 
 /* Show more Infor trucker */
@@ -1089,4 +1137,171 @@ margin: 0px -20px;
 .HoverexitTrucker i:hover{
   color: red;
   font-size: 42px;
+}
+
+
+/* Sidebar responsive */
+/* Layout */
+.s-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.s-layout__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+/* Sidebar */
+.s-sidebar__trigger {
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4em;
+  background: #192b3c;
+}
+
+.s-sidebar__trigger > i {
+  display: inline-block;
+  margin: 1.5em 0 0 1.5em;
+  color: #f07ab0;
+}
+
+.s-sidebar__nav {
+  position: fixed;
+  top: 0;
+  left: -15em;
+  overflow: hidden;
+  transition: all .3s ease-in;
+  width: 15em;
+  height: 100%;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.s-sidebar__nav:hover,
+.s-sidebar__nav:focus,
+.s-sidebar__trigger:focus + .s-sidebar__nav,
+.s-sidebar__trigger:hover + .s-sidebar__nav {
+  left: 0;
+}
+
+.s-sidebar__nav ul {
+  position: absolute;
+  top: 4em;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 15em;
+}
+
+.s-sidebar__nav ul li {
+  width: 100%;
+}
+
+.s-sidebar__nav-link {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 4em;
+}
+
+.s-sidebar__nav-link em {
+  position: absolute;
+  top: 50%;
+  left: 4em;
+  transform: translateY(-50%);
+}
+
+.s-sidebar__nav-link:hover {
+  background: #4d6276;
+}
+
+.s-sidebar__nav-link > i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 4em;
+  height: 4em;
+}
+
+.s-sidebar__nav-link > i::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Mobile First */
+@media (min-width: 42em) {
+  .s-layout__content {
+     margin-left: 4em;
+  }
+  
+  /* Sidebar */
+  .s-sidebar__trigger {
+     width: 4em;
+  }
+  
+  .s-sidebar__nav {
+    /* background-color: yellow; */
+     width: 4em;
+     left: 0;
+  }
+  
+  /* .s-sidebar__nav:hover,
+  .s-sidebar__nav:focus,
+  .s-sidebar__trigger:hover + .s-sidebar__nav,
+  .s-sidebar__trigger:focus + .s-sidebar__nav {
+     width: 15em;
+  }*/
+} 
+@media (min-width:375px) {
+  .s-sidebar__nav {
+    background-color: rgb(201, 197, 197);
+     width: 10em;
+  }
+  
+}
+@media (min-width: 68em) {
+  .s-layout__content {
+     margin-left: 25em;
+  }
+  
+  /* Sidebar */
+  .s-sidebar__trigger {
+     display: none
+  }
+  h2{
+    color: black;
+  }
+  .s-sidebar__nav {
+    top: 70px;
+    width: 25em;
+    background: #f8f8f8;
+  }
+  
+  .s-sidebar__nav ul {
+     top: 20px;
+     width: 80%;
+     left: 10%;
+     right: 10%;
+     list-style: none;
+  }
+}
+/* dungchung */
+.s-sidebar__nav li > h2 {
+  color: #585858;
+  font-size: 15px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  padding: 10 10px;
+  font-weight: bold;
+  font-family: "Raleway";
+  border-bottom: 1px solid lightgray;
 }
