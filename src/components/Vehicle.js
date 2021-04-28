@@ -107,7 +107,7 @@ import Header from './Header';
                             <th>Description</th>
                             <th>Unit_price</th>
                             <th>Bonus_price</th>
-                            <th>Image</th>
+                            <th class="image1">Image</th>
                             <th>Payload</th>
                             <th>Action</th>
                         </tr>
@@ -149,7 +149,7 @@ class Item extends Component {
                             <td>{this.props.truck.description}</td>
                             <td>{this.props.truck.unit_price}</td>                       
                             <td>{this.props.truck.bonus_price}</td>
-                            <td><img class="image" src={this.props.truck.image}></img></td>
+                            <td class="image2"><img class="image" src={this.props.truck.image}></img></td>
                             <td>{this.props.truck.payload}</td>
 
                             <td><button  class="button buttonAdd" type="submit" onClick ={ () =>this.onDelete(this.props.truck.id)}>Delete</button></td>

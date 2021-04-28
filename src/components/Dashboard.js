@@ -79,7 +79,6 @@ class Dashboard extends Component{
 
     render(){
       const  count_order = this.state.count_order;
-      console.log(count_order);
         return(
           <div class="container">
           <Menu />
@@ -135,13 +134,13 @@ class Dashboard extends Component{
                     <div>
                       <h1>Statics Months</h1>
                       <p>VietNam in 2020</p>
-                      <Chart/>
                     </div>
-                    <i class="fa fa-usd" aria-hidden="true"></i>
-                  </div>
-                  <div id="contain"></div>
-                  
-                  
+                      <i class="fa fa-usd" aria-hidden="true"></i>
+
+                    </div>
+                
+                  <div id="contain">
+                  <Chart/></div>   
                 </div>
     
                 <div class="charts__right">

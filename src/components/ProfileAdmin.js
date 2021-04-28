@@ -14,11 +14,10 @@ export default class ProfileAdmin extends Component{
     this._isMounted = true;
     Axios({
         methos:'GET',
-        url:"https://api-gogo.herokuapp.com/api/profile/5",
+        url:"https://api-gogo.herokuapp.com/api/profile/6",
         data:null
     }).then(res =>{
       var data =res.data;
-      console.log(data);
       this.setState({
         profile :res.data.user,
       });
