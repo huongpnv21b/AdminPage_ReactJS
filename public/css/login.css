@@ -128,5 +128,8 @@ button#submit:hover {
     width: 300px;
     margin: auto;
   }
+  .titleLogin{
+    font-size: 30px;
+  }
   
 }
