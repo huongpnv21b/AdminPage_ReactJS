@@ -269,8 +269,8 @@ class Item extends Component {
                                     </div>
                                 
                             </Modal>
-                            <td class="checkout"><button  class="button buttonDelete" type="submit" onClick ={ () =>this.onCheck(this.props.trucker.id)}>Check</button>
-                            <button  class="button buttonAdd" type="submit" onClick ={ () =>this.onRefuse(this.props.trucker.id)}>Refuse</button></td>
+                            <td class="checkout"><button  class="button buttonDelete" type="submit" onClick ={ () =>this.onCheck(this.props.trucker.id)}>Approve</button>
+                            <button  class="button buttonAdd" type="submit" onClick ={ () =>this.onRefuse(this.props.trucker.id)}>Reject</button></td>
                         </tr>
                     
                        
