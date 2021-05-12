@@ -1153,7 +1153,15 @@ margin: 0px -20px;
   transform: translate(-50%, -50%);
 }
 
-
+@media only screen and (max-width: 1440px) {
+  
+.chartjs-render-monitor{
+  height: 380px !important;
+}
+.App {
+  width: 500px;
+}
+}
 @media only screen and (max-width: 768px) {
   .container {
     grid-template-columns: 0.1fr 1fr;
@@ -1347,7 +1355,9 @@ margin: 0px -20px;
     padding: 10px 0px;
   }
   .styled-table{
+    text-overflow: ellipsis; 
     margin: 0px 30px 0px 0px;
+    max-width: 200px;
   }
   .main__title .main__greeting h1{
     margin-left: 0px !important;
