@@ -7,7 +7,7 @@ import Axios from 'axios';
 import Menu from './Menu';
 import Chart from './Chart';
 import Header from './Header';
-// import ProfileAdmin from './ProfileAdmin.js';
+import {Redirect} from 'react-router-dom';
 
 class Dashboard extends Component{
 
@@ -79,6 +79,9 @@ class Dashboard extends Component{
 
     render(){
       const  count_order = this.state.count_order;
+      if(!localStorage.phone){
+        return <Redirect to="/"/>;
+      }
         return(
           <div class="container">
           <Menu />

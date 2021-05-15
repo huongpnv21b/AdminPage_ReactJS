@@ -67,7 +67,7 @@ export default class Header extends Component{
                 this.setState({
                   notifi:notifi
                 });                      
-                toast.success("Xoa khuyen mai thanh cong",{                       
+                toast.success("Deleted Notification successfully",{                       
                 })
                 
             }

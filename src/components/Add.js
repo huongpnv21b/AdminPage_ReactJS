@@ -155,7 +155,9 @@ export default class Add extends Component {
               <div class="flex-box">
                 <label for="code">Code:</label>
                 <input
-                  // type="text"
+                minlength="4" 
+                maxlength="20"
+                  type="text"
                   name="code"
                   class="form-input"
                   value={this.state.code}
@@ -166,7 +168,8 @@ export default class Add extends Component {
               <div class="flex-box">
                 <label for="start_time">Start Time:</label>
                 <input
-                  type="datetime-local"
+                min="2021-04-01"
+                  type="date"
                   name="start_time"
                   class="form-input"
                   value={this.state.start_time}
@@ -177,7 +180,8 @@ export default class Add extends Component {
               <div class="flex-box">
                 <label for="end_time">End Time:</label>
                 <input
-                  type="datetime-local"
+                min="2021-04-01"
+                type="date"
                   name="end_time"
                   class="form-input"
                   value={this.state.end_time}
@@ -185,19 +189,23 @@ export default class Add extends Component {
                 />
               </div>
               <div class="flex-box">
-                <label for="min_value">Value range:</label>
+                <label for="min_value">Apply for:</label>
                 <div class="small-flex-box">
                   <input
+                  step="0.01" 
+                  min="100,000"
+                  max="100,000,000"
                     type="number"
                     name="min_value"
                     class="small-input"
                     value={this.state.min_value}
-                    placeholder="Min value"
+                    placeholder="Min value(100,000)"
                     onChange={this.onChange}
                   />
-
-                  {/* <label for="max_value">Max value:</label> */}
                   <input
+                  inputmode="decimal" 
+                  min="100,000"
+                  max="100,000,000"
                     type="number"
                     name="max_value"
                     class="small-input"
@@ -208,8 +216,10 @@ export default class Add extends Component {
                 </div>
               </div>
               <div class="flex-box">
-                <label for="value">Value: </label>
+                <label for="value">Value (%): </label>
                 <input
+                min="5"
+                max="100"
                   type="number"
                   name="value"
                   class="number-input"

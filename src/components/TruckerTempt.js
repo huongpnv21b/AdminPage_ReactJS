@@ -164,7 +164,9 @@ class Item extends Component {
             url:`https://api-gogo.herokuapp.com/api/trucker/register/${id}`,
             data:null
         });
-        window.location.reload();
+        // window.location.reload();
+         <Redirect to="/trucker"/>;
+
         
     }
 
@@ -269,7 +271,7 @@ class Item extends Component {
                                     </div>
                                 
                             </Modal>
-                            <td class="checkout"><button  class="button buttonDelete" type="submit" onClick ={ () =>this.onCheck(this.props.trucker.id)}>Approve</button>
+                            <td class="checkout"><button  class="button buttonDelete width" type="submit" onClick ={ () =>this.onCheck(this.props.trucker.id)}>Approve</button>
                             <button  class="button buttonAdd" type="submit" onClick ={ () =>this.onRefuse(this.props.trucker.id)}>Reject</button></td>
                         </tr>
                     

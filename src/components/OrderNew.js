@@ -77,12 +77,18 @@ class OrderNew extends Component{
                 <Header />
                 <div class="primary__bar">
                     <div class="right__side">
-                        <div class="tabOrder">
-                            <ul>
+                        <div class="status_order">
+                            {/* <ul>
                                 <li> <Link to={'/orderNew'} className="button buttonDelete active1">New Orders </Link></li>
                                 <li><Link to={'/orderProcessing'} class="button buttonProcess">Processing Orders</Link></li>
                                 <li><Link to={'/orderCompleted'} class="button buttonComplete">Completed Orders</Link></li>
-                            </ul>
+                            </ul> */}
+                            <select name="cars" id="cars" >
+                                <option>Status Order</option>
+                                <Link to={'/orderNew'} className="button buttonDelete active1"><option value="saab">New Orders </option></Link>
+                                <Link to={'/orderProcessing'} class="button buttonProcess"><option value="opel">Processing Orders</option></Link>
+                                <option value="audi">Completed Orders</option>
+                            </select>
                         </div>
                     </div> 
                 </div>
@@ -112,7 +118,7 @@ class OrderNew extends Component{
                                       }
                                     });
                                   } else {
-                                    return <p>No order</p>;
+                                    return <p>No order New</p>;
                                   }
                     })()}
                 </table>

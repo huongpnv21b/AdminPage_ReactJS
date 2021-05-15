@@ -112,7 +112,7 @@ class OrderCompleted extends Component{
                                       }
                                     });
                                   } else {
-                                    return <p>No order</p>;
+                                    return <p>No order Complete</p>;
                                   }
                     })()}
                 </table>

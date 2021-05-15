@@ -37,10 +37,8 @@ import Header from './Header';
                 data:null
             }).then(res =>{
                 if(res.status === 204){
-
                     var index = this.findIndex(trucks, id);
                     if(index !== -1){
-                       
                         trucks.splice(index,1);
                         this.setState({
                             trucks:trucks
@@ -58,7 +56,7 @@ import Header from './Header';
             var {trucks} = this.state;
             var result = -1;
             trucks.forEach((truck, index) =>{
-                if(trucks.id === id){
+                if(truck.id === id){
                     result =index;
                 }
             });
@@ -79,7 +77,7 @@ import Header from './Header';
         let search = this.state.trucks.filter(
             (truck) =>{
               return (truck.payload.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1 || truck.name.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1||
-               truck.description.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1 );
+               truck.description.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1  );
             }
           );
           if(!localStorage.phone){
@@ -119,7 +117,6 @@ import Header from './Header';
                             key={index} truck={truck}
                             onDelete={this.onDeleted}
                         ></Item>
-                        // <p> {product.price}</p>  
                         )}
                   
                   
@@ -131,7 +128,7 @@ import Header from './Header';
         );
     }
 }
-export default Vehicle;
+
 class Item extends Component {
 
     onDelete = (id) =>{
@@ -160,3 +157,4 @@ class Item extends Component {
         );
     }
 }
+export default Vehicle;

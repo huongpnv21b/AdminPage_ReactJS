@@ -149,7 +149,7 @@ class Item extends Component {
                             <td>{this.props.sender.address}</td>
                             <td>{this.props.sender.email}</td>
                             <td>{this.props.sender.phone}</td>
-                            <td><img style={{ width:"70px"}} src={this.props.sender.avatar} alt="Not found image" /></td>
+                            <td><img style={{ width:"85px", height:"70px"}} src={this.props.sender.avatar} alt="Not found image" /></td>
                             <td>{this.props.sender.name_role}</td>
                             <td><button  class="button buttonAdd" type="submit" onClick ={ () =>this.onDelete(this.props.sender.id)}>Delete</button></td>
                         </tr>

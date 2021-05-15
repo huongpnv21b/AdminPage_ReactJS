@@ -47,7 +47,6 @@ class Trucker extends Component{
                         toast.success("Trucker removed!",{
                             // componentDidMount();
                         })
-                        alert("1");
                     }
                 }
             });
@@ -172,7 +171,7 @@ class Item extends Component {
                             <td>{this.props.trucker.address}</td>
                             <td>{this.props.trucker.email}</td>
                             <td>{this.props.trucker.phone}</td>
-                            <td><img style={{ width:"70px"}} src={this.props.trucker.avatar} alt="Not found image" /></td>
+                            <td><img style={{ width:"85px", height:"70px"}} src={this.props.trucker.avatar} alt="Not found image" /></td>
                             <td><i class="fa fa-clipboard-list" value ={this.props.trucker.id} onClick={this.show.bind(this)} ></i></td>
                             <td><button  class="button buttonAdd" type="submit" onClick ={ () =>this.onDelete(this.props.trucker.id)}>Delete</button></td>
                         </tr>

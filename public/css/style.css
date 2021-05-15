@@ -538,6 +538,7 @@ li .sidebar__logout:hover {
 /* .orderTable table { width: 1080px; margin-left: auto; margin-right: auto; } */
 .checkout{
   display: flex;
+  margin: 20px 5px 10px 0px;
 }
 .login-wrapper {
   display: flex;
@@ -570,7 +571,9 @@ li .sidebar__logout:hover {
   color: white;
   border: 2px solid white;
 }
-
+.width{
+  width: 100px;
+}
 .buttonDelete:hover {
   background-color: #007bff;
   color: white;
@@ -929,7 +932,7 @@ h3 {
   border-radius: 15px;
 }
 
-/* Tab in Order */
+/* Tab in Order
 .tabOrder {
   margin: 10px;
 }
@@ -948,8 +951,36 @@ li a {
   padding: 2px;
   text-decoration: none;
   display: block;
-}
+} */
 
+/* statusOrder */
+select {
+  /* -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none; dùng để bỏ dấu mũi ten*/
+  outline: 0;
+  box-shadow: none; 
+  border: 0 !important;
+  /* background: DeepSkyBlue; */
+  background-image: none;
+}
+.status_order {
+  position: relative;
+  display: flex;
+  width: 12em;
+  height: 3em;
+  line-height: 3;
+  background: rgb(97, 194, 223);
+  overflow: hidden;
+  border-radius: .25em;
+}
+select {
+  flex: 1;
+  padding: 0 .5em;
+  color: rgb(3, 3, 3);
+  cursor: pointer;
+}
 /* Show more Infor trucker */
 
 
