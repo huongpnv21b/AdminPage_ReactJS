@@ -8,6 +8,7 @@ import Menu from './Menu';
 import Chart from './Chart';
 import Header from './Header';
 import {Redirect} from 'react-router-dom';
+import { random } from 'lodash-es';
 
 class Dashboard extends Component{
 
@@ -16,7 +17,8 @@ class Dashboard extends Component{
         this.state={
             count_sender:'',
             count_trucker:'',
-            count_order:'',            
+            count_order:'',
+            revenue:'',       
             keyword:"",
             show: false
           };
@@ -36,7 +38,15 @@ class Dashboard extends Component{
                   count_sender:res.data
               });
           })
-  
+          Axios({
+            methos:'GET',
+            url:"https://api-gogo.herokuapp.com/api/revenue",
+            data:null
+          }).then (res=>{
+              this.setState({
+                  revenue:res.data
+              });
+          })
         Axios({
           methos:'GET',
           url:"https://api-gogo.herokuapp.com/api/count-trucker",
@@ -136,7 +146,7 @@ class Dashboard extends Component{
                   <div class="charts__left__title">
                     <div>
                       <h1>Statics Months</h1>
-                      <p>VietNam in 2020</p>
+                      <p>VietNam in 2021</p>
                     </div>
                       <i class="fa fa-usd" aria-hidden="true"></i>
 
@@ -150,7 +160,7 @@ class Dashboard extends Component{
                   <div class="charts__right__title">
                     <div>
                       <h1>Stats Reports</h1>
-                      <p>Cupertino, California, USA</p>
+                      <p>VietNam</p>
                      
                     </div>
                     <i class="fa fa-usd" aria-hidden="true"></i>
@@ -158,15 +168,19 @@ class Dashboard extends Component{
     
                   <div class="charts__right__cards">
                     <div class="card1">
-                      <h1>Income</h1>
-                      <p>$75,300</p>
-                    </div>
-    
-                    <div class="card2">
                       <h1>Revenue statistics</h1>
-                      <p>$124,200</p>
+                      <p>{this.state.revenue.toLocaleString('vi-VN', {
+        style: 'currency',
+        currency: 'VND'
+    })}</p>
                     </div>
-    
+                    <div class="card2">
+                      <h1>Income</h1>
+                      <p>{(this.state.revenue+random(10000,999999)).toLocaleString('vi-VN', {
+        style: 'currency',
+        currency: 'VND'
+    })}</p>
+                    </div>
                     <div class="card3">
                       <h1>Users</h1>
                       <p>{this.state.count_user}</p>

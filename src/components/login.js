@@ -36,7 +36,6 @@ export default class Login extends Component {
                 token: "123456"
             }
         }).then((response) => {
-            console.log(response.status);
             if(response.data.role==3){
                 this.setState({loggedIn : true})
                 localStorage.setItem('phone', phone);  
@@ -50,7 +49,6 @@ export default class Login extends Component {
           )
           .catch((response) => {
             if (response.status == undefined) {
-                console.log(response.error)
                 toast.error("Logon failed!", {
                 })
             }});

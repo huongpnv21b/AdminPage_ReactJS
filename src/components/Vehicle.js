@@ -29,7 +29,6 @@ import Header from './Header';
         }
         
         onDeleted=(id)=>{
-            console.log(id);
             var{trucks}=this.state;
             Axios({
                 method:'DELETE',

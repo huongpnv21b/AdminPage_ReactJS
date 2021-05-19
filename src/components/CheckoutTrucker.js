@@ -29,7 +29,6 @@ class CheckoutTrucker extends Component{
         }
     
         onDeleted=(id)=>{
-            console.log(id);
             var{checkout_truckers}=this.state;
             Axios({
                 method:'DELETE',

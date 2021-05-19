@@ -61,7 +61,6 @@ export default class Header extends Component{
     }).then(res =>{
         if(res.status === 204){
             var index = this.findIndex(notifi, id);
-            console.log(index);
             if(index !== -1){
               notifi.splice(index,1);
                 this.setState({
@@ -148,7 +147,6 @@ render(){
 
 class Item extends Component {
   onDelete = (id) =>{
-    console.log(id);
 		if (confirm('Do you really want to remove this one?')) { //eslint-disable-line
          this.props.onDelete(id);
       }

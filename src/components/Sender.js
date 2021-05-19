@@ -29,7 +29,6 @@ class Sender extends Component{
         }
     
         onDeleted=(id)=>{
-            console.log(id);
             var{senders}=this.state;
             Axios({
                 method:'DELETE',

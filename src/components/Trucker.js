@@ -30,7 +30,6 @@ class Trucker extends Component{
         }
     
         onDeleted=(id)=>{
-            console.log(id);
             var{truckers}=this.state;
             Axios({
                 method:'DELETE',

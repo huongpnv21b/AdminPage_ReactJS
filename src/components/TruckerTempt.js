@@ -30,7 +30,6 @@ class TruckerTempt extends Component{
         }
     
         onDeleted=(id)=>{
-            console.log(id);
             var{trucker_tempt}=this.state;
             Axios({
                 method:'DELETE',
@@ -166,7 +165,6 @@ class Item extends Component {
       }
 
       onCheck=(id)=>{
-          console.log(id);
         Axios({
             method:'POST',
             url:`https://api-gogo.herokuapp.com/api/trucker/register/${id}`,
@@ -196,8 +194,7 @@ class Item extends Component {
     render(props) {
         return (
                <tbody>
-                        <tr>
-                        
+                        <tr> 
                             <td>{this.props.trucker.full_name}</td>
                             <td>{this.props.trucker.id_card}</td>
                             <td>{this.props.trucker.birthday}</td>

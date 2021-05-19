@@ -25,7 +25,6 @@ class Menu extends Component {
       <div className="s-layout__sidebar">
         <div class="sidebar__title">
             <div class="sidebar__img">
-              {/* <img src="Image/LOGO.PNG" alt="logo" /> */}
               <h2
                 style={{
                   color: "#001747",

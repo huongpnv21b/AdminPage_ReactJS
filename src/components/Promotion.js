@@ -37,7 +37,6 @@ class Promotion extends Component{
             }).then(res =>{
                 if(res.status === 204){
                     var index = this.findIndex(promotions, id);
-                    console.log(index);
                     if(index !== -1){
                         promotions.splice(index,1);
                         this.setState({
@@ -166,7 +165,7 @@ class Item extends Component {
     })}</td>
                             <td>{this.props.promotion.value} %</td>
                             <td><i class="fas fa-trash-alt" style={{color:"red"}} type="submit"  onClick ={ () =>this.onDelete(this.props.promotion.id)}></i></td><td>
-                           <Link to={"/update/"+this.props.promotion.id} class= "link"><i class="fas fa-edit" style={{color:"yellow"}}></i></Link></td>
+                           <Link to={"/update/"+this.props.promotion.id} class= "link"><i class="fas fa-edit" style={{color:"#ffd700"}}></i></Link></td>
 
                         </tr>
                     </tbody> 
