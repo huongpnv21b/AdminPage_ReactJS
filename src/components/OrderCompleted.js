@@ -28,40 +28,10 @@ class OrderCompleted extends Component{
             console.log(err);
         });
     }
-        onDeleted=(id)=>{
-            console.log(id);
-            var{orderCompleted}=this.state;
-            Axios({
-                method:'DELETE',
-                url:`https://api-gogo.herokuapp.com/api/order/delete/${id}`,
-                data:null
-            }).then(res =>{
-                if(res.status === 204){
-                    var index = this.findIndex(orderCompleted, id);
-                    if(index !== -1){
-                        orderCompleted.splice(index,1);
-                        this.setState({
-                            orderCompleted:orderCompleted
-                        });
-                        toast.success("Delete Order Complete successfully",{
-                        })
-                    }
-                }
-            });
-            
+       
+        myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
         }
-
-        findIndex =(orderCompleted, id) =>{
-            var {orderCompleted} = this.state;
-            var result = -1;
-            orderCompleted.forEach((order, index) =>{
-                if(order.id === id){
-                    result =index;
-                }
-            });
-            return result;
-        }
-        
     render(){
         var orderCompleted=this.state.orderCompleted;
         var stt=1
@@ -76,15 +46,21 @@ class OrderCompleted extends Component{
                 <div class="orderTable">
                 <Header />
                 <div class="primary__bar">
-                    <div class="right__side">
-                        <div class="tabOrder">
-                            <ul>
-                                <li> <Link to={'/orderNew'} className="button buttonDelete ">New Orders </Link></li>
-                                <li><Link to={'/orderProcessing'} class="button buttonProcess">Processing Orders</Link></li>
-                                <li><Link to={'/orderCompleted'} class="button buttonComplete1 active3">Completed Orders</Link></li>
-                            </ul>
+                <div class="left__side">
+                            <div><p style={{color:"black", fontWeight:"bold",fontSize:"20px",float:"left"}}>List of complete order</p> </div>
                         </div>
-                    </div> 
+                            <div class="right__side">
+                            <div class="dropdown1">
+                        
+                                <button onClick ={ () =>this.myFunction()} class="dropbtn ">Status Order <i class="fa fa-caret-down"></i></button>
+                                <div id="myDropdown" class="dropdown-content" style={{right:200}}>
+                                    <a href="#home"><Link to={'/orderNew'} className="button buttonDelete ">New Orders </Link></a>
+                                    <a href="#home"><Link to={'/orderProcessing'} class="button buttonProcess">Processing Orders</Link></a>
+                                    <a href="#about"><Link to={'/orderCompleted'} class="button buttonComplete">Completed Orders</Link></a>
+                                </div>
+                            </div>
+                            </div>  
+                    
                 </div>
                 <table class="styled-table">
                     <thead>
@@ -99,7 +75,6 @@ class OrderCompleted extends Component{
                             <th>Vehicle</th>
                             <th>SenderInfor</th>
                             <th>ReceiverInfo</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                     {(() => {
@@ -112,7 +87,7 @@ class OrderCompleted extends Component{
                                       }
                                     });
                                   } else {
-                                    return <p>No order Complete</p>;
+                                    return <p><center>Don't have completed order</center> </p>;
                                   }
                     })()}
                 </table>
@@ -143,19 +118,21 @@ class Item extends Component {
                             <td>{this.props.order.time_send}</td>
                             <td>{this.props.order.name}</td>
                             <td>{this.props.order.mass}</td>                       
-                            <td>{this.props.order.price}</td>
+                            <td>{this.props.order.price.toLocaleString('vi-VN', {
+        style: 'currency',
+        currency: 'VND'
+    })}</td>
                             <td>{this.props.order.truck}</td>
                             <td class="pp">{JSON.parse(this.props.order.sender_info).name}</td>
-                            <td class="pa">Name: {JSON.parse(this.props.order.sender_info).name}<br></br>
-                                            Phone: {JSON.parse(this.props.order.sender_info).phone} <br></br> 
-                                            Note: {JSON.parse(this.props.order.sender_info).note} 
+                            <td class="pa">{JSON.parse(this.props.order.sender_info).name}<br></br>
+                                            {/* Phone: {JSON.parse(this.props.order.sender_info).phone} <br></br> 
+                                            Note: {JSON.parse(this.props.order.sender_info).note}  */}
                                            </td>
                             <td class="pp"> {JSON.parse(this.props.order.receiver_info).name}</td>
-                            <td class="pa">Name: {JSON.parse(this.props.order.receiver_info).name}<br></br>
-                                            Phone: {JSON.parse(this.props.order.receiver_info).phone} <br></br> 
-                                            Note: {JSON.parse(this.props.order.receiver_info).note} 
+                            <td class="pa">{JSON.parse(this.props.order.receiver_info).name}<br></br>
+                                            {/* Phone: {JSON.parse(this.props.order.receiver_info).phone} <br></br> 
+                                            Note: {JSON.parse(this.props.order.receiver_info).note}  */}
                                            </td>
-                            <td><button  class="button buttonAdd" type="submit" onClick ={ () =>this.onDelete(this.props.order.id)}>Delete</button></td>
                         </tr>
                     </tbody> 
             )

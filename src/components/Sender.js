@@ -79,7 +79,8 @@ class Sender extends Component{
         let search = this.state.senders.filter(
             (sender) =>{
               return (sender.full_name.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1||sender.phone.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1 ||
-               sender.id_card.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1);
+               sender.id_card.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1 ||sender.address.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1
+               ||sender.email.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1);
             }
           );
           if(!localStorage.phone){
@@ -108,7 +109,6 @@ class Sender extends Component{
                             <th>Email</th>
                             <th>Phone</th>
                             <th>Avatar</th>
-                            <th>Role</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -142,16 +142,14 @@ class Item extends Component {
         return (
                <tbody>
                         <tr>
-                        
-                            <td>{this.props.sender.full_name}</td>
+                            <td width="auto">{this.props.sender.full_name}</td>
                             <td>{this.props.sender.id_card}</td>
                             <td>{this.props.sender.birthday}</td>
                             <td>{this.props.sender.address}</td>
                             <td>{this.props.sender.email}</td>
                             <td>{this.props.sender.phone}</td>
                             <td><img style={{ width:"85px", height:"70px"}} src={this.props.sender.avatar} alt="Not found image" /></td>
-                            <td>{this.props.sender.name_role}</td>
-                            <td><button  class="button buttonAdd" type="submit" onClick ={ () =>this.onDelete(this.props.sender.id)}>Delete</button></td>
+                            <td><i class="fas fa-trash-alt" style={{color:"red"}}type="submit" onClick ={ () =>this.onDelete(this.props.sender.id)}></i> </td>
                         </tr>
                     
                     

@@ -144,12 +144,18 @@ class Item extends Component {
                             <td>{this.props.id}</td>
                             <td>{this.props.truck.name}</td>
                             <td>{this.props.truck.description}</td>
-                            <td>{this.props.truck.unit_price}</td>                       
-                            <td>{this.props.truck.bonus_price}</td>
+                            <td>{this.props.truck.unit_price.toLocaleString('vi-VN', {
+                            style: 'currency',
+                            currency: 'VND'
+                        })}</td>
+                             <td>{this.props.truck.bonus_price.toLocaleString('vi-VN', {
+                                style: 'currency',
+                                currency: 'VND'
+                            })}</td>                      
                             <td class="image2"><img class="image" src={this.props.truck.image}></img></td>
                             <td>{this.props.truck.payload}</td>
 
-                            <td><button  class="button buttonAdd" type="submit" onClick ={ () =>this.onDelete(this.props.truck.id)}>Delete</button></td>
+                            <td><i class="fas fa-trash-alt" style={{color:"red"}}type="submit" onClick ={ () =>this.onDelete(this.props.truck.id)}></i></td>
                         </tr>
                     
                 </tbody> 

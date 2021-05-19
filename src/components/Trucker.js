@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Menu from './Menu';
 import Header from './Header';
-import {Redirect,Link} from 'react-router-dom';
+import {Redirect,Link,withRouter} from 'react-router-dom';
 import Modal, {closeStyle} from 'simple-react-modal';
 class Trucker extends Component{
     constructor(props){
@@ -72,12 +72,16 @@ class Trucker extends Component{
               [name] : value
             });
           }
+          myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");}
     render(){
         // var truckers=this.state.truckers;
         var { truckers,keyword } = this.state;
         let search = this.state.truckers.filter(
             (trucker) =>{
-                return (trucker.full_name.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1||trucker.phone.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1);            }
+                return (trucker.full_name.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1||trucker.phone.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1
+                ||trucker.id_card.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1 ||trucker.address.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1
+               ||trucker.email.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1);           }
           );
           if(!localStorage.phone){
             return <Redirect to="/"/>;
@@ -88,20 +92,20 @@ class Trucker extends Component{
                 <Menu/>
               <div class="orderTable">
               <Header />
-              
-                {/* <div style={{borderBottom: "1px solid lightgrey", marginBottom: "20px"}}>  
-                    <h2 class="title_table"> List of Truckers</h2>
-                </div> */}
                 <div className = "row">
                     <div class="primary__bar">
                         <div class="left__side">
                             <input type="text" className="search" name="keyword"  value={keyword} onChange ={ this.onChange} type="search" placeholder='Search' aria-label="Search" />
+                            <div><p style={{color:"black", fontWeight:"bold",fontSize:"20px",float:"left"}}>List of Approved Trucker</p></div>
                         </div>
-                            <div class="right__side">
-                                <div class="tabOrder">
-                                    <ul>
-                                        <li> <Link to={'/truckerTempt'} class="button buttonDelete">Checkout Account </Link></li>
-                                    </ul>
+
+                            <div class="right__side right">
+                                <div class="dropdowntrucker">
+                                    <button onClick ={ () =>this.myFunction()} class="dropbtn ">Filter by status <i class="fa fa-caret-down"></i></button>
+                                    <div id="myDropdown" class="dropdown-content" style={{right:0}}>
+                                        <a href="#home"><Link to={'/trucker'}>Approved</Link></a>
+                                        <a href="#home"><Link to={'/truckerTempt'} >Pending</Link></a>
+                                    </div>
                                 </div>
                             </div>                      
                     </div>
@@ -173,7 +177,8 @@ class Item extends Component {
                             <td>{this.props.trucker.phone}</td>
                             <td><img style={{ width:"85px", height:"70px"}} src={this.props.trucker.avatar} alt="Not found image" /></td>
                             <td><i class="fa fa-clipboard-list" value ={this.props.trucker.id} onClick={this.show.bind(this)} ></i></td>
-                            <td><button  class="button buttonAdd" type="submit" onClick ={ () =>this.onDelete(this.props.trucker.id)}>Delete</button></td>
+                            <td><i class="fas fa-trash-alt" style={{color:"red"}}type="submit" onClick ={ () =>this.onDelete(this.props.trucker.id)}></i>
+                             </td>
                         </tr>
                         <Modal 
                              //overwrites the default background
@@ -258,4 +263,4 @@ class Item extends Component {
         );
     }
 }
-export default Trucker;
+export default withRouter(Trucker) ;

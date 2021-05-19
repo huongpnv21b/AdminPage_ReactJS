@@ -143,9 +143,10 @@ export default class Add extends Component {
             <h3>ADD Promotion</h3>
             <form onSubmit={this.onSave}>
               <div class="flex-box">
-                <label for="name">Title:</label>
+                <label for="name">Title: <span style={{color:"red"}}> *</span></label>
                 <input
-                  // type="text"
+                required
+                  type="text"
                   name="name"
                   class="form-input"
                   value={this.state.name}
@@ -153,10 +154,11 @@ export default class Add extends Component {
                 />
               </div>
               <div class="flex-box">
-                <label for="code">Code:</label>
+                <label for="code">Code:  <span style={{color:"red"}}> *</span> </label>
                 <input
+                required
                 minlength="4" 
-                maxlength="20"
+                maxlength="15"
                   type="text"
                   name="code"
                   class="form-input"
@@ -166,10 +168,10 @@ export default class Add extends Component {
               </div>
 
               <div class="flex-box">
-                <label for="start_time">Start Time:</label>
-                <input
-                min="2021-04-01"
-                  type="date"
+                <label for="start_time">Start Time: <span style={{color:"red"}}> *</span></label>
+                <input required
+               min="2021-05-17T00:00" 
+                  type="datetime-local"
                   name="start_time"
                   class="form-input"
                   value={this.state.start_time}
@@ -178,10 +180,11 @@ export default class Add extends Component {
               </div>
 
               <div class="flex-box">
-                <label for="end_time">End Time:</label>
+                <label for="end_time">End Time: <span style={{color:"red"}}> *</span></label>
                 <input
-                min="2021-04-01"
-                type="date"
+                required
+                min="2021-05-17T00:00" 
+                type="datetime-local"
                   name="end_time"
                   class="form-input"
                   value={this.state.end_time}
@@ -189,35 +192,37 @@ export default class Add extends Component {
                 />
               </div>
               <div class="flex-box">
-                <label for="min_value">Apply for:</label>
+                <label for="min_value">Apply for (VNĐ) <span style={{color:"red"}}>*</span>:</label>
                 <div class="small-flex-box">
                   <input
-                  step="0.01" 
-                  min="100,000"
-                  max="100,000,000"
+                  // step="0.01" 
+                  required
+                  min="100000"
+                  max="100000000"
                     type="number"
                     name="min_value"
                     class="small-input"
-                    value={this.state.min_value}
+                    value={this.state.min_value.toLocaleString()}
                     placeholder="Min value(100,000)"
                     onChange={this.onChange}
                   />
                   <input
-                  inputmode="decimal" 
-                  min="100,000"
-                  max="100,000,000"
+                  required
+                  min="100000"
+                  max="100000000"
                     type="number"
                     name="max_value"
                     class="small-input"
                     placeholder="Max value"
-                    value={this.state.max_value}
+                    value={this.state.max_value.toLocaleString()}
                     onChange={this.onChange}
                   />
                 </div>
               </div>
               <div class="flex-box">
-                <label for="value">Value (%): </label>
+                <label for="value">Value (%):<span style={{color:"red"}}> *</span> </label>
                 <input
+                required
                 min="5"
                 max="100"
                   type="number"

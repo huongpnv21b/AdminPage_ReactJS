@@ -4,9 +4,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Menu from './Menu';
 import Header from './Header';
-import {Redirect,Link,NavLink} from 'react-router-dom';
+import {Redirect,Link,NavLink, withRouter} from 'react-router-dom';
 import Modal, {closeStyle} from 'simple-react-modal';
-export default class TruckerTempt extends Component{
+class TruckerTempt extends Component{
     constructor(props){
         super(props)
         this.state={
@@ -72,6 +72,10 @@ export default class TruckerTempt extends Component{
               [name] : value
             });
           }
+
+          myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");}
+
     render(){
          var truckers=this.state.truckers;
         var { trucker_tempt,keyword } = this.state;
@@ -91,19 +95,23 @@ export default class TruckerTempt extends Component{
                 <Header />
                 
                 <div className = "row">
-                        <div class="primary__bar">
-                            <div class="left__side">
-                                <input type="text" className="search" name="keyword"  value={keyword} onChange ={ this.onChange} type="search" placeholder='Search' aria-label="Search" />
-                            </div>
-                            <div class="right__side">
-                                <div class="tabOrder">
-                                    <ul>
-                                        <li> <Link to={'/truckerTempt'} class="button buttonDelete">Checkout Account </Link></li>
-                                    </ul>
+                    <div class="primary__bar">
+                        <div class="left__side">
+                            <input type="text" className="search" name="keyword"  value={keyword} onChange ={ this.onChange} type="search" placeholder='Search' aria-label="Search" />
+                            <div><p style={{color:"black", fontWeight:"bold",fontSize:"20px",float:"left"}}>List of Pending Trucker</p></div>
+                        </div>
+
+                            <div class="right__side right">
+                                <div class="dropdowntrucker">
+                                    <button onClick ={ () =>this.myFunction()} class="dropbtn ">Filter by status <i class="fa fa-caret-down"></i></button>
+                                    <div id="myDropdown" class="dropdown-content" style={{right:0}}>
+                                        <a href="#home"><Link to={'/trucker'}>Approved</Link></a>
+                                        <a href="#home"><Link to={'/truckerTempt'} >Pending</Link></a>
+                                    </div>
                                 </div>
-                            </div> 
-                        </div>  
+                            </div>                      
                     </div>
+                </div>
                 <table class="styled-table">
                     <thead>
                         <tr>
@@ -134,7 +142,7 @@ export default class TruckerTempt extends Component{
         );
     }
 }
-
+export default withRouter(TruckerTempt);
 class Item extends Component {
 
     constructor(props){
@@ -163,9 +171,13 @@ class Item extends Component {
             method:'POST',
             url:`https://api-gogo.herokuapp.com/api/trucker/register/${id}`,
             data:null
+        }).then(res =>{
+             <Redirect to="/trucker"/>;
         });
+        
+       
         // window.location.reload();
-         <Redirect to="/trucker"/>;
+         //<Redirect to="/trucker"/>;
 
         
     }
@@ -271,7 +283,7 @@ class Item extends Component {
                                     </div>
                                 
                             </Modal>
-                            <td class="checkout"><button  class="button buttonDelete width" type="submit" onClick ={ () =>this.onCheck(this.props.trucker.id)}>Approve</button>
+                            <td class="checkout"><button  class="button buttonDelete width" type="submit" onClick ={ () =>this.onCheck(this.props.trucker.id)}><Link to="/trucker">Approve</Link></button>
                             <button  class="button buttonAdd" type="submit" onClick ={ () =>this.onRefuse(this.props.trucker.id)}>Reject</button></td>
                         </tr>
                     

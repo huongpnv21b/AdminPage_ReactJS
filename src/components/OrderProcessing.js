@@ -28,43 +28,11 @@ class OrderProcessing extends Component{
             console.log(err);
         });
 
-        
+       
 
         }
-        onDeleted=(id)=>{
-            console.log(id);
-            var{orders}=this.state;
-            Axios({
-                method:'DELETE',
-                url:`https://api-gogo.herokuapp.com/api/order/delete/${id}`,
-                data:null
-            }).then(res =>{
-                if(res.status === 204){
-                    var index = this.findIndex(orders, id);
-                    if(index !== -1){
-                        orders.splice(index,1);
-                        this.setState({
-                            orders:orders
-                        });
-                        toast.success("Delete Order Processing successfully",{
-                        })
-                    }
-                }
-            });
-            
-        }
-
-        findIndex =(orders, id) =>{
-            var {orders} = this.state;
-            var result = -1;
-            orders.forEach((order, index) =>{
-                if(order.id === id){
-                    result =index;
-                }
-            });
-            return result;
-        }
-        
+        myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");}
     render(){
         var orders=this.state.orders;
         var stt = 1;
@@ -81,18 +49,21 @@ class OrderProcessing extends Component{
                 
                 <div className = "row">
                     <div class="primary__bar">
-                            {/* <div class="left__side">
-                                <input type="text" className="search" name="keyword"  value={keyword} onChange ={ this.onChange} type="search" placeholder='Search' aria-label="Search" />
-                            </div> */}
+                    <div class="left__side">
+                            <div><p style={{color:"black", fontWeight:"bold",fontSize:"20px",float:"left"}}>List of processing order</p></div>
+                        </div>
                             <div class="right__side">
-                                <div class="tabOrder">
-                                    <ul>
-                                        <li> <Link to={'/orderNew'} className="button buttonDelete ">New Orders </Link></li>
-                                        <li><Link to={'/orderProcessing'} class="button buttonProcess1 active2">Processing Orders</Link></li>
-                                        <li><Link to={'/orderCompleted'} class="button buttonComplete">Completed Orders</Link></li>
-                                    </ul>
+                            <div class="dropdown1">
+                        
+                                <button onClick ={ () =>this.myFunction()} class="dropbtn ">Status Order <i class="fa fa-caret-down"></i></button>
+                                <div id="myDropdown" class="dropdown-content" style={{right:200}}>
+                                    <a href="#home"><Link to={'/orderNew'} className="button buttonDelete ">New Orders </Link></a>
+                                    <a href="#home"><Link to={'/orderProcessing'} class="button buttonProcess">Processing Orders</Link></a>
+                                    <a href="#about"><Link to={'/orderCompleted'} class="button buttonComplete">Completed Orders</Link></a>
                                 </div>
                             </div>
+                            </div>  
+                       
                     </div>  
                  </div>
                 
@@ -109,7 +80,6 @@ class OrderProcessing extends Component{
                             <th>Vehicle</th>
                             <th>SenderInfor</th>
                             <th>ReceiverInfo</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                     {(() => {
@@ -122,7 +92,7 @@ class OrderProcessing extends Component{
                                       }
                                     });
                                   } else {
-                                    return <p>No order Processing</p>;
+                                    return <p>Don't have processing order </p>;
                                   }
                     })()}       
                 </table>
@@ -150,23 +120,24 @@ class Item extends Component {
                         <td>{this.props.order.time_send}</td>
                         <td>{this.props.order.name}</td>
                         <td>{this.props.order.mass}</td>                       
-                        <td>{this.props.order.price}</td>
+                        <td>{this.props.order.price.toLocaleString('vi-VN', {
+        style: 'currency',
+        currency: 'VND'
+    })}</td>
                         <td>{this.props.order.truck}</td>
                         <td class="pp">{JSON.parse(this.props.order.sender_info).name}</td>
-                        <td class="pa">Name: {JSON.parse(this.props.order.sender_info).name}<br></br>
-                                     Phone:{JSON.parse(this.props.order.sender_info).phone} <br></br> 
-                                    Note:{JSON.parse(this.props.order.sender_info).note} 
+                        <td class="pa">{JSON.parse(this.props.order.sender_info).name}<br></br>
+                                     {/* Phone:{JSON.parse(this.props.order.sender_info).phone} <br></br> 
+                                    Note:{JSON.parse(this.props.order.sender_info).note}  */}
                                            </td>
                         <td class="pp"> {JSON.parse(this.props.order.receiver_info).name}</td>
-                        <td class="pa">Name: {JSON.parse(this.props.order.receiver_info).name}<br></br>
-                                    Phone: {JSON.parse(this.props.order.receiver_info).phone} <br></br> 
-                                     Note: {JSON.parse(this.props.order.receiver_info).note} 
-                                           </td>
-                        <td><button  class="button buttonAdd" type="submit" onClick ={ () =>this.onDelete(this.props.order.id)}>Delete</button></td>
-                    </tr>                 
+                        <td class="pa">{JSON.parse(this.props.order.receiver_info).name}<br></br>
+                                    {/* Phone: {JSON.parse(this.props.order.receiver_info).phone} <br></br> 
+                                     Note: {JSON.parse(this.props.order.receiver_info).note}  */}
+                                           </td>                    </tr>                 
                 </tbody> 
         );
-    }
+    } 
 }
 
 export default OrderProcessing;

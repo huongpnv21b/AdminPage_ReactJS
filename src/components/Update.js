@@ -104,15 +104,16 @@ export default class Update extends Component {
           <Menu />
           <div class="orderTable">
            <Header/>
-          <NavLink to="/promotion" class="link-nav" style={{textDecoration: "none"}}><i class="fa fa-chevron-left"></i>Trở về</NavLink>
+          <NavLink to="/promotion" class="link-nav" style={{textDecoration: "none"}}><i class="fa fa-chevron-left"></i>BACK</NavLink>
           <div class="container1">
             {/* <div></div> */}
             <h3>EDIT Promotion</h3>           
             <form  onSubmit={this.onSave}>
             <div class="flex-box">
-                <label for="name">Title:</label>
+                <label for="name">Title: <span style={{color:"red"}}> *</span></label>
                 <input
-                  // type="text"
+                  type="text"
+                  required
                   name="name"
                   class="form-input"
                   value={this.state.name}
@@ -120,9 +121,12 @@ export default class Update extends Component {
                 />
               </div>
               <div class="flex-box">
-                <label for="code">Code:</label>
+                <label for="code">Code: <span style={{color:"red"}}> *</span></label>
                 <input
-                  // type="text"
+                  required
+                  minlength="4" 
+                  maxlength="15"
+                  type="text"
                   name="code"
                   class="form-input"
                   value={this.state.code}
@@ -131,8 +135,9 @@ export default class Update extends Component {
               </div>
 
               <div class="flex-box">
-                <label for="start_time">Start Time:</label>
+                <label for="start_time">Start Time: <span style={{color:"red"}}> *</span></label>
                 <input
+                  min="2021-05-17T00:00" 
                   type="datetime-local"
                   name="start_time"
                   class="form-input"
@@ -142,9 +147,10 @@ export default class Update extends Component {
               </div>
 
               <div class="flex-box">
-                <label for="end_time">End Time:</label>
+                <label for="end_time">End Time: <span style={{color:"red"}}> *</span></label>
                 <input
-                  type="datetime-local"
+               min="2021-05-17T00:00" 
+               type="datetime-local"
                   name="end_time"
                   class="form-input"
                   value={this.state.end_time}
@@ -152,31 +158,40 @@ export default class Update extends Component {
                 />
               </div>
               <div class="flex-box">
-                <label for="min_value">Value range:</label>
+                <label for="min_value">Apply for (VNĐ)  <span style={{color:"red"}}> *</span></label>
                 <div class="small-flex-box">
                   <input
-                    type="number"
-                    name="min_value"
-                    class="small-input"
-                    value={this.state.min_value}
-                    placeholder="Min value"
-                    onChange={this.onChange}
+                    required
+                    min="100000"
+                    max="100000000"
+                      type="number"
+                      name="min_value"
+                      class="small-input"
+                      value={this.state.min_value}
+                      placeholder="Min value(100,000)"
+                      onChange={this.onChange}
                   />
 
                   {/* <label for="max_value">Max value:</label> */}
                   <input
-                    type="number"
-                    name="max_value"
-                    class="small-input"
-                    placeholder="Max value"
-                    value={this.state.max_value}
-                    onChange={this.onChange}
+                    required
+                    min="100000"
+                    max="100000000"
+                      type="number"
+                      name="max_value"
+                      class="small-input"
+                      placeholder="Max value"
+                      value={this.state.max_value}
+                      onChange={this.onChange}
                   />
                 </div>
               </div>
               <div class="flex-box">
-                <label for="value">Value: </label>
+                <label for="value">Value (%): <span style={{color:"red"}}> *</span></label>
                 <input
+                required
+                min="5"
+                max="100"
                   type="number"
                   name="value"
                   class="number-input"

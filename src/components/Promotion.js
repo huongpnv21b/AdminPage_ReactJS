@@ -82,7 +82,8 @@ class Promotion extends Component{
         var stt = 1;
         let search = this.state.promotions.filter(
             (promotion) =>{
-              return (promotion.code.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1 || promotion.name.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1 );
+              return (promotion.code.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1 
+              || promotion.name.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1 );
             }
           );
           if(!localStorage.phone){
@@ -102,7 +103,7 @@ class Promotion extends Component{
                                 <input type="text" className="search" name="keyword"  value={keyword} onChange ={ this.onChange} type="search" placeholder='Search' aria-label="Search" />
                             </div>
                             <div class="right__side">
-                                <Link to={'/Add'} class="link"><button class="button buttonDelete">Add <i class="fa fa-plus-circle"></i></button> </Link>
+                                <Link to={'/Add'} class="link"><button className="button2 buttonAddPro"title="Add new promotion" ><i class="fa fa-plus-circle" title="Add new promotion"></i></button> </Link>
                             </div> 
                         </div>  
                     </div>
@@ -117,7 +118,7 @@ class Promotion extends Component{
                                 <th>Min value</th>
                                 <th>Max value</th>
                                 <th>Value</th>
-                                <th>Action</th>
+                                <th colspan="2">Action</th>
                             </tr>
                         </thead>
                         {
@@ -155,15 +156,19 @@ class Item extends Component {
                             <td>{this.props.promotion.code}</td>
                             <td>{this.props.promotion.start_time}</td>
                             <td>{this.props.promotion.end_time}</td>
-                            <td>{this.props.promotion.min_value}</td>
-                            <td>{this.props.promotion.max_value}</td>
-                            <td>{this.props.promotion.value}</td>
-                            <td><button class="button1 buttonAdd" type="submit"  onClick ={ () =>this.onDelete(this.props.promotion.id)}>Delete</button>
-                           <Link to={"/update/"+this.props.promotion.id} class= "link"> <button class="yellow-button">Edit</button></Link></td>
+                            <td>{this.props.promotion.min_value.toLocaleString('vi-VN', {
+        style: 'currency',
+        currency: 'VND'
+    })}</td>
+                            <td>{this.props.promotion.max_value.toLocaleString('vi-VN', {
+        style: 'currency',
+        currency: 'VND'
+    })}</td>
+                            <td>{this.props.promotion.value} %</td>
+                            <td><i class="fas fa-trash-alt" style={{color:"red"}} type="submit"  onClick ={ () =>this.onDelete(this.props.promotion.id)}></i></td><td>
+                           <Link to={"/update/"+this.props.promotion.id} class= "link"><i class="fas fa-edit" style={{color:"yellow"}}></i></Link></td>
 
                         </tr>
-                    
-                    
                     </tbody> 
         
         );

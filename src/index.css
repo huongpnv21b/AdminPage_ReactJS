@@ -11,5 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+.filter.btn-group .dropdown {
+  padding: 7px 20px;
+  border-radius: 10px;
+  background-color: paleturquoise;
+  color: wheat;
+}
 /*  */

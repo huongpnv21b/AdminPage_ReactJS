@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Link } from 'react-router-dom';
 import Menu from './Menu';
 import {Redirect} from 'react-router-dom';
 import Header from './Header';
 import _ from 'lodash';
+import '../index.css';
+import { Link } from 'react-router-dom';
+
 class OrderNew extends Component{
     constructor(props){
         super(props)
@@ -28,40 +30,16 @@ class OrderNew extends Component{
             console.log(err);
         });
     }
-        onDeleted=(id)=>{
-            console.log(id);
-            var{orderNew}=this.state;
-            Axios({
-                method:'DELETE',
-                url:`https://api-gogo.herokuapp.com/api/order/delete/${id}`,
-                data:null
-            }).then(res =>{
-                if(res.status === 204){
-                    var index = this.findIndex(orderNew, id);
-                    if(index !== -1){
-                        orderNew.splice(index,1);
-                        this.setState({
-                            orderNew:orderNew
-                        });
-                        toast.success("Delete Order New successfully",{
-                        })
-                    }
-                }
-            });
-            
-        }
-
-        findIndex =(orderNew, id) =>{
-            var {orderNew} = this.state;
-            var result = -1;
-            orderNew.forEach((order, index) =>{
-                if(order.id === id){
-                    result =index;
-                }
-            });
-            return result;
-        }
-        
+       
+         myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+            // var x = document.getElementById("myDropdown");
+            // if (x.className.indexOf("w3-show") == -1) {
+            //   x.className += " w3-show";
+            // } else { 
+            //   x.className = x.className.replace(" w3-show", "");
+            // }
+          }
     render(){
         var orderNew=this.state.orderNew;
         var stt = 1;
@@ -75,23 +53,23 @@ class OrderNew extends Component{
                 
                 <div class="orderTable">
                 <Header />
-                <div class="primary__bar">
-                    <div class="right__side">
-                        <div class="status_order">
-                            {/* <ul>
-                                <li> <Link to={'/orderNew'} className="button buttonDelete active1">New Orders </Link></li>
-                                <li><Link to={'/orderProcessing'} class="button buttonProcess">Processing Orders</Link></li>
-                                <li><Link to={'/orderCompleted'} class="button buttonComplete">Completed Orders</Link></li>
-                            </ul> */}
-                            <select name="cars" id="cars" >
-                                <option>Status Order</option>
-                                <Link to={'/orderNew'} className="button buttonDelete active1"><option value="saab">New Orders </option></Link>
-                                <Link to={'/orderProcessing'} class="button buttonProcess"><option value="opel">Processing Orders</option></Link>
-                                <option value="audi">Completed Orders</option>
-                            </select>
+                <div class="primary__bar">    
+                        <div class="left__side">
+                            <div><p style={{color:"black", fontWeight:"bold",fontSize:"20px",float:"left"}}>List of new order</p> </div>
                         </div>
-                    </div> 
+                            <div class="right__side">
+                            <div class="dropdown1">
+                        
+                                <button onClick ={ () =>this.myFunction()} class="dropbtn">Status Order <i class="fa fa-caret-down"></i></button>
+                                <div id="myDropdown" class="dropdown-content" style={{right:200}}>
+                                    <a href="#home"><Link to={'/orderNew'} className="button buttonDelete ">New Orders </Link></a>
+                                    <a href="#home"><Link to={'/orderProcessing'} class="button buttonProcess">Processing Orders</Link></a>
+                                    <a href="#about"><Link to={'/orderCompleted'} class="button buttonComplete">Completed Orders</Link></a>
+                                </div>
+                            </div>
+                            </div>  
                 </div>
+                
                 <table class="styled-table">
                     <thead>
                     <tr>
@@ -105,7 +83,6 @@ class OrderNew extends Component{
                             <th>Vehicle</th>
                             <th>SenderInfor</th>
                             <th>ReceiverInfo</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                     {(() => {
@@ -118,7 +95,7 @@ class OrderNew extends Component{
                                       }
                                     });
                                   } else {
-                                    return <p>No order New</p>;
+                                    return <center><p>Don't have new order </p></center>;
                                   }
                     })()}
                 </table>
@@ -143,13 +120,16 @@ class Item extends Component {
                 <tbody>  
                     
                    <tr>
-                            <td>{this.props.id}</td>
+                            <td>{this.props.id}. {this.props.type}</td>
                             <td>{JSON.parse(this.props.order.send_from).address}, {JSON.parse(this.props.order.send_from).city}</td>
                             <td>{JSON.parse(this.props.order.send_to).address}, {JSON.parse(this.props.order.send_to).city}</td>
                             <td>{this.props.order.time_send}</td>
                             <td>{this.props.order.name}</td>
                             <td>{this.props.order.mass}</td>                       
-                            <td>{this.props.order.price}</td>
+                            <td>{this.props.order.price.toLocaleString('vi-VN', {
+        style: 'currency',
+        currency: 'VND'
+    })}</td>
                             <td>{this.props.order.truck}</td>
                             <td class="pp">{JSON.parse(this.props.order.sender_info).name}</td>
                             <td class="pa">Name: {JSON.parse(this.props.order.sender_info).name}<br></br>
@@ -161,7 +141,6 @@ class Item extends Component {
                                             Phone: {JSON.parse(this.props.order.receiver_info).phone} <br></br> 
                                             Note: {JSON.parse(this.props.order.receiver_info).note} 
                                            </td>
-                            <td><button  class="button buttonAdd" type="submit" onClick ={ () =>this.onDelete(this.props.order.id)}>Delete</button></td>
                         </tr>
                     </tbody> 
             )
@@ -169,7 +148,6 @@ class Item extends Component {
     
 
 }
-
 
 export default OrderNew;
 
