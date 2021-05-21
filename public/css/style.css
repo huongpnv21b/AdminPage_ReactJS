@@ -526,7 +526,7 @@ li .sidebar__logout:hover {
 
 
 .App{
-  width: 700px;
+  width: auto;
   height: 400px;
 
 }
