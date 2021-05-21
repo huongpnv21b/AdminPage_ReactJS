@@ -156,7 +156,7 @@ class Dashboard extends Component{
                   <Chart/></div>   
                 </div>
     
-                <div class="charts__right">
+                {/* <div class="charts__right">
                   <div class="charts__right__title">
                     <div>
                       <h1>Stats Reports</h1>
@@ -170,16 +170,16 @@ class Dashboard extends Component{
                     <div class="card1">
                       <h1>Revenue statistics</h1>
                       <p>{this.state.revenue.toLocaleString('vi-VN', {
-        style: 'currency',
-        currency: 'VND'
-    })}</p>
+                        style: 'currency',
+                        currency: 'VND'
+                    })}</p>
                     </div>
                     <div class="card2">
                       <h1>Income</h1>
                       <p>{(this.state.revenue+random(10000,999999)).toLocaleString('vi-VN', {
-        style: 'currency',
-        currency: 'VND'
-    })}</p>
+                          style: 'currency',
+                          currency: 'VND'
+                      })}</p>
                     </div>
                     <div class="card3">
                       <h1>Users</h1>
@@ -191,7 +191,7 @@ class Dashboard extends Component{
                       <p>{count_order}</p>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
               {/* <!-- CHARTS ENDS HERE --> */}
             </div>

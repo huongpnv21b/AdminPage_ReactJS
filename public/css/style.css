@@ -223,7 +223,7 @@ main {
 
 .charts {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 30px;
   margin-top: 50px;
 }
@@ -1242,10 +1242,11 @@ margin: 0px -20px;
 @media only screen and (max-width: 1440px) {
   
 .chartjs-render-monitor{
+  width: 100% !important;
   height: 380px !important;
 }
 .App {
-  width: 500px;
+  width: auto;
 }
 .styled-table th,
 .styled-table td {
