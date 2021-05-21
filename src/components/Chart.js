@@ -75,14 +75,16 @@ export default class Chart extends Component {
               {
                 label: "Total Orders",
                 data: orders,
-                fill: true,
-                borderColor: "#dcab00"
+                fill: false,
+                borderColor: "#ff8000",
+                background: "#d8e1e8"
               },
               {
                 label: "Total Users",
                 data: users,
                 fill: false,
-                borderColor: "#742774",
+                borderColor: "#7193ff",
+                background: "#b2cbde"
               }
             ]
           };
