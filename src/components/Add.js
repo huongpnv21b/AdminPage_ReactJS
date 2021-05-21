@@ -157,7 +157,7 @@ export default class Add extends Component {
                 <label for="code">Code:  <span style={{color:"red"}}> *</span> </label>
                 <input
                 required
-                minlength="4" 
+                minlength="3" 
                 maxlength="15"
                   type="text"
                   name="code"

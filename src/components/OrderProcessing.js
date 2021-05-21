@@ -50,12 +50,12 @@ class OrderProcessing extends Component{
                 <div className = "row">
                     <div class="primary__bar">
                     <div class="left__side">
-                            <div><p style={{color:"black", fontWeight:"bold",fontSize:"20px",float:"left"}}>List of processing order</p></div>
+                            <div><p style={{color:"black", fontWeight:"bold",fontSize:"20px",float:"left"}}>List of processing orders</p></div>
                         </div>
                             <div class="right__side">
                             <div class="dropdown1">
                         
-                                <button onClick ={ () =>this.myFunction()} class="dropbtn ">Status Order <i class="fa fa-caret-down"></i></button>
+                                <button onClick ={ () =>this.myFunction()} class="dropbtn ">Filter by <i class="fa fa-caret-down"></i></button>
                                 <div id="myDropdown" class="dropdown-content" style={{right:200}}>
                                     <a href="#home"><Link to={'/orderNew'} className="button buttonDelete ">New Orders </Link></a>
                                     <a href="#home"><Link to={'/orderProcessing'} class="button buttonProcess">Processing Orders</Link></a>

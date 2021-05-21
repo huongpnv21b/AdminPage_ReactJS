@@ -67,7 +67,9 @@ label {
 .text-lightblue {
   color: #469cac;
 }
-
+.text-money{
+  color:#ffd700;
+}
 .text-red {
   color: #cc3d38;
 }
@@ -83,14 +85,12 @@ label {
 .container {
   display: grid;
   height: 100vh;
-  grid-template-columns: 0.8fr 1fr 1fr 1fr;
-  grid-template-rows: 0fr 3fr;
+  grid-template-columns: 0.8fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0fr 4fr;
   grid-template-areas:
-    "sidebar nav nav nav"
-    "sidebar main main main";
-  /* grid-gap: 0.2rem; */
+      "sidebar nav nav nav nav"
+      "sidebar main main main main";
 }
-
 .navbar {
   background: #ffffff;
   grid-area: nav;
@@ -188,9 +188,7 @@ main {
 
 .main__cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-
-  /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 50px;
   margin: 35px 0;
 }
@@ -220,10 +218,9 @@ main {
 .card_inner > span {
   font-size: 25px;
 }
-
 .charts {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 30px;
   margin-top: 50px;
 }
@@ -345,7 +342,7 @@ main {
   font-size: 14px;
 }
 .chartjs-render-monitor {
-  width: 600px;
+  width: 100% !important;
   animation: chartjs-render-animation 0.001s;
 }
 /*  SIDEBAR STARTS HERE  */
@@ -1241,12 +1238,13 @@ margin: 0px -20px;
 
 @media only screen and (max-width: 1440px) {
   
-.chartjs-render-monitor{
-  height: 380px !important;
-}
-.App {
-  width: 500px;
-}
+  .chartjs-render-monitor{
+    width: 100% !important;
+    height: 380px !important;
+  }
+  .App {
+    width: auto;
+  }
 .styled-table th,
 .styled-table td {
   padding: 7px;
@@ -1517,7 +1515,7 @@ margin: 0px -20px;
   .s-sidebar__nav {
     left: 0;
     top: 120px ;  
-    width: 21%;
+    width: 16%;
     background: #f8f8f8;
   }
   

@@ -4,6 +4,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Menu from './Menu';
 import Header from './Header';
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css';
 import {Redirect,Link,NavLink, withRouter} from 'react-router-dom';
 import Modal, {closeStyle} from 'simple-react-modal';
 class TruckerTempt extends Component{
@@ -97,7 +99,7 @@ class TruckerTempt extends Component{
                     <div class="primary__bar">
                         <div class="left__side">
                             <input type="text" className="search" name="keyword"  value={keyword} onChange ={ this.onChange} type="search" placeholder='Search' aria-label="Search" />
-                            <div><p style={{color:"black", fontWeight:"bold",fontSize:"20px",float:"left"}}>List of Pending Trucker</p></div>
+                            <div><p style={{color:"black", fontWeight:"bold",fontSize:"20px",float:"left"}}>List of pending truckers</p></div>
                         </div>
 
                             <div class="right__side right">
@@ -151,9 +153,27 @@ class Item extends Component {
         }
     }
     onDelete = (id) =>{
-		if (confirm('Bạn chắc chắn muốn xóa ?')) { //eslint-disable-line
-         this.props.onDelete(id);
-      }
+		confirmAlert({
+            customUI: ({ onClose }) => {
+              return (
+                <div  style={{background: "#dbdee7", width: "300px", height:"200px", borderRadius: "10px", marginTop: "20px" }}>
+                 <center><h1 style={{marginTop: "20px", paddingTop: "20px"}}>Are you sure?</h1></center> 
+                  <center><p>You want to delete this item?</p></center>
+                  <button onClick={onClose}
+                  style={{background:"grey", color: "white", float:"left", marginLeft: "70px", padding: "8px", borderRadius: "2.5px", marginTop: "20px"}}
+                  >No</button>
+                  <button
+                  style={{background:"red", color: "white", float:"right", marginRight: "70px", padding: "8px", borderRadius: "2.5px", marginTop: "20px"}}
+                    onClick={() => {
+                      this.props.onDelete(id);
+                    }}
+                  >
+                    Yes
+                  </button>
+                </div>
+              );
+            }
+          });
 	}
 
     show(){
@@ -218,24 +238,24 @@ class Item extends Component {
                                             <img  class="avatars" src={this.props.trucker.avatar} alt="Avatar"  />
                                             <div className="containerr">
                                                 <div class="primary__bar">
-                                                    <h5 class="left__side">Full name: </h5>
-                                                    <h5 style={{fontWeight: "bolder"}} class="right__side"> {this.props.trucker.full_name}</h5> 
+                                                    <h6 class="left__side">Full name: </h6>
+                                                    <h6 style={{fontWeight: "bolder", marginLeft: "50px"}} class="right__side"> {this.props.trucker.full_name}</h6> 
                                                 </div>
                                                 <div class="primary__bar">
                                                     <h5 class="left__side">ID card: </h5>
-                                                    <h5 style={{fontWeight: "bolder"}} class="right__side"> {this.props.trucker.id_card}</h5> 
+                                                    <h5 style={{fontWeight: "bolder", marginLeft: "50px"}} class="right__side"> {this.props.trucker.id_card}</h5> 
                                                 </div>
                                                 <div class="primary__bar">
                                                     <h5 class="left__side">Vehicle: </h5>
-                                                    <h5 style={{fontWeight: "bolder"}} class="right__side">  {this.props.trucker.car_type}</h5> 
+                                                    <h5 style={{fontWeight: "bolder", marginLeft: "50px"}} class="right__side">  {this.props.trucker.car_type}</h5> 
                                                 </div>
                                                 <div class="primary__bar">
                                                     <h5 class="left__side">License Plate: </h5>
-                                                    <h5 style={{fontWeight: "bolder"}} class="right__side"> {this.props.trucker.license_plate}</h5> 
+                                                    <h5 style={{fontWeight: "bolder", marginLeft: "50px"}} class="right__side"> {this.props.trucker.license_plate}</h5> 
                                                 </div>
                                                 <div class="primary__bar">
                                                     <h5 class="left__side">Payload: </h5>
-                                                    <h5 style={{fontWeight: "bolder"}} class="right__side"> {this.props.trucker.payload}</h5> 
+                                                    <h5 style={{fontWeight: "bolder", marginLeft: "50px"}} class="right__side"> {this.props.trucker.payload}</h5> 
                                                 </div>
                                                 
                                             </div>

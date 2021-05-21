@@ -108,7 +108,7 @@ class CheckoutTrucker extends Component{
                             <th>Phone</th>
                             <th>Avatar</th>
                             <th>Role</th>
-                            <th>Checkout</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     

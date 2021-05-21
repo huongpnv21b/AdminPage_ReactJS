@@ -6,6 +6,8 @@ import {Redirect} from 'react-router-dom';
 import Menu from './Menu';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from './Header';
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css';
 class Promotion extends Component{
     constructor(props){
         super(props)
@@ -100,6 +102,7 @@ class Promotion extends Component{
                         <div class="primary__bar">
                             <div class="left__side">
                                 <input type="text" className="search" name="keyword"  value={keyword} onChange ={ this.onChange} type="search" placeholder='Search' aria-label="Search" />
+                                <div><p style={{color:"black", fontWeight:"bold",fontSize:"20px",float:"left"}}>List of promotions</p> </div>
                             </div>
                             <div class="right__side">
                                 <Link to={'/Add'} class="link"><button className="button2 buttonAddPro"title="Add new promotion" ><i class="fa fa-plus-circle" title="Add new promotion"></i></button> </Link>
@@ -141,9 +144,27 @@ class Promotion extends Component{
 
 class Item extends Component {
     onDelete = (id) =>{
-		if (confirm('Do you really want to remove this promotion?')) { //eslint-disable-line
-         this.props.onDelete(id);
-      }
+        confirmAlert({
+            customUI: ({ onClose }) => {
+              return (
+                <div  style={{background: "#dbdee7", width: "300px", height:"200px", borderRadius: "10px", marginTop: "20px" }}>
+                 <center><h1 style={{marginTop: "20px", paddingTop: "20px"}}>Are you sure?</h1></center> 
+                  <center><p>You want to delete this item?</p></center>
+                  <button onClick={onClose}
+                  style={{background:"grey", color: "white", float:"left", marginLeft: "70px", padding: "8px", borderRadius: "2.5px", marginTop: "20px"}}
+                  >No</button>
+                  <button
+                  style={{background:"red", color: "white", float:"right", marginRight: "70px", padding: "8px", borderRadius: "2.5px", marginTop: "20px"}}
+                    onClick={() => {
+                      this.props.onDelete(id);
+                    }}
+                  >
+                    Yes
+                  </button>
+                </div>
+              );
+            }
+          });
 	}
     
     render(props) {

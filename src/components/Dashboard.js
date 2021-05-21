@@ -20,12 +20,12 @@ class Dashboard extends Component{
             count_order:'',
             revenue:'',       
             keyword:"",
-            show: false
+            show: false,
+            year:2021
           };
           this.showModal = this.showModal.bind(this);
           this.hideModal = this.hideModal.bind(this);
     }
-
     componentDidMount(){
     
 
@@ -136,63 +136,31 @@ class Dashboard extends Component{
                   </div>
                 </div>
                 </Link>
-                
+                <Link to={'/orderNew'} className="nav-link">
+                <div class="card">
+                  <i
+                    class="fa fa-money fa-2x text-money"
+                    aria-hidden="true"
+                  ></i>
+                  <div class="card_inner">
+                    <p class="text-primary-p">Revenue</p>
+                    <span class="font-bold text-title">{this.state.revenue.toLocaleString('vi-VN', {
+        style: 'currency',
+        currency: 'VND'
+    })}</span>
+                  </div>
+                </div>
+                </Link>
               </div>
               {/* <!-- MAIN CARDS ENDS HERE --> */}
     
               {/* <!-- CHARTS STARTS HERE --> */}
               <div class="charts">
-                <div class="charts__left">
-                  <div class="charts__left__title">
-                    <div>
-                      <h1>Statics Months</h1>
-                      <p>VietNam in 2021</p>
-                    </div>
-                      <i class="fa fa-usd" aria-hidden="true"></i>
-
-                    </div>
-                
-                  <div id="contain">
-                  <Chart/></div>   
-                </div>
-    
-                <div class="charts__right">
-                  <div class="charts__right__title">
-                    <div>
-                      <h1>Stats Reports</h1>
-                      <p>VietNam</p>
-                     
-                    </div>
-                    <i class="fa fa-usd" aria-hidden="true"></i>
-                  </div>
-    
-                  <div class="charts__right__cards">
-                    <div class="card1">
-                      <h1>Revenue statistics</h1>
-                      <p>{this.state.revenue.toLocaleString('vi-VN', {
-        style: 'currency',
-        currency: 'VND'
-    })}</p>
-                    </div>
-                    <div class="card2">
-                      <h1>Income</h1>
-                      <p>{(this.state.revenue+random(10000,999999)).toLocaleString('vi-VN', {
-        style: 'currency',
-        currency: 'VND'
-    })}</p>
-                    </div>
-                    <div class="card3">
-                      <h1>Users</h1>
-                      <p>{this.state.count_user}</p>
-                    </div>
-    
-                    <div class="card4">
-                      <h1>Orders</h1>
-                      <p>{count_order}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+<div class="charts__left">
+<div id="contain">
+<Chart/></div>
+</div>
+</div>
               {/* <!-- CHARTS ENDS HERE --> */}
             </div>
             

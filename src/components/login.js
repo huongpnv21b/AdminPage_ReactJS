@@ -41,7 +41,7 @@ export default class Login extends Component {
                 localStorage.setItem('phone', phone);  
             }
             else{
-                toast.error("Logon failed!", {
+                toast.error("Login failed!", {
                 })
             }
           
@@ -49,7 +49,7 @@ export default class Login extends Component {
           )
           .catch((response) => {
             if (response.status == undefined) {
-                toast.error("Logon failed!", {
+                toast.error("Login failed!", {
                 })
             }});
 
@@ -58,7 +58,7 @@ export default class Login extends Component {
 
     render() {
         if (this.state.loggedIn) {
-            toast.success("Logon successfully!", {
+            toast.success("Login successfully!", {
           })
           return <Redirect to="/dashboard"/>;
         }

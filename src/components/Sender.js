@@ -4,6 +4,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Menu from './Menu';
 import Header from './Header';
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css';
 import {Redirect} from 'react-router-dom';
 class Sender extends Component{
     constructor(props){
@@ -97,6 +99,7 @@ class Sender extends Component{
                 <div class="primary__bar">
                     <input class="search" name="keyword" value={keyword} onChange ={ this.onChange} type="search" placeholder="Search" aria-label="Search" />
                 </div>  
+                <div><p style={{color:"black", fontWeight:"bold",fontSize:"20px",float:"center"}}>List of senders</p> </div>
                 <table class="styled-table">
                     <thead>
                         <tr>
@@ -133,9 +136,27 @@ class Sender extends Component{
 class Item extends Component {
 
     onDelete = (id) =>{
-		if (confirm('Do you really want to remove this user?')) { //eslint-disable-line
-         this.props.onDelete(id);
-      }
+		confirmAlert({
+            customUI: ({ onClose }) => {
+              return (
+                <div  style={{background: "#dbdee7", width: "300px", height:"200px", borderRadius: "10px", marginTop: "20px" }}>
+                 <center><h1 style={{marginTop: "20px", paddingTop: "20px"}}>Are you sure?</h1></center> 
+                  <center><p>You want to delete this item?</p></center>
+                  <button onClick={onClose}
+                  style={{background:"grey", color: "white", float:"left", marginLeft: "70px", padding: "8px", borderRadius: "2.5px", marginTop: "20px"}}
+                  >No</button>
+                  <button
+                  style={{background:"red", color: "white", float:"right", marginRight: "70px", padding: "8px", borderRadius: "2.5px", marginTop: "20px"}}
+                    onClick={() => {
+                      this.props.onDelete(id);
+                    }}
+                  >
+                    Yes
+                  </button>
+                </div>
+              );
+            }
+          });
 	}
     render(props) {
         return (

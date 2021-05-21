@@ -13,16 +13,18 @@ export default class Chart extends Component {
         super(props);
         this.state = {
           order: [],
-          user:[]
+          user:[],
+          year:'2021'
         }
       }
-
-
+      onChange = () => {
+        this.setState({year: document.querySelector('#year').value});
+    }
       componentDidMount(){
         axios({
             methos:'GET',
             url:"https://api-gogo.herokuapp.com/api/chart",
-            data:null
+            data:this.state.year
         }).then (res=>{
             this.setState({
               order:res.data
@@ -36,7 +38,7 @@ export default class Chart extends Component {
         axios({
           methos:'GET',
           url:"https://api-gogo.herokuapp.com/api/chart/line/user",
-          data:null
+          data:this.state.year
       }).then (res=>{
           this.setState({
             user:res.data
@@ -52,30 +54,44 @@ export default class Chart extends Component {
 
         
       render(){
-        
           var orders=this.state.order;
           var users=this.state.user;
         const data = {
             labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun","Apr",'Aug',"Sep","Oct","Nov","Dec"],
             datasets: [
               {
-                label: "TotalOrder",
+                label: "Total Orders",
                 data: orders,
                 fill: true,
-                backgroundColor: "rgba(75,192,192,0.2)",
-                borderColor: "rgba(75,192,192,1)"
+                borderColor: "#dcab00"
               },
               {
-                label: "Total User",
+                label: "Total Users",
                 data: users,
                 fill: false,
                 borderColor: "#742774",
-                backgroundColor: "#D0A9F5"
               }
             ]
           };
         return (
             <div className="App">
+              <div class="charts__left__title">
+<div>
+<h1>Statics Months</h1>
+<p style={{display:"flex"}}><span>VietNam in</span>
+  <form>
+      <select id="year" onChange={this.onChange} value={this.state.year}>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+      </select>
+    </form>
+</p>
+</div>
+<i class="fa fa-usd" aria-hidden="true"></i>
+
+</div>
             <Line data={data} />
             </div>
         );
