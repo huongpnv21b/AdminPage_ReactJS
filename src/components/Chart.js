@@ -4,9 +4,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Line } from "react-chartjs-2";
-
-
-
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 export default class Chart extends Component {
     constructor(props) {
@@ -14,11 +13,25 @@ export default class Chart extends Component {
         this.state = {
           order: [],
           user:[],
-          year:'2021'
+          year:'2021',
+          show:true
         }
       }
       onChange = () => {
         this.setState({year: document.querySelector('#year').value});
+        if(this.state.year!==2021){
+          this.state.show=true;
+          confirmAlert({
+            customUI: ({ onClose }) => {
+              return (
+                <div  style={{background: "#dbdee7", width: "300px", height:"150px", borderRadius: "10px", marginTop: "20px" }}>
+                 <center><h1 style={{marginTop: "20px", paddingTop: "20px", color:"red"}}>Error message</h1></center> 
+                  <center><i class="fa fa-exclamation-triangle" aria-hidden="true" style={{color:"red"}}></i><span style={{color:"red"}}> There are no data in this year!!!</span></center>
+                </div>
+              );
+            }
+          });
+        }
     }
       componentDidMount(){
         axios({
