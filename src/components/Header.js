@@ -90,12 +90,10 @@ render(){
    var profile=this.state.profile;
     return(
       
-            <div class="main__title">
-                {/* <img src="assets/hello.svg" alt="" /> */}
-                
+            <div class="main__title">                
                 <div class="main__greeting" width="auto">
                     <h1 style={{color:'#FF6347',marginLeft:'30px'}}>Hello GOGO </h1>
-                    <p>Welcome to your admin dashboard</p>
+                    <p>Welcome to admin website</p>
                   
                 </div>
                 <div class="notifications">
