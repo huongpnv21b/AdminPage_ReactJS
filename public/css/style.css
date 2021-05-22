@@ -526,13 +526,11 @@ li .sidebar__logout:hover {
 
 
 .App{
-  width: 700px;
+  width: auto;
   height: 400px;
 
 }
 
-
-/* .orderTable table { width: 1080px; margin-left: auto; margin-right: auto; } */
 .checkout{
   display: flex;
   margin: 20px 5px 10px 0px;
