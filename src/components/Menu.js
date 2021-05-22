@@ -28,7 +28,8 @@ class Menu extends Component {
               <h2
                 style={{
                   color: "#001747",
-                  fontFamily: "Copperplate Gothic Light",
+                  // fontFamily: "Copperplate Gothic Light",
+                  fontSize:'15px'
                 }}
               >
                 GOGO Dashboard

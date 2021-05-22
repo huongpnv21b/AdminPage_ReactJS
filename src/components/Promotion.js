@@ -157,6 +157,7 @@ class Item extends Component {
                   style={{background:"red", color: "white", float:"right", marginRight: "70px", padding: "8px", borderRadius: "2.5px", marginTop: "20px"}}
                     onClick={() => {
                       this.props.onDelete(id);
+                      onClose();
                     }}
                   >
                     Yes

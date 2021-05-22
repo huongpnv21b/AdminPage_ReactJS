@@ -95,7 +95,7 @@ render(){
                 
                 <div class="main__greeting" width="auto">
                     <h1 style={{color:'#FF6347',marginLeft:'30px'}}>Hello GOGO </h1>
-                    <p>Welcome to your admin dashboard</p>
+                    <p>Welcome to your admin website</p>
                   
                 </div>
                 <div class="notifications">

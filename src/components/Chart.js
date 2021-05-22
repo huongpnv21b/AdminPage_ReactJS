@@ -6,6 +6,7 @@ import axios from 'axios';
 import { Line } from "react-chartjs-2";
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css';
+import { now } from 'lodash-es';
 
 export default class Chart extends Component {
     constructor(props) {
@@ -17,22 +18,24 @@ export default class Chart extends Component {
           show:true
         }
       }
-      onChange = () => {
-        this.setState({year: document.querySelector('#year').value});
-        if(this.state.year!==2021){
-          this.state.show=true;
-          confirmAlert({
-            customUI: ({ onClose }) => {
-              return (
-                <div  style={{background: "#dbdee7", width: "300px", height:"150px", borderRadius: "10px", marginTop: "20px" }}>
-                 <center><h1 style={{marginTop: "20px", paddingTop: "20px", color:"red"}}>Error message</h1></center> 
-                  <center><i class="fa fa-exclamation-triangle" aria-hidden="true" style={{color:"red"}}></i><span style={{color:"red"}}> There are no data in this year!!!</span></center>
-                </div>
-              );
-            }
-          });
-        }
-    }
+    //   onChange = () => {
+    //     this.setState({year: document.querySelector('#year').value});
+    //     if(this.state.year!==new Date().getFullYear()){
+    //       this.state.show=true;
+    //       confirmAlert({
+    //         customUI: ({ onClose }) => {
+    //           return (
+    //             <div  style={{background: "#dbdee7", width: "300px", height:"150px", borderRadius: "10px", marginTop: "20px" }}>
+    //              <center><h1 style={{marginTop: "20px", paddingTop: "20px", color:"red"}}>Error message</h1></center> 
+    //               <center><i class="fa fa-exclamation-triangle" aria-hidden="true" style={{color:"red"}}></i><span style={{color:"red"}}> There are no data in this year!!!</span></center>
+    //             </div>
+    //           );
+    //         }
+    //       });
+    //     }else{
+    //       this.componentDidMount()
+    //     }
+    // }
       componentDidMount(){
         axios({
             methos:'GET',
@@ -70,7 +73,7 @@ export default class Chart extends Component {
           var orders=this.state.order;
           var users=this.state.user;
         const data = {
-            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun","Apr",'Aug',"Sep","Oct","Nov","Dec"],
+            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul",'Aug',"Sep","Oct","Nov","Dec"],
             datasets: [
               {
                 label: "Total Orders",
@@ -93,15 +96,15 @@ export default class Chart extends Component {
               <div class="charts__left__title">
 <div>
 <h1>Statics Months</h1>
-<p style={{display:"flex"}}><span>VietNam in</span>
-  <form>
+<p style={{display:"flex"}}><span>VietNam in 2021</span>
+  {/* <form>
       <select id="year" onChange={this.onChange} value={this.state.year}>
         <option value="2021">2021</option>
         <option value="2022">2022</option>
         <option value="2023">2023</option>
         <option value="2024">2024</option>
       </select>
-    </form>
+    </form> */}
 </p>
 </div>
 <i class="fa fa-usd" aria-hidden="true"></i>
