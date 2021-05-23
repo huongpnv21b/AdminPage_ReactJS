@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-// import Axios from 'axios';
+import CoolTabs from 'react-cool-tabs';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link, NavLink } from 'react-router-dom';
 import Axios from 'axios';
 import Menu from './Menu';
 import Chart from './Chart';
+import Income from './Income';
 import Header from './Header';
 import {Redirect} from 'react-router-dom';
 import { random } from 'lodash-es';
@@ -158,7 +159,24 @@ class Dashboard extends Component{
               <div class="charts">
 <div class="charts__left">
 <div id="contain">
-<Chart/></div>
+<CoolTabs
+	       tabKey={'1'}
+	       style={{ width:  "100%", height:  800, background:  'white' }}
+	       activeTabStyle={{ background:  '#e3ffff', color:  'black' }}
+	       unActiveTabStyle={{ background:  '#3b4d6e', color:  'white' }}
+	       activeLeftTabBorderBottomStyle={{ background:  'yellow', height:  4 }}
+	       activeRightTabBorderBottomStyle={{ background:  'yellow', height:  4 }}
+	       tabsBorderBottomStyle={{ background:  'white', height:  4 }}
+	       leftContentStyle={{ background:  'white' }}
+	       rightContentStyle={{ background:  'white' }}
+	       leftTabTitle={'Number of orders and users'}
+	       rightTabTitle={'Money from orders per months'}
+	       leftContent={<Chart/>}
+	       rightContent={<Income/>}
+	       contentTransitionStyle={'transform 0.6s ease-in'}
+	       borderTransitionStyle={'all 0.6s ease-in'}/>
+{/* <Chart/> */}
+</div>
 </div>
 </div>
               {/* <!-- CHARTS ENDS HERE --> */}
