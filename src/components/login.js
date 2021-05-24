@@ -38,7 +38,8 @@ export default class Login extends Component {
         }).then((response) => {
             if(response.data.role==3){
                 this.setState({loggedIn : true})
-                localStorage.setItem('phone', phone);  
+                localStorage.setItem('phone', phone); 
+                window.location.reload();
             }
             else{
                 toast.error("Login failed!", {
@@ -60,7 +61,8 @@ export default class Login extends Component {
         if (this.state.loggedIn) {
             toast.success("Login successfully!", {
           })
-          return <Redirect to="/dashboard"/>;
+          return <Redirect to="/"/>; 
+          
         }
         return (
             <div className="to">

@@ -137,7 +137,7 @@ class Dashboard extends Component{
                   </div>
                 </div>
                 </Link>
-                <Link to={'/orderNew'} className="nav-link">
+                <Link to={'/orderCompleted'} className="nav-link">
                 <div class="card">
                   <i
                     class="fa fa-money fa-2x text-money"

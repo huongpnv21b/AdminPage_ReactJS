@@ -8,6 +8,7 @@ class Menu extends Component {
   Logout = () => {
     localStorage.clear();
     toast.success("Signed out!", {});
+    window.location.reload();
   };
   myFunction() {
     var x = document.getElementById("sidebar");
