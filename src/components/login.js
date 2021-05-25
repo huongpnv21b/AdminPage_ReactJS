@@ -36,6 +36,7 @@ export default class Login extends Component {
                 token: "123456"
             }
         }).then((response) => {
+            console.log(response.data);
             if(response.data.role==3){
                 this.setState({loggedIn : true})
                 localStorage.setItem('phone', phone); 

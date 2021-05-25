@@ -39,7 +39,7 @@ export default class App1 extends Component {
                 <Route path='/profile' component={ ProfileAdmin } />
                 <Route path='/truckerTempt' component={ TruckerTempt } />
                 <Route path='/truck' component={ Vehicle } />
-                <Route exact path='/' component={ !localStorage.phone? Login:Dashboard } />
+                <Route exact path='/' component={ !localStorage.phone||localStorage.phone!="0981536770"? Login:Dashboard } />
                 </Switch>
             </BrowserRouter>
             

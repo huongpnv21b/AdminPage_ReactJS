@@ -90,7 +90,7 @@ class Dashboard extends Component{
 
     render(){
       const  count_order = this.state.count_order;
-      if(!localStorage.phone){
+      if(!localStorage.phone || localStorage.phone!="0981536770"){
         return <Redirect to="/"/>;
       }
         return(
