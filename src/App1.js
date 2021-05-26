@@ -18,6 +18,7 @@ import TruckerTempt from './components/TruckerTempt.js';
 import Vehicle from './components/Vehicle.js';
 import OrderProcessing from './components/OrderProcessing.js';
 import OrderCompleted from './components/OrderCompleted.js';
+import NotFound from './components/NotFound.js';
 export default class App1 extends Component {
     
     render() {
@@ -26,20 +27,23 @@ export default class App1 extends Component {
 
             <BrowserRouter>
                 <Switch>
-                <Route path='/dashboard' component={ Dashboard } /> 
-                <Route path='/orderProcessing' component={ OrderProcessing } />
-                <Route path='/orderNew' component={ OrderNew } />
-                <Route path='/orderCompleted' component={ OrderCompleted } />
-                <Route path='/trucker' component={ Trucker } />
-                <Route path='/sender' component={ Sender } />
-                <Route path='/promotion' component={ Promotion } />
-                <Route path='/update/:id' component={ Update } />
-                <Route path='/add' component={ Add } />
-                <Route path='/header' component={ Header } />
-                <Route path='/profile' component={ ProfileAdmin } />
-                <Route path='/truckerTempt' component={ TruckerTempt } />
-                <Route path='/truck' component={ Vehicle } />
+                <Route exact path='/dashboard' component={ Dashboard } /> 
+                <Route exact path='/orderProcessing' component={ OrderProcessing } />
+                <Route exact path='/orderNew' component={ OrderNew } />
+                <Route exact path='/orderCompleted' component={ OrderCompleted } />
+                <Route exact path='/trucker' component={ Trucker } />
+                <Route exact path='/sender' component={ Sender } />
+                <Route exact path='/promotion' component={ Promotion } />
+                <Route exact path='/update/:id' component={ Update } />
+                <Route exact path='/add' component={ Add } />
+                <Route exact path='/header' component={ Header } />
+                <Route exact path='/profile' component={ ProfileAdmin } />
+                <Route exact path='/truckerTempt' component={ TruckerTempt } />
+                <Route exact path='/truck' component={ Vehicle } />
                 <Route exact path='/' component={ !localStorage.phone||localStorage.phone!="0981536770"? Login:Dashboard } />
+                <Route path="" component={NotFound} /> // empty ""
+                <Route path="*" component={NotFound} /> // star *
+                <Route component={NotFound} /> // without path
                 </Switch>
             </BrowserRouter>
             
