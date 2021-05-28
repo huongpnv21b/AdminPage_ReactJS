@@ -2,14 +2,17 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {Redirect} from 'react-router-dom';
-export default class Login extends Component {
+import {Redirect, withRouter} from 'react-router-dom';
+import Loading from './Loading';
+import axios from 'axios';
+class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
             phone: '',
             password: '',
             loggedIn: false,
+            loading:false,
         }
     }
     onChange = (event) => {
@@ -23,11 +26,12 @@ export default class Login extends Component {
             [name]: value,
         });
     }
-    onSave = (e) => {
+     onSave = async (e) => {
+        this.state.loading = true;
         e.preventDefault();
         var { phone, password } = this.state;
         var { history } = this.props;
-        Axios({
+        await axios({
             method: 'POST',
             url: 'https://api-gogo.herokuapp.com/api/login',
             data: {
@@ -37,11 +41,14 @@ export default class Login extends Component {
             }
         }).then((response) => {
             if(response.data.role==3){
+                this.state.loading = false;
                 this.setState({loggedIn : true})
-                localStorage.setItem('phone', phone); 
-                window.location.reload();
+                localStorage.setItem('phone', phone);
+                toast.success("Login successfully",{})
+                history.push('/dashboard');
             }
             else{
+                this.state.loading = false;
                 toast.error("Login failed!", {
                 })
             }
@@ -49,6 +56,7 @@ export default class Login extends Component {
           }
           )
           .catch((response) => {
+            this.state.loading = false;
             if (response.status == undefined) {
                 toast.error("Login failed!", {
                 })
@@ -57,16 +65,10 @@ export default class Login extends Component {
 
     }
 
-    render() {
-        if (this.state.loggedIn) {
-            toast.success("Login successfully!", {
-          })
-          return <Redirect to="/"/>; 
-          
-        }
+    render() {    
         return (
             <div className="to">
-                <form class="form" onSubmit={this.onSave}>
+                <form class="form" style={{borderRadius: "15px"}} onSubmit={this.onSave}>
                     {/* <img  class="img" src="https://static.thenounproject.com/png/99475-200.png"></img> */}
                     <h2 class="titleLogin">Login to dashboard</h2>
                     {/* <label for="username" class="lbPhone" >Phone</label> */}
@@ -78,10 +80,12 @@ export default class Login extends Component {
                         <label class="pass-label" htmlFor="customCheck1">Remember me</label>
                     </div>
                     <button id="submit" type="submit" name="submit" value="Login">Login</button>
+                    {this.state.loading===true&&<Loading type="bubbles" color="red"/>}
                 </form>
             </div>
         )
     }
 }
+export default withRouter(Login);
 
 

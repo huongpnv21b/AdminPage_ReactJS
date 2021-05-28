@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 // import Axios from 'axios'
 import "react-toastify/dist/ReactToastify.css";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, withRouter } from "react-router-dom";
 import { toast } from "react-toastify";
 toast.configure();
 class Menu extends Component {
   Logout = () => {
     localStorage.clear();
     toast.success("Signed out!", {});
-    window.location.reload();
+    this.props.history.push("/");
   };
   myFunction() {
     var x = document.getElementById("sidebar");
@@ -30,7 +30,7 @@ class Menu extends Component {
                 style={{
                   color: "#001747",
                   // fontFamily: "Copperplate Gothic Light",
-                  fontSize:'15px'
+                  fontSize:'24px'
                 }}
               >
                 GOGO Dashboard
@@ -150,4 +150,4 @@ class Menu extends Component {
 
 
 
-export default Menu;
+export default withRouter(Menu) ;

@@ -5,6 +5,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
 import Menu from './Menu';
 import {Redirect} from 'react-router-dom';
+import Loading from './Loading';
+
 import Header from './Header';
 import _ from 'lodash';
 class OrderCompleted extends Component{
@@ -87,7 +89,9 @@ class OrderCompleted extends Component{
                                       }
                                     });
                                   } else {
-                                    return <p><center>Don't have completed order</center> </p>;
+                                    return <div style={{display:"flex",justifyContent:"center"}}><p>Don't have completed order </p>
+                                    <Loading type="bubbles" color="#ff8000"/>
+                                    </div>;
                                   }
                     })()}
                 </table>

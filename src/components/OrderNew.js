@@ -8,6 +8,7 @@ import Header from './Header';
 import _ from 'lodash';
 import '../index.css';
 import { Link } from 'react-router-dom';
+import Loading from './Loading';
 
 class OrderNew extends Component{
     constructor(props){
@@ -17,8 +18,8 @@ class OrderNew extends Component{
             keyword:"",
         }
     }
-    componentDidMount(){
-        Axios({
+    componentDidMount (){
+          Axios({
             methos:'GET',
             url:'https://api-gogo.herokuapp.com/api/order/list',
             data:null
@@ -33,12 +34,6 @@ class OrderNew extends Component{
        
          myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
-            // var x = document.getElementById("myDropdown");
-            // if (x.className.indexOf("w3-show") == -1) {
-            //   x.className += " w3-show";
-            // } else { 
-            //   x.className = x.className.replace(" w3-show", "");
-            // }
           }
     render(){
         var orderNew=this.state.orderNew;
@@ -95,7 +90,9 @@ class OrderNew extends Component{
                                       }
                                     });
                                   } else {
-                                    return <center><p>Don't have new order </p></center>;
+                                    return <div style={{display:"flex",justifyContent:"center"}}><p>Don't have new order </p>
+                                    <Loading type="bubbles" color="#ff8000"/>
+                                    </div>;
                                   }
                     })()}
                 </table>

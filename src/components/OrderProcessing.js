@@ -7,6 +7,8 @@ import Menu from './Menu';
 import {Redirect} from 'react-router-dom';
 import Header from './Header';
 import _ from 'lodash';
+import Loading from './Loading';
+
 class OrderProcessing extends Component{
     constructor(props){
         super(props)
@@ -92,7 +94,9 @@ class OrderProcessing extends Component{
                                       }
                                     });
                                   } else {
-                                    return <p>Don't have processing order </p>;
+                                    return <div style={{display:"flex",justifyContent:"center"}}><p>Don't have processing order </p>
+                                    <Loading type="bubbles" color="#ff8000"/>
+                                    </div>;
                                   }
                     })()}       
                 </table>

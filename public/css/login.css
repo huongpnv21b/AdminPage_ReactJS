@@ -122,11 +122,13 @@ button#submit:hover {
   .to{
     padding: 30px;
     display: block;
+    border-radius: 20px;
   }
   .form{
     padding: 10px;
     width: 300px;
     margin: auto;
+    border-radius: 15px;
   }
   .titleLogin{
     font-size: 30px;
